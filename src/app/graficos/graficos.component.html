@@ -1,0 +1,22 @@
+<div> Dia de toma:
+	<!--
+	<select>
+		<option *ngFor="let i of fechas">{{i | date}}</option>
+	</select>
+	-->
+
+	<select (change)="getIds($event.target.value)">
+		<option *ngFor="let fecha of fechas" [value]="fecha">{{fecha}}
+		</option>
+	</select>
+</div>
+
+<div> ID de Bus:
+	<select>
+		<option *ngFor="let i of ids">{{i}}</option>
+	</select>
+</div>
+
+<div #chart>
+  <!-- Chart will appear here -->
+</div>

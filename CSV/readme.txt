@@ -1,0 +1,3 @@
+Para correr "TruncarCSV.py", asegurarse de tener los archivos CSV en la misma carpeta que el programa, luego llamarlo con "python3 TruncarCSV.py", dentro se puede elegir el archivo en especifico para truncar (escribiendo el numero que sale a la izquierda del archivo) o truncar todos escribiendo "all"
+
+Este programa trunca inicialmente hasta las primeras 5000 filas (que se puede modificar, modifiacndo el valor de la variable 'limite'), y seleciona solo 5 columnas (cosa que puede cambiar en el futuro)
