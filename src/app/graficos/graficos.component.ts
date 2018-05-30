@@ -23,6 +23,10 @@ export class GraficosComponent implements OnInit {
 
   fechas : any = [];
   ids : any = [];
+  Currfecha : string;
+  Currid : string;
+
+  submitted = false;
 
   constructor(private chartService: GraficosService) { }
 
@@ -40,10 +44,13 @@ export class GraficosComponent implements OnInit {
            }
      });
 
-    //console.log();
     //console.log(typeof this.fechas);
 
     this.basicChart();
+  }
+
+  onSubmit() {
+    this.submitted = true;
   }
 
   getIds(fecha){
@@ -75,5 +82,17 @@ export class GraficosComponent implements OnInit {
     Plotly.plot( element, data, style );
 
   }
+
+  //////// NOT SHOWN IN DOCS ////////
+
+  // Reveal in html:
+  //   Name via form.controls = {{showFormControls(heroForm)}}
+  showFormControls(form: any) {
+    return form && form.controls['name'] &&
+    form.controls['name'].value; // Dr. IQ
+  }
+
+  /////////////////////////////
+
 
 }

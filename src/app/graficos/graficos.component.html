@@ -1,10 +1,4 @@
-<div> Dia de toma:
-	<!--
-	<select>
-		<option *ngFor="let i of fechas">{{i | date}}</option>
-	</select>
-	-->
-
+<!--<div> Dia de toma:
 	<select (change)="getIds($event.target.value)">
 		<option *ngFor="let fecha of fechas" [value]="fecha">{{fecha}}
 		</option>
@@ -15,7 +9,59 @@
 	<select>
 		<option *ngFor="let i of ids">{{i}}</option>
 	</select>
-</div>
+</div>-->
+
+<div class="container">
+  <div [hidden]="submitted" >
+    <h1>Selecciona Fecha e Id del Bus a graficar</h1>
+    <form (ngSubmit)="onSubmit()" #GraficosComponent="ngForm">
+
+    <fieldset>
+
+    <div class="form-group" >
+        <label for="Fecha">Fecha de toma de datos</label>
+        <select class="form-control"
+        		    id="Fecha"
+                required
+                [(ngModel)]="Currfecha"
+                name="fecha"
+                #fecha="ngModel" 
+                (change)="getIds($event.target.value)">
+          <option *ngFor="let fecha of fechas" [value]="fecha">{{fecha | date}}</option>
+        </select>
+      </div> 
+
+      <div class="form-group">
+        <label for="idBus">ID del Bus</label>
+        <select class="form-control" id="idBus"
+                required
+                [(ngModel)]="Currid" name="idBus"
+                #idBus="ngModel" >
+          <option *ngFor="let i of ids">{{i}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!GraficosComponent.form.valid">Generar Graficos</button>
+
+    </fieldset>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>
+    <div class="row">
+      <div class="col-xs-3">Fecha : </div>
+      <div class="col-xs-9  pull-left">{{ Currfecha }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">ID Bus : </div>
+      <div class="col-xs-9 pull-left">{{ Currid }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Cambiar Fecha</button>
+  </div>
+</div> 
+
 
 <div #chart>
   <!-- Chart will appear here -->

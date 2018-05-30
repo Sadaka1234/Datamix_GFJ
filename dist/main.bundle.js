@@ -27,7 +27,6 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entradas_entradas_component__ = __webpack_require__("./src/app/entradas/entradas.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ingresar_entradas_ingresar_entradas_component__ = __webpack_require__("./src/app/ingresar-entradas/ingresar-entradas.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__graficos_graficos_component__ = __webpack_require__("./src/app/graficos/graficos.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__parser_parser_component__ = __webpack_require__("./src/app/parser/parser.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -39,20 +38,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
 var routes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_2__entradas_entradas_component__["a" /* EntradasComponent */] },
     { path: 'entradas/new', component: __WEBPACK_IMPORTED_MODULE_3__ingresar_entradas_ingresar_entradas_component__["a" /* IngresarEntradasComponent */] },
     { path: 'graficos/new', component: __WEBPACK_IMPORTED_MODULE_4__graficos_graficos_component__["a" /* GraficosComponent */] },
-    { path: 'parser', component: __WEBPACK_IMPORTED_MODULE_5__parser_parser_component__["a" /* ParserComponent */] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -72,7 +69,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<div class=\"container\">\n    <router-outlet></router-outlet>\n    <app-parser></app-parser>\n</div>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<div class=\"container\">\n    <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -122,21 +119,15 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__graficos_graficos_component__ = __webpack_require__("./src/app/graficos/graficos.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__ = __webpack_require__("./src/app/services/graficos.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_entradas_service__ = __webpack_require__("./src/app/services/entradas.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__get_filename_service__ = __webpack_require__("./src/app/get-filename.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__ = __webpack_require__("./src/app/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ingresar_entradas_ingresar_entradas_component__ = __webpack_require__("./src/app/ingresar-entradas/ingresar-entradas.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entradas_entradas_component__ = __webpack_require__("./src/app/entradas/entradas.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__parser_parser_component__ = __webpack_require__("./src/app/parser/parser.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__parser_csv_directive__ = __webpack_require__("./src/app/parser-csv.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__navbar_navbar_component__ = __webpack_require__("./src/app/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ingresar_entradas_ingresar_entradas_component__ = __webpack_require__("./src/app/ingresar-entradas/ingresar-entradas.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entradas_entradas_component__ = __webpack_require__("./src/app/entradas/entradas.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
-
 
 
 
@@ -156,12 +147,10 @@ var AppModule = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__entradas_entradas_component__["a" /* EntradasComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__ingresar_entradas_ingresar_entradas_component__["a" /* IngresarEntradasComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__graficos_graficos_component__["a" /* GraficosComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__parser_parser_component__["a" /* ParserComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__parser_csv_directive__["a" /* ParserCsvDirective */]
+                __WEBPACK_IMPORTED_MODULE_11__entradas_entradas_component__["a" /* EntradasComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__ingresar_entradas_ingresar_entradas_component__["a" /* IngresarEntradasComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__graficos_graficos_component__["a" /* GraficosComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -169,7 +158,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_8__services_entradas_service__["a" /* EntradasService */], __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__["a" /* GraficosService */], __WEBPACK_IMPORTED_MODULE_9__get_filename_service__["a" /* GetFilenameService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_8__services_entradas_service__["a" /* EntradasService */], __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__["a" /* GraficosService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -239,44 +228,6 @@ var EntradasComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/get-filename.service.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetFilenameService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs__ = __webpack_require__("./node_modules/node-libs-browser/mock/empty.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_fs__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var GetFilenameService = /** @class */ (function () {
-    function GetFilenameService() {
-    }
-    GetFilenameService.prototype.getFnames = function () {
-        console.log(typeof (__WEBPACK_IMPORTED_MODULE_1_fs__["readdirSync"]));
-        var files = __WEBPACK_IMPORTED_MODULE_1_fs__["readdirSync"]('./');
-        //console.log("Los Archivos son: " + files);
-    };
-    GetFilenameService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
-    ], GetFilenameService);
-    return GetFilenameService;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/graficos/graficos.component.css":
 /***/ (function(module, exports) {
 
@@ -287,7 +238,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div> Dia de toma:\n\t<!--\n\t<select>\n\t\t<option *ngFor=\"let i of fechas\">{{i | date}}</option>\n\t</select>\n\t-->\n\n\t<select (change)=\"getIds($event.target.value)\">\n\t\t<option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha}}\n\t\t</option>\n\t</select>\n</div>\n\n<div> ID de Bus:\n\t<select>\n\t\t<option *ngFor=\"let i of ids\">{{i}}</option>\n\t</select>\n</div>\n\n<div #chart>\n  <!-- Chart will appear here -->\n</div>\n"
+module.exports = "<!--<div> Dia de toma:\n\t<select (change)=\"getIds($event.target.value)\">\n\t\t<option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha}}\n\t\t</option>\n\t</select>\n</div>\n\n<div> ID de Bus:\n\t<select>\n\t\t<option *ngFor=\"let i of ids\">{{i}}</option>\n\t</select>\n</div>-->\n\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selecciona Fecha e Id del Bus a graficar</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n        \t\t    id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\" \n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div> \n\n      <div class=\"form-group\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!GraficosComponent.form.valid\">Generar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n    <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha : </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus : </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"submitted=false\">Cambiar Fecha</button>\n  </div>\n</div> \n\n\n<div #chart>\n  <!-- Chart will appear here -->\n</div>\n"
 
 /***/ }),
 
@@ -315,6 +266,7 @@ var GraficosComponent = /** @class */ (function () {
         this.chartService = chartService;
         this.fechas = [];
         this.ids = [];
+        this.submitted = false;
     }
     GraficosComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -328,9 +280,11 @@ var GraficosComponent = /** @class */ (function () {
                 f++;
             }
         });
-        //console.log();
         //console.log(typeof this.fechas);
         this.basicChart();
+    };
+    GraficosComponent.prototype.onSubmit = function () {
+        this.submitted = true;
     };
     GraficosComponent.prototype.getIds = function (fecha) {
         var _this = this;
@@ -351,6 +305,13 @@ var GraficosComponent = /** @class */ (function () {
             margin: { t: 0 }
         };
         Plotly.plot(element, data, style);
+    };
+    //////// NOT SHOWN IN DOCS ////////
+    // Reveal in html:
+    //   Name via form.controls = {{showFormControls(heroForm)}}
+    GraficosComponent.prototype.showFormControls = function (form) {
+        return form && form.controls['name'] &&
+            form.controls['name'].value; // Dr. IQ
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('chart'),
@@ -449,7 +410,7 @@ module.exports = ""
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-light\" style=\"background-color: #f0e68c;\">\n  <a class=\"navbar-brand\" href=\"#\">Datamix Services</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item-active\">\n        <a class=\"nav-link\" href=\"/entradas/new\">Agregar Información</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/graficos/new\">Gráficos</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/parser\">Parser</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-light\" style=\"background-color: #f0e68c;\">\n  <a class=\"navbar-brand\" href=\"#\">Datamix Services</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item-active\">\n        <a class=\"nav-link\" href=\"/entradas/new\">Agregar Información</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/graficos/new\">Gráficos</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -483,108 +444,6 @@ var NavbarComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], NavbarComponent);
     return NavbarComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/parser-csv.directive.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParserCsvDirective; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var ParserCsvDirective = /** @class */ (function () {
-    function ParserCsvDirective() {
-    }
-    ParserCsvDirective = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* Directive */])({
-            selector: '[appParserCsv]'
-        }),
-        __metadata("design:paramtypes", [])
-    ], ParserCsvDirective);
-    return ParserCsvDirective;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/parser/parser.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/parser/parser.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<!--The content below is only a placeholder and can be replaced. -->\n<div style=\"text-align:center\">\n   <h1>\n      Welcome to {{test}}.\n   </h1>\n</div>\n\n<!-- \n\n<div> Reaccion :\n   <select name=\"REACC\" [(ngModel)] = \"Reacci\">\n      <option *ngFor=\"let i of reaccion\" [ngValue] = \"Comediante\">{{Comediante.presentador}}</option>\n   </select>\n   <button (click)=\"addHero(newHero.value)\">Add</button>\n</div>\n\n<button (click)=\"myClickFunction($event)\">\n   Veamos como falla\n</button>\n\n-->\n\n<div>\n\n<select>\n\t<option *ngFor=\"let i of archivos\">{{i}}</option>\n</select>\n\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/parser/parser.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParserComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__get_filename_service__ = __webpack_require__("./src/app/get-filename.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var ParserComponent = /** @class */ (function () {
-    function ParserComponent(gfn, _route, _router, location) {
-        this.gfn = gfn;
-        this._route = _route;
-        this._router = _router;
-        this.location = location;
-        this.test = "I hope this works";
-        this.archivos = [
-            "haha"
-        ];
-    }
-    ParserComponent.prototype.ngOnInit = function () {
-        var test = "Hello World";
-        console.log('Hello, world!');
-        //this.gfn.getFnames();
-    };
-    ParserComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-parser',
-            template: __webpack_require__("./src/app/parser/parser.component.html"),
-            styles: [__webpack_require__("./src/app/parser/parser.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__get_filename_service__["a" /* GetFilenameService */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */]])
-    ], ParserComponent);
-    return ParserComponent;
 }());
 
 

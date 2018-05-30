@@ -8,12 +8,9 @@ import { AppComponent } from './app.component';
 import { GraficosComponent } from './graficos/graficos.component';
 import { GraficosService } from './services/graficos.service';
 import { EntradasService } from './services/entradas.service';
-import { GetFilenameService } from './get-filename.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { IngresarEntradasComponent } from './ingresar-entradas/ingresar-entradas.component';
 import { EntradasComponent } from './entradas/entradas.component';
-import { ParserComponent } from './parser/parser.component';
-import { ParserCsvDirective } from './parser-csv.directive';
 
 @NgModule({
   declarations: [
@@ -21,9 +18,7 @@ import { ParserCsvDirective } from './parser-csv.directive';
     EntradasComponent,
     NavbarComponent,
     IngresarEntradasComponent,
-    GraficosComponent,
-    ParserComponent,
-    ParserCsvDirective
+    GraficosComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +26,7 @@ import { ParserCsvDirective } from './parser-csv.directive';
     HttpModule,
     FormsModule
   ],
-  providers: [EntradasService, GraficosService, GetFilenameService],
+  providers: [EntradasService, GraficosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
