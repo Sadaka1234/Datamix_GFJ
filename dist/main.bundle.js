@@ -238,7 +238,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div> Dia de toma:\n\t<select (change)=\"getIds($event.target.value)\">\n\t\t<option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha}}\n\t\t</option>\n\t</select>\n</div>\n\n<div> ID de Bus:\n\t<select>\n\t\t<option *ngFor=\"let i of ids\">{{i}}</option>\n\t</select>\n</div>-->\n\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selecciona Fecha e Id del Bus a graficar</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n        \t\t    id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\" \n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div> \n\n      <div class=\"form-group\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!GraficosComponent.form.valid\">Generar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n    <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha : </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus : </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"submitted=false\">Cambiar Fecha</button>\n  </div>\n</div> \n\n\n<div #chart>\n  <!-- Chart will appear here -->\n</div>\n"
+module.exports = "<!--<div> Dia de toma:\n\t<select (change)=\"getIds($event.target.value)\">\n\t\t<option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha}}\n\t\t</option>\n\t</select>\n</div>\n\n<div> ID de Bus:\n\t<select>\n\t\t<option *ngFor=\"let i of ids\">{{i}}</option>\n\t</select>\n</div>-->\n\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selecciona Fecha e Id del Bus a graficar</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n        \t\t    id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\" \n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div> \n\n      <div class=\"form-group\" [hidden]=\"hididbus\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!GraficosComponent.form.valid\">Generar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n    <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"submitted=false\">Cambiar Fecha</button>\n  </div>\n</div> \n\n\n<div #chart>\n  <!-- Chart will appear here -->\n</div>\n"
 
 /***/ }),
 
@@ -266,6 +266,8 @@ var GraficosComponent = /** @class */ (function () {
         this.chartService = chartService;
         this.fechas = [];
         this.ids = [];
+        this.data = [];
+        this.hididbus = true;
         this.submitted = false;
     }
     GraficosComponent.prototype.ngOnInit = function () {
@@ -273,9 +275,6 @@ var GraficosComponent = /** @class */ (function () {
         this.chartService.getFechas().subscribe(function (rows) {
             var f = 0;
             for (var y in rows) {
-                if (f == 0) {
-                    _this.getIds(rows[y]["DATE(horaToma)"]);
-                }
                 _this.fechas[f] = rows[y]["DATE(horaToma)"];
                 f++;
             }
@@ -285,6 +284,9 @@ var GraficosComponent = /** @class */ (function () {
     };
     GraficosComponent.prototype.onSubmit = function () {
         this.submitted = true;
+        this.chartService.getData({ "diaToma": this.Currfecha, "idBus": this.Currid }).subscribe(function (rows) {
+            console.log(rows);
+        });
     };
     GraficosComponent.prototype.getIds = function (fecha) {
         var _this = this;
@@ -294,6 +296,8 @@ var GraficosComponent = /** @class */ (function () {
                 _this.ids.push(rows[u]["Asset_id"]);
             }
         });
+        this.hididbus = false;
+        alert("Ids Actualizados");
     };
     GraficosComponent.prototype.basicChart = function () {
         var element = this.el.nativeElement;
@@ -523,6 +527,10 @@ var GraficosService = /** @class */ (function () {
     GraficosService.prototype.getIds = function (data) {
         console.log(data.horaToma);
         var url = '/api/v1/graficos/getIds/' + data.horaToma;
+        return this.http.get(url).map(function (res) { return res.json(); });
+    };
+    GraficosService.prototype.getData = function (data) {
+        var url = '/api/v1/graficos/getData/' + data.diaToma + '/' + data.idBus;
         return this.http.get(url).map(function (res) { return res.json(); });
     };
     GraficosService = __decorate([

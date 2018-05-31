@@ -31,7 +31,7 @@
         </select>
       </div> 
 
-      <div class="form-group">
+      <div class="form-group" [hidden]="hididbus">
         <label for="idBus">ID del Bus</label>
         <select class="form-control" id="idBus"
                 required
@@ -50,11 +50,11 @@
   <div [hidden]="!submitted">
     <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>
     <div class="row">
-      <div class="col-xs-3">Fecha : </div>
+      <div class="col-xs-3">Fecha :  </div>
       <div class="col-xs-9  pull-left">{{ Currfecha }}</div>
     </div>
     <div class="row">
-      <div class="col-xs-3">ID Bus : </div>
+      <div class="col-xs-3">ID Bus :  </div>
       <div class="col-xs-9 pull-left">{{ Currid }}</div>
     </div>
     <br>
@@ -64,5 +64,9 @@
 
 
 <div #chart>
+  <!-- Chart will appear here -->
+</div>
+
+<div #chart2>
   <!-- Chart will appear here -->
 </div>

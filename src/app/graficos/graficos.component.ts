@@ -25,7 +25,9 @@ export class GraficosComponent implements OnInit {
   ids : any = [];
   Currfecha : string;
   Currid : string;
+  data : any = [];
 
+  hididbus = true;
   submitted = false;
 
   constructor(private chartService: GraficosService) { }
@@ -34,11 +36,6 @@ export class GraficosComponent implements OnInit {
     this.chartService.getFechas().subscribe(rows =>{
            let f = 0;
            for (let y in rows){
-             if (f == 0){
-
-               this.getIds(rows[y]["DATE(horaToma)"]);
-
-             }
              this.fechas[f] = rows[y]["DATE(horaToma)"];
              f++;
            }
@@ -51,6 +48,9 @@ export class GraficosComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.chartService.getData({"diaToma" : this.Currfecha , "idBus" : this.Currid}).subscribe(rows =>{
+      console.log(rows);
+    });
   }
 
   getIds(fecha){
@@ -64,6 +64,9 @@ export class GraficosComponent implements OnInit {
       }
 
     });
+
+    this.hididbus = false;
+    alert("Ids Actualizados");
 
   }
 
@@ -82,17 +85,5 @@ export class GraficosComponent implements OnInit {
     Plotly.plot( element, data, style );
 
   }
-
-  //////// NOT SHOWN IN DOCS ////////
-
-  // Reveal in html:
-  //   Name via form.controls = {{showFormControls(heroForm)}}
-  showFormControls(form: any) {
-    return form && form.controls['name'] &&
-    form.controls['name'].value; // Dr. IQ
-  }
-
-  /////////////////////////////
-
 
 }

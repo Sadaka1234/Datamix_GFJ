@@ -49,8 +49,15 @@ router.get('/graficos/getFechas', (req, res) =>{
 });
 
 router.get('/graficos/getIds/:horaToma', (req, res) =>{
-    console.log(req.params);
     let query = 'select distinct Asset_id from Bus where DATE(horaToma) = "' + req.params.horaToma + '"';
+    sequelize.query(query,{ type: sequelize.QueryTypes.SELECT })
+    .then(rows => { res.status(200).send(rows); 
+    });
+});
+
+router.get('/graficos/getData/:horaToma/:idBus', (req, res) =>{
+    console.log(req.params);
+    let query = 'select * from Bus where DATE(horaToma) = "' + req.params.horaToma + '" and Asset_id = "' + req.params.idBus + '"';
     sequelize.query(query,{ type: sequelize.QueryTypes.SELECT })
     .then(rows => { res.status(200).send(rows); 
     });

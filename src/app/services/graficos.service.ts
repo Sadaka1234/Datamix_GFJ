@@ -21,5 +21,10 @@ export class GraficosService {
 
   }
 
+  getData(data){
+  	let url = '/api/v1/graficos/getData/' + data.diaToma + '/' + data.idBus;
+  	return this.http.get(url).map(res => res.json());
+  }
+
 
 }
