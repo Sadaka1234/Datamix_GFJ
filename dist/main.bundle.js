@@ -238,7 +238,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div> Dia de toma:\n\t<select (change)=\"getIds($event.target.value)\">\n\t\t<option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha}}\n\t\t</option>\n\t</select>\n</div>\n\n<div> ID de Bus:\n\t<select>\n\t\t<option *ngFor=\"let i of ids\">{{i}}</option>\n\t</select>\n</div>-->\n\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selecciona Fecha e Id del Bus a graficar</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n        \t\t    id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\" \n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div> \n\n      <div class=\"form-group\" [hidden]=\"hididbus\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!GraficosComponent.form.valid\">Generar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n    <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"submitted=false\">Cambiar Fecha</button>\n  </div>\n</div> \n\n\n<div #chart>\n  <!-- Chart will appear here -->\n</div>\n"
+module.exports = "<!--<div> Dia de toma:\n\t<select (change)=\"getIds($event.target.value)\">\n\t\t<option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha}}\n\t\t</option>\n\t</select>\n</div>\n\n<div> ID de Bus:\n\t<select>\n\t\t<option *ngFor=\"let i of ids\">{{i}}</option>\n\t</select>\n</div>-->\n\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selecciona Fecha e Id del Bus a graficar</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n        \t\t    id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\" \n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div> \n\n      <div class=\"form-group\" [hidden]=\"hididbus\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!GraficosComponent.form.valid\">Generar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n    <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"submitted=false\">Cambiar Fecha</button>\n  </div>\n</div> \n\n\n<div #chart>\n  <!-- Chart will appear here -->\n</div>\n\n<div #chart2>\n  <!-- Chart will appear here -->\n</div>\n"
 
 /***/ }),
 
@@ -249,6 +249,7 @@ module.exports = "<!--<div> Dia de toma:\n\t<select (change)=\"getIds($event.tar
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GraficosComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_graficos_service__ = __webpack_require__("./src/app/services/graficos.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__graph_data__ = __webpack_require__("./src/app/graph-data.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -260,13 +261,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 //import * as _ from 'lodash';
 var GraficosComponent = /** @class */ (function () {
     function GraficosComponent(chartService) {
         this.chartService = chartService;
         this.fechas = [];
         this.ids = [];
-        this.data = [];
+        this.TomasBus = new __WEBPACK_IMPORTED_MODULE_2__graph_data__["a" /* GraphData */]();
         this.hididbus = true;
         this.submitted = false;
     }
@@ -283,10 +285,13 @@ var GraficosComponent = /** @class */ (function () {
         this.basicChart();
     };
     GraficosComponent.prototype.onSubmit = function () {
+        var _this = this;
         this.submitted = true;
         this.chartService.getData({ "diaToma": this.Currfecha, "idBus": this.Currid }).subscribe(function (rows) {
             console.log(rows);
+            _this.TomasBus.updateData(rows);
         });
+        console.log(this.TomasBus);
     };
     GraficosComponent.prototype.getIds = function (fecha) {
         var _this = this;
@@ -310,13 +315,6 @@ var GraficosComponent = /** @class */ (function () {
         };
         Plotly.plot(element, data, style);
     };
-    //////// NOT SHOWN IN DOCS ////////
-    // Reveal in html:
-    //   Name via form.controls = {{showFormControls(heroForm)}}
-    GraficosComponent.prototype.showFormControls = function (form) {
-        return form && form.controls['name'] &&
-            form.controls['name'].value; // Dr. IQ
-    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('chart'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
@@ -339,6 +337,42 @@ var GraficosComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_graficos_service__["a" /* GraficosService */]])
     ], GraficosComponent);
     return GraficosComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/graph-data.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GraphData; });
+var GraphData = /** @class */ (function () {
+    function GraphData() {
+        this.Taimstamps = [];
+        this.Velocidad = [];
+        this.Temperatura = [];
+        this.Combustible = [];
+    }
+    GraphData.prototype.contructor = function () { };
+    GraphData.prototype.updateData = function (Data) {
+        this.Taimstamps = [];
+        this.Velocidad = [];
+        this.Temperatura = [];
+        this.Combustible = [];
+        var pos = 0;
+        for (var u in Data) {
+            this.Velocidad[pos] = Data[u]["A_Speed"];
+            this.Temperatura[pos] = Data[u]["Curr_Temp"];
+            this.Combustible[pos] = Data[u]["Curr_fLevel"];
+            this.Taimstamps[pos] = new Date(Data[u]["horaToma"]);
+            pos++;
+        }
+        console.log("Datos formateados");
+        console.log(new Date("2018-12-12"));
+    };
+    return GraphData;
 }());
 
 

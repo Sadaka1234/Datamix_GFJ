@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GraficosService } from '../services/graficos.service';
+import { GraphData } from '../graph-data';
 //import * as _ from 'lodash';
 
 @Component({
@@ -25,7 +26,8 @@ export class GraficosComponent implements OnInit {
   ids : any = [];
   Currfecha : string;
   Currid : string;
-  data : any = [];
+
+  TomasBus = new GraphData();
 
   hididbus = true;
   submitted = false;
@@ -50,7 +52,9 @@ export class GraficosComponent implements OnInit {
     this.submitted = true;
     this.chartService.getData({"diaToma" : this.Currfecha , "idBus" : this.Currid}).subscribe(rows =>{
       console.log(rows);
+      this.TomasBus.updateData(rows);
     });
+    console.log(this.TomasBus);
   }
 
   getIds(fecha){
