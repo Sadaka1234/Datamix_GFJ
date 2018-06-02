@@ -24,9 +24,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entradas_entradas_component__ = __webpack_require__("./src/app/entradas/entradas.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ingresar_entradas_ingresar_entradas_component__ = __webpack_require__("./src/app/ingresar-entradas/ingresar-entradas.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__graficos_graficos_component__ = __webpack_require__("./src/app/graficos/graficos.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__graficos_graficos_component__ = __webpack_require__("./src/app/graficos/graficos.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -35,13 +33,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 
 
-
-
+/*/import { EntradasComponent } from './entradas/entradas.component';
+import { IngresarEntradasComponent } from './ingresar-entradas/ingresar-entradas.component';/*/
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__entradas_entradas_component__["a" /* EntradasComponent */] },
-    { path: 'entradas/new', component: __WEBPACK_IMPORTED_MODULE_3__ingresar_entradas_ingresar_entradas_component__["a" /* IngresarEntradasComponent */] },
-    { path: 'graficos/new', component: __WEBPACK_IMPORTED_MODULE_4__graficos_graficos_component__["a" /* GraficosComponent */] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__graficos_graficos_component__["a" /* GraficosComponent */] },
+    /*/    { path: 'entradas/new', component: IngresarEntradasComponent }, /*/
+    { path: 'graficos/new', component: __WEBPACK_IMPORTED_MODULE_2__graficos_graficos_component__["a" /* GraficosComponent */] },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -118,19 +116,13 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("./src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__graficos_graficos_component__ = __webpack_require__("./src/app/graficos/graficos.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__ = __webpack_require__("./src/app/services/graficos.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_entradas_service__ = __webpack_require__("./src/app/services/entradas.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__navbar_navbar_component__ = __webpack_require__("./src/app/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ingresar_entradas_ingresar_entradas_component__ = __webpack_require__("./src/app/ingresar-entradas/ingresar-entradas.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entradas_entradas_component__ = __webpack_require__("./src/app/entradas/entradas.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__navbar_navbar_component__ = __webpack_require__("./src/app/navbar/navbar.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
-
 
 
 
@@ -147,9 +139,7 @@ var AppModule = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__entradas_entradas_component__["a" /* EntradasComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__ingresar_entradas_ingresar_entradas_component__["a" /* IngresarEntradasComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__navbar_navbar_component__["a" /* NavbarComponent */],
                 __WEBPACK_IMPORTED_MODULE_6__graficos_graficos_component__["a" /* GraficosComponent */]
             ],
             imports: [
@@ -158,70 +148,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_8__services_entradas_service__["a" /* EntradasService */], __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__["a" /* GraficosService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_7__services_graficos_service__["a" /* GraficosService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/entradas/entradas.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/entradas/entradas.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"card mt-3\" *ngFor=\"let entrada of entradasBlog\">\n    <div class=\"card-header\">\n        <h1> {{ entrada.titulo }} </h1>\n    </div>\n    <div class=\"card-body\">\n        <p> {{ entrada.contenido }} <p>\n    </div>\n    <div class=\"card-footer\">\n        <h4> {{ entrada.fechaPublicacion | date:'hh:mm dd/MM/yyyy'}} </h4>\n    </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/entradas/entradas.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EntradasComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_entradas_service__ = __webpack_require__("./src/app/services/entradas.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var EntradasComponent = /** @class */ (function () {
-    function EntradasComponent(entradasService) {
-        this.entradasService = entradasService;
-        this.entradasBlog = [];
-    }
-    EntradasComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.entradasService.getEntradas().subscribe(function (rows) {
-            _this.entradasBlog = rows;
-            console.log(_this.entradasBlog);
-        });
-    };
-    EntradasComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-entradas',
-            template: __webpack_require__("./src/app/entradas/entradas.component.html"),
-            styles: [__webpack_require__("./src/app/entradas/entradas.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_entradas_service__["a" /* EntradasService */]])
-    ], EntradasComponent);
-    return EntradasComponent;
 }());
 
 
@@ -363,12 +294,12 @@ var GraficosComponent = /** @class */ (function () {
             styles: [__webpack_require__("./src/app/graficos/graficos.component.css")]
         })
         /*export class GraficosComponent implements OnInit {
-          
-        
+
+
           ngOnInit() {
-              
+
           }
-        
+
         }*/
         ,
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_graficos_service__["a" /* GraficosService */]])
@@ -408,74 +339,8 @@ var GraphData = /** @class */ (function () {
             pos++;
         }
         console.log("Datos formateados");
-        this.ready = true;
-    };
-    GraphData.prototype.getVeldata = function () {
-        console.log(this.Velocidad);
-        var aux = { x: this.Taimstamps, y: this.Velocidad };
-        console.log(aux);
-        return aux;
     };
     return GraphData;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/ingresar-entradas/ingresar-entradas.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/ingresar-entradas/ingresar-entradas.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"card mt-3\">\n    <div class=\"card-body\">\n        <div class=\"form-group\">\n            <h4 class=\"card-title\">\n                Título\n            </h4>\n            <input type=\"text\" class=\"form-control\" placeholder=\"Ingrese Título\" [(ngModel)]=\"titulo\">\n            <h4 class=\"card-title\">\n                Contenido\n            </h4>\n            <textarea class=\"form-control\" rows=\"5\" [(ngModel)]=\"contenido\"></textarea>\n        </div>\n    </div>\n    <div class=\"card-footer\">\n        <button class=\"btn btn-dark\" (click)=\"crearEntrada()\">Ingresar</button>\n    </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/ingresar-entradas/ingresar-entradas.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresarEntradasComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_entradas_service__ = __webpack_require__("./src/app/services/entradas.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var IngresarEntradasComponent = /** @class */ (function () {
-    function IngresarEntradasComponent(entradasService) {
-        this.entradasService = entradasService;
-    }
-    IngresarEntradasComponent.prototype.ngOnInit = function () {
-    };
-    IngresarEntradasComponent.prototype.crearEntrada = function () {
-        this.entradasService.insertEntrada({ "titulo": this.titulo,
-            "contenido": this.contenido }).subscribe(function (res) {
-            window.alert("Entrada Ingresada Correctamente");
-        });
-    };
-    IngresarEntradasComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-ingresar-entradas',
-            template: __webpack_require__("./src/app/ingresar-entradas/ingresar-entradas.component.html"),
-            styles: [__webpack_require__("./src/app/ingresar-entradas/ingresar-entradas.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_entradas_service__["a" /* EntradasService */]])
-    ], IngresarEntradasComponent);
-    return IngresarEntradasComponent;
 }());
 
 
@@ -492,7 +357,7 @@ module.exports = ""
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-light\" style=\"background-color: #f0e68c;\">\n  <a class=\"navbar-brand\" href=\"#\">Datamix Services</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item-active\">\n        <a class=\"nav-link\" href=\"/entradas/new\">Agregar Información</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/graficos/new\">Gráficos</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-light\" style=\"background-color: #FF0800;\">\n  <a class=\"navbar-brand\" href=\"#\">Datamix Services</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/graficos/new\">Gráficos</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -526,49 +391,6 @@ var NavbarComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], NavbarComponent);
     return NavbarComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/entradas.service.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EntradasService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var EntradasService = /** @class */ (function () {
-    function EntradasService(http) {
-        this.http = http;
-    }
-    EntradasService.prototype.getEntradas = function () {
-        return this.http.get('/api/v1/entradas').map(function (res) { return res.json(); });
-    };
-    ;
-    EntradasService.prototype.insertEntrada = function (data) {
-        console.log("service");
-        return this.http.post('/api/v1/entrada', data).map(function (res) { return res.json(); });
-    };
-    EntradasService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
-    ], EntradasService);
-    return EntradasService;
 }());
 
 
