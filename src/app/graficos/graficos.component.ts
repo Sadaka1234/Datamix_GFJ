@@ -28,6 +28,7 @@ export class GraficosComponent implements OnInit {
   ids : any = [];
   Currfecha : string;
   Currid : string;
+  showGraphs = false;
 
   TomasBus = new GraphData();
 
@@ -58,6 +59,7 @@ export class GraficosComponent implements OnInit {
   }
 
   generarGraficos(){
+    this.showGraphs = true;
     console.log(this.TomasBus);
     this.velTime();
     this.fuelTime();
@@ -132,6 +134,11 @@ export class GraficosComponent implements OnInit {
 
     Plotly.plot( element, data, style );
 
+  }
+
+  hidePlots(){
+    this.submitted=false;
+    this.showGraphs=false;
   }
 
 

@@ -48,24 +48,28 @@
     </div>
     <br>
     <button class="btn btn-primary" (click)="generarGraficos()">Ver Graficos</button>
-    <button class="btn btn-primary" (click)="submitted=false">Cambiar Fecha</button>
+    <button class="btn btn-primary" (click)="hidePlots()">Cambiar Fecha</button>
 
-    Velocidad
+    <div [hidden]="!showGraphs">
 
-    <div #Velocidad>
-      <!-- Chart will appear here -->
-    </div>
+      <h1>Velocidad</h1><p></p>
 
-    Temperatura
+      <div #Velocidad>
+        <!-- Chart will appear here -->
+      </div>
 
-    <div #Temperatura>
-      <!-- Chart will appear here -->
-    </div>
+      <h1>Temperatura</h1><p></p>
 
-    Combustible
+      <div #Temperatura>
+        <!-- Chart will appear here -->
+      </div>
 
-    <div #Combustible>
-      <!-- Chart will appear here -->
+      <h1Combustible<p></p>
+
+      <div #Combustible>
+        <!-- Chart will appear here -->
+      </div>
+
     </div>
 
   </div>
