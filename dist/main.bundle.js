@@ -347,6 +347,16 @@ var GraphData = /** @class */ (function () {
             pos++;
         }
         console.log("Datos formateados");
+<<<<<<< HEAD
+=======
+        this.ready = true;
+    };
+    GraphData.prototype.getVeldata = function () {
+        console.log(this.Velocidad);
+        var aux = { x: this.Taimstamps, y: this.Velocidad };
+        console.log(aux);
+        return aux;
+>>>>>>> bd9da6124f4c189ad51c0c227a2cb9371e12a4bd
     };
     return GraphData;
 }());
