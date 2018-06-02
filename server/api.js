@@ -3,7 +3,6 @@ const router = express.Router();
 
 const sequelize = require('./config');
 const path = require('path');
-const FN = require('./files')
 
  //Testdeconexi ́on
 sequelize.authenticate().then(() => {
@@ -24,7 +23,7 @@ router.get('/graficos/getFechas', (req, res) =>{
 });
 
 router.get('/graficos/getIds/:horaToma', (req, res) =>{
-    let query = 'select distinct Asset_id from Bus where DATE(horaToma) = "' + req.params.horaToma + '"';
+    let query = 'select distinct Asset_id from Bus where DATE(horaToma) = "' + req.params.horaToma + '" group by Asset_Id order by count(Asset_Id) desc';
     sequelize.query(query,{ type: sequelize.QueryTypes.SELECT })
     .then(rows => { res.status(200).send(rows);
     });
