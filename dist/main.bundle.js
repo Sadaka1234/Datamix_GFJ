@@ -300,12 +300,12 @@ var GraficosComponent = /** @class */ (function () {
             styles: [__webpack_require__("./src/app/graficos/graficos.component.css")]
         })
         /*export class GraficosComponent implements OnInit {
-          
-        
+
+
           ngOnInit() {
-              
+
           }
-        
+
         }*/
         ,
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_graficos_service__["a" /* GraficosService */]])
