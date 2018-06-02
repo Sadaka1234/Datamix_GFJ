@@ -20,7 +20,9 @@ import { GraphData } from '../graph-data';
 
 export class GraficosComponent implements OnInit {
 
-  @ViewChild('chart') el: ElementRef;
+  @ViewChild('Velocidad') vel: ElementRef;
+  @ViewChild('Combustible') fuel: ElementRef;
+  @ViewChild('Temperatura') temp: ElementRef;
 
   fechas : any = [];
   ids : any = [];
@@ -45,16 +47,21 @@ export class GraficosComponent implements OnInit {
 
     //console.log(typeof this.fechas);
 
-    this.basicChart();
   }
 
   onSubmit() {
     this.submitted = true;
     this.chartService.getData({"diaToma" : this.Currfecha , "idBus" : this.Currid}).subscribe(rows =>{
-      console.log(rows);
       this.TomasBus.updateData(rows);
+      console.log("Acabo de obtener los datos");
     });
+  }
+
+  generarGraficos(){
     console.log(this.TomasBus);
+    this.velTime();
+    this.fuelTime();
+    this.tempTime();
   }
 
   getIds(fecha){
@@ -74,20 +81,58 @@ export class GraficosComponent implements OnInit {
 
   }
 
-  basicChart() {
-    const element = this.el.nativeElement
+  velTime() {
+    const element = this.vel.nativeElement;
+    Plotly.purge(element);
 
     const data = [{
-      x: [1, 2, 3, 4, 50],
-      y: [1, 2, 4, 8, 16]
-    }]
+      x: this.TomasBus.Taimstamps,
+      y: this.TomasBus.Velocidad
+    }];
 
     const style = {
       margin: { t: 0 }
-    }
+    };
 
     Plotly.plot( element, data, style );
 
   }
+
+  fuelTime() {
+
+    const element = this.fuel.nativeElement;
+    Plotly.purge(element);
+
+    const data = [{
+      x: this.TomasBus.Taimstamps,
+      y: this.TomasBus.Combustible
+    }];
+
+    const style = {
+      margin: { t: 0 }
+    };
+
+    Plotly.plot( element, data, style );
+
+  }
+
+  tempTime(){
+
+    const element = this.temp.nativeElement;
+    Plotly.purge(element);
+
+    const data = [{
+      x: this.TomasBus.Taimstamps,
+      y: this.TomasBus.Temperatura
+    }];
+
+    const style = {
+      margin: { t: 0 }
+    };
+
+    Plotly.plot( element, data, style );
+
+  }
+
 
 }

@@ -169,7 +169,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div> Dia de toma:\n\t<select (change)=\"getIds($event.target.value)\">\n\t\t<option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha}}\n\t\t</option>\n\t</select>\n</div>\n\n<div> ID de Bus:\n\t<select>\n\t\t<option *ngFor=\"let i of ids\">{{i}}</option>\n\t</select>\n</div>-->\n\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selecciona Fecha e Id del Bus a graficar</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n        \t\t    id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\" \n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div> \n\n      <div class=\"form-group\" [hidden]=\"hididbus\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!GraficosComponent.form.valid\">Generar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n    <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"submitted=false\">Cambiar Fecha</button>\n  </div>\n</div> \n\n\n<div #chart>\n  <!-- Chart will appear here -->\n</div>\n\n<div #chart2>\n  <!-- Chart will appear here -->\n</div>\n"
+module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selecciona Fecha e Id del Bus a graficar</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n        \t\t    id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\" \n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div> \n\n      <div class=\"form-group\" [hidden]=\"hididbus\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!GraficosComponent.form.valid\">Procesar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"generarGraficos()\">Ver Graficos</button>\n    <button class=\"btn btn-primary\" (click)=\"submitted=false\">Cambiar Fecha</button>\n\n    Velocidad\n\n    <div #Velocidad>\n      <!-- Chart will appear here -->\n    </div>\n\n    Temperatura\n\n    <div #Temperatura>\n      <!-- Chart will appear here -->\n    </div>\n\n    Combustible\n\n    <div #Combustible>\n      <!-- Chart will appear here -->\n    </div>\n\n  </div>\n</div> \n\n\n"
 
 /***/ }),
 
@@ -213,16 +213,21 @@ var GraficosComponent = /** @class */ (function () {
             }
         });
         //console.log(typeof this.fechas);
-        this.basicChart();
     };
     GraficosComponent.prototype.onSubmit = function () {
         var _this = this;
         this.submitted = true;
         this.chartService.getData({ "diaToma": this.Currfecha, "idBus": this.Currid }).subscribe(function (rows) {
-            console.log(rows);
             _this.TomasBus.updateData(rows);
+            console.log("Acabo de obtener los datos");
         });
+        this.generarGraficos();
+    };
+    GraficosComponent.prototype.generarGraficos = function () {
         console.log(this.TomasBus);
+        this.velTime();
+        this.fuelTime();
+        this.tempTime();
     };
     GraficosComponent.prototype.getIds = function (fecha) {
         var _this = this;
@@ -235,21 +240,61 @@ var GraficosComponent = /** @class */ (function () {
         this.hididbus = false;
         alert("Ids Actualizados");
     };
-    GraficosComponent.prototype.basicChart = function () {
-        var element = this.el.nativeElement;
+    GraficosComponent.prototype.velTime = function () {
+        var element = this.vel.nativeElement;
+        Plotly.purge(element);
         var data = [{
-                x: [1, 2, 3, 4, 50],
-                y: [1, 2, 4, 8, 16]
+                x: this.TomasBus.Taimstamps,
+                y: this.TomasBus.Velocidad
             }];
         var style = {
             margin: { t: 0 }
         };
         Plotly.plot(element, data, style);
     };
+    GraficosComponent.prototype.fuelTime = function () {
+        var element = this.fuel.nativeElement;
+        Plotly.purge(element);
+        var data = [{
+                x: this.TomasBus.Taimstamps,
+                y: this.TomasBus.Combustible
+            }];
+        var style = {
+            margin: { t: 0 }
+        };
+        Plotly.plot(element, data, style);
+    };
+    GraficosComponent.prototype.tempTime = function () {
+        var element = this.temp.nativeElement;
+        Plotly.purge(element);
+        var data = [{
+                x: this.TomasBus.Taimstamps,
+                y: this.TomasBus.Temperatura
+            }];
+        var style = {
+            margin: { t: 0 }
+        };
+        Plotly.plot(element, data, style);
+    };
+    GraficosComponent.prototype.wait = function (ms) {
+        var start = new Date().getTime();
+        var end = start;
+        while (end < start + ms) {
+            end = new Date().getTime();
+        }
+    };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('chart'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Velocidad'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
-    ], GraficosComponent.prototype, "el", void 0);
+    ], GraficosComponent.prototype, "vel", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Combustible'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+    ], GraficosComponent.prototype, "fuel", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Temperatura'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+    ], GraficosComponent.prototype, "temp", void 0);
     GraficosComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-graficos',
@@ -257,12 +302,12 @@ var GraficosComponent = /** @class */ (function () {
             styles: [__webpack_require__("./src/app/graficos/graficos.component.css")]
         })
         /*export class GraficosComponent implements OnInit {
-          
-        
+
+
           ngOnInit() {
-              
+
           }
-        
+
         }*/
         ,
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_graficos_service__["a" /* GraficosService */]])
@@ -285,6 +330,7 @@ var GraphData = /** @class */ (function () {
         this.Velocidad = [];
         this.Temperatura = [];
         this.Combustible = [];
+        this.ready = false;
     }
     GraphData.prototype.contructor = function () { };
     GraphData.prototype.updateData = function (Data) {

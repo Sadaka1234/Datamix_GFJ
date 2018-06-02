@@ -1,9 +1,10 @@
 export class GraphData {
 
-	Taimstamps = [];
-	Velocidad = [];
-	Temperatura = [];
-	Combustible = [];
+	public Taimstamps = [];
+	public Velocidad = [];
+	public Temperatura = [];
+	public Combustible = [];
+	public ready = false;
 
 	public contructor(){}
 
@@ -26,7 +27,16 @@ export class GraphData {
 		}
 
 		console.log("Datos formateados");
+		this.ready = true;
 		
+	}
+
+	getVeldata(){
+
+		console.log(this.Velocidad);
+		let aux = {x : this.Taimstamps, y: this.Velocidad}
+		console.log(aux);
+		return aux;
 	}
 
 }
