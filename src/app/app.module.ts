@@ -7,17 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraficosComponent } from './graficos/graficos.component';
 import { GraficosService } from './services/graficos.service';
-import { EntradasService } from './services/entradas.service';
 import { NavbarComponent } from './navbar/navbar.component';
-import { IngresarEntradasComponent } from './ingresar-entradas/ingresar-entradas.component';
-import { EntradasComponent } from './entradas/entradas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntradasComponent,
     NavbarComponent,
-    IngresarEntradasComponent,
     GraficosComponent
   ],
   imports: [
@@ -26,7 +21,7 @@ import { EntradasComponent } from './entradas/entradas.component';
     HttpModule,
     FormsModule
   ],
-  providers: [EntradasService, GraficosService],
+  providers: [GraficosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
