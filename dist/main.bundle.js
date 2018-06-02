@@ -290,7 +290,6 @@ var GraficosComponent = /** @class */ (function () {
             _this.TomasBus.updateData(rows);
             console.log("Acabo de obtener los datos");
         });
-        this.generarGraficos();
     };
     GraficosComponent.prototype.generarGraficos = function () {
         console.log(this.TomasBus);
@@ -344,13 +343,6 @@ var GraficosComponent = /** @class */ (function () {
             margin: { t: 0 }
         };
         Plotly.plot(element, data, style);
-    };
-    GraficosComponent.prototype.wait = function (ms) {
-        var start = new Date().getTime();
-        var end = start;
-        while (end < start + ms) {
-            end = new Date().getTime();
-        }
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Velocidad'),
