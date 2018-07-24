@@ -169,7 +169,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selecciona Fecha e Id del Bus a graficar</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n        \t\t    id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\" \n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div> \n\n      <div class=\"form-group\" [hidden]=\"hididbus\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" [(selected)]=\"i\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"hididbus\">Procesar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"generarGraficos()\">Ver Graficos</button>\n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n    <div [hidden]=\"!showGraphs\">\n\n      <h1>Velocidad</h1><p></p>\n\n      <div #Velocidad>\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Temperatura</h1><p></p>\n\n      <div #Temperatura>\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Combustible</h1><p></p>\n\n      <div #Combustible>\n        <!-- Chart will appear here -->\n      </div>\n\n    </div>\n\n  </div>\n</div> \n\n\n"
+module.exports = "<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selecciona Fecha e Id del Bus a graficar</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n                id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\" \n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div> \n\n      <div class=\"form-group\" [hidden]=\"hididbus\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!GraficosComponent.form.valid\">Procesar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando los graficos basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"generarGraficos()\">Ver Graficos</button>\n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n    <div [hidden]=\"!showGraphs\">\n\n      <h1>Velocidad</h1><p></p>\n\n      <div #Velocidad>\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Temperatura</h1><p></p>\n\n      <div #Temperatura>\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Combustible</h1><p></p>\n\n      <div #Combustible>\n        <!-- Chart will appear here -->\n      </div>\n\n    </div>\n\n  </div>\n\n</div> \n\n\n"
 
 /***/ }),
 
@@ -300,12 +300,12 @@ var GraficosComponent = /** @class */ (function () {
             styles: [__webpack_require__("./src/app/graficos/graficos.component.css")]
         })
         /*export class GraficosComponent implements OnInit {
-
-
+          
+        
           ngOnInit() {
-
+              
           }
-
+        
         }*/
         ,
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_graficos_service__["a" /* GraficosService */]])
@@ -370,7 +370,7 @@ module.exports = ""
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-light\" style=\"background-color: #FF0800;\">\n  <a class=\"navbar-brand\" href=\"#\">Datamix Services</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/graficos/new\">Gráficos</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-light\" style=\"background-color: #FF0800;\">\n  <a class=\"navbar-brand\" href=\"#\">Un paso para adelante, dos para atras</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/graficos/new\">Gráficos</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n"
 
 /***/ }),
 
