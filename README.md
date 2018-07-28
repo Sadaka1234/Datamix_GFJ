@@ -1,6 +1,6 @@
 # DataWatch Alpha
 
-**DataWatch** es un sistema web para poder ver graficos basados en datos obtenidos desde buses pertenecientes a la base de datos de **Multiwireless ltda.**En su fase alpha, este programa requiere que estos datos sean subidos a una base de datos local.
+**DataWatch** es un sistema web para la visualización de gráficos basados en datos obtenidos desde buses pertenecientes a la base de datos de **Multiwireless ltda.** En su fase alpha, este programa requiere que estos datos sean subidos a una base de datos local.
 
 ## Base de Datos
 
