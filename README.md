@@ -1,27 +1,13 @@
-# BlogApp
+# DataWatch Alpha
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+**DataWatch** es un sistema web para poder ver graficos basados en datos obtenidos desde buses pertenecientes a la base de datos de **Multiwireless ltda.**En su fase alpha, este programa requiere que estos datos sean subidos a una base de datos local.
 
-## Development server
+## Base de Datos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Dentro de la carpeta `CSV` se encuentra un script en python que trunca los archivos .csv del cliente, una mayor explicacion se encuentra en `readme.txt`dentro de la carpeta, para poder subirlo a la base de datos mediante software como *MySQLWorkbench*. Se espera agregar a futuro una forma de manejar la base de datos mediante el navegador.
 
-## Code scaffolding
+## Correr DataWatch
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Abrir una terminal dentro de la carpeta raíz y ejecutar `node_install all` y luego `ng build && ng serve`, el sitio se encontrara disponible en `localhost:3000`
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### DataWatch, hecho con ♥ por DataMix
