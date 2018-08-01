@@ -60,14 +60,14 @@ var AppRoutingModule = /** @class */ (function () {
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".image{\n    background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/repeatable-background-12.jpg');\n    background-repeat: repeat;\n    height: 1500px;\n    width: 100%;\n    background-color: powderblue;\n    color: white;\n}\n"
 
 /***/ }),
 
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-navbar></app-navbar>\n<div class=\"container\">\n    <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n\n\n<app-navbar></app-navbar>\n<div class=\"image\">\n    <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -370,7 +370,7 @@ module.exports = ""
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-light\" style=\"background-color: #FF0800;\">\n  <a class=\"navbar-brand\" href=\"#\">Un paso para adelante, dos para atras</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/graficos/new\">Gráficos</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-light\" style=\"background-color: #B0B0B0;\">\n  <a class=\"navbar-brand\" href=\"#\">\n    <img src=\"https://www.freeiconspng.com/uploads/owl-icon-4.png\" height=\"50\" class=\"d-inline-block align-top\">\n    Haciendo lo que otros ya pueden\n  </a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/graficos/new\">Gráficos</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n"
 
 /***/ }),
 

@@ -1,0 +1,8 @@
+.image{
+    background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/repeatable-background-12.jpg');
+    background-repeat: repeat;
+    height: 1500px;
+    width: 100%;
+    background-color: powderblue;
+    color: white;
+}
