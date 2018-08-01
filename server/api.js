@@ -14,6 +14,10 @@ console.error("No te puedes conectar: ", err);
 
 const infoBus = sequelize.import('BUS', require("../models/BUS"));
 
+sequelize.sync()
+    .then(() => console.log('users table has been successfully created, if one doesn\'t exist'))
+    .catch(error => console.log('This error occured', error));
+
 
 
 router.get('/graficos/getFechas', (req, res) =>{
@@ -36,5 +40,10 @@ router.get('/graficos/getData/:horaToma/:idBus', (req, res) =>{
     .then(rows => { res.status(200).send(rows);
     });
 });
+
+
+
+
+
 
 module.exports = router;
