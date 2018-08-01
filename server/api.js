@@ -13,9 +13,11 @@ console.error("No te puedes conectar: ", err);
 
 
 const infoBus = sequelize.import('BUS', require("../models/BUS"));
+const infoUser = sequelize.import('User', require("../models/User"));
+
 
 sequelize.sync()
-    .then(() => console.log('users table has been successfully created, if one doesn\'t exist'))
+    .then(() => console.log('Tables has been successfully created, if one doesn\'t exist'))
     .catch(error => console.log('This error occured', error));
 
 
