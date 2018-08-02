@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { GraficosComponent } from './graficos/graficos.component';
 import { GraficosService } from './services/graficos.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    GraficosComponent
+    GraficosComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
