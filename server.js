@@ -17,6 +17,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /* Static Path */
 app.use(express.static(path.join(__dirname, 'dist')));
 
+
+
+/* Importacion barata de imagenes*/
+app.get('/theicon.png',function(req,res) {
+    res.sendFile(__dirname + '/src/theicon.png');
+});
+
+
+
+
+
+
 /* Ruta para nuestra API */
 app.use('/api/v1', api);
 
