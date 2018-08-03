@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+.btndownload {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+  cursor: pointer;
+  /*font-size: 20px;*/
+
+  background-image: url('app/download.png');
+  background-repeat: no-repeat;
+  background-position: 4px 4px;
+  height: 38px;           /* make this the size of your image */
+  padding-left: 38px;     /* make text start to the right of the image */
+  vertical-align: middle;
+
+
+}
+
+/* Darker background on mouse-over */
+.btndownload:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
