@@ -5,8 +5,9 @@ import { IngresarEntradasComponent } from './ingresar-entradas/ingresar-entradas
 import { GraficosComponent } from './graficos/graficos.component';
 
 const routes: Routes = [
+    
     { path: '', component: GraficosComponent },
-/*/    { path: 'entradas/new', component: IngresarEntradasComponent }, /*/
+/*/ { path: 'entradas/new', component: IngresarEntradasComponent }, /*/
     { path: 'graficos/new', component: GraficosComponent },
 ];
 
