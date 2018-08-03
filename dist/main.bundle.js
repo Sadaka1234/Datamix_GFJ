@@ -63,7 +63,7 @@ var AppRoutingModule = /** @class */ (function () {
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".image{\n    background-image: url('Fondo.99603a8a0c27648be8e4.jpg');\n    background-repeat: repeat;\n    height: 1500px;\n    width: 100%;\n    background-color: powderblue;\n    color: #CACCCD;\n    text-align: center;   /* Como se verá el texto center justify left right */\n    text-justify: inter-word;\n}\n"
+module.exports = ""
 
 /***/ }),
 
@@ -426,7 +426,7 @@ module.exports = ""
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<nav class=\"navbar navbar-light navbar-expand-md bg-faded\" style=\"background-color: #5E838B; \">\n  <a class=\"navbar-brand\" href=\"#\">\n    <img src=\"theicon.png\" height=\"70\" class=\"d-inline-block align-top\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"/graficos/new\">Gráficos</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
+module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<nav class=\"navbar navbar-light navbar-expand-md bg-faded\" style=\"background-color: #5E838B; \">\n  <a class=\"navbar-brand  nav-bar-stylex\" href=\"#\">\n    <img src=\"theicon.png\" height=\"70\" class=\"d-inline-block align-top\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\"  id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\" style='text-align: right;'>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\" style=\"color: white;\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/graficos/new\" style=\"color: white;\">Gráficos</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
 
 /***/ }),
 

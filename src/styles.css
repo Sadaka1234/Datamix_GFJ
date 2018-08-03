@@ -24,3 +24,27 @@
   background-color: #0069d9;
   border-color: #0062cc;
 }
+
+
+
+.nav-bar-stylex {
+      color: gray;
+      text-shadow: -0.8px 0 white, 0 0.8px white, 0.8px 0 white, 0 -0.8px white;
+}
+
+.nav-bar-offstylex {
+  color: white;
+  text-align: right;
+}
+
+/* FONDO DE PAGINA*/
+.image{
+    background-image: url('app/Fondo.jpg');
+    background-repeat: repeat;
+    height: 1500px;
+    width: 100%;
+    background-color: powderblue;
+    color: #CACCCD;
+    text-align: center;   /* Como se verá el texto center justify left right */
+    text-justify: inter-word;
+}
