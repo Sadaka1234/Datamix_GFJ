@@ -10,10 +10,10 @@ import { GraphData } from '../graph-data';
 })
 
 /*export class GraficosComponent implements OnInit {
-  
+
 
   ngOnInit() {
-      
+
   }
 
 }*/
@@ -58,12 +58,19 @@ export class GraficosComponent implements OnInit {
     });
   }
 
+
+
   generarGraficos(){
     this.showGraphs = true;
-    console.log(this.TomasBus);
     this.velTime();
     this.fuelTime();
     this.tempTime();
+  }
+
+  Doit(){
+    this.generarGraficos();
+    this.generarGraficos();
+
   }
 
   getIds(fecha){
@@ -71,7 +78,7 @@ export class GraficosComponent implements OnInit {
     this.ids = [];
 
     this.chartService.getIds({"horaToma":fecha}).subscribe(rows =>{
-        
+
       for (let u in rows){
         this.ids.push(rows[u]["Asset_id"]);
       }

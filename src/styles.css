@@ -39,11 +39,15 @@
 
 /* FONDO DE PAGINA*/
 .image{
+    /*
     background-image: url('app/Fondo.jpg');
     background-repeat: repeat;
-    height: 1500px;
-    width: 100%;
+
     background-color: powderblue;
+    */
+    height: 5000px;
+    width: 100%;
+    background: linear-gradient(#455B56, #111A18);
     color: #CACCCD;
     text-align: center;   /* Como se verá el texto center justify left right */
     text-justify: inter-word;
