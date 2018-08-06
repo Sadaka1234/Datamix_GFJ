@@ -50,8 +50,9 @@ router.get('/mandata/getFechas', (req,res) => {
     res.status(200).send(CSVS.getFiles());
 });
 
-
-
+router.get('/mandata/CheckDB/:archi', (req,res) =>{
+    
+});
 
 
 
