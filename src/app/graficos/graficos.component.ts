@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GraficosService } from '../services/graficos.service';
 import { GraphData } from '../graph-data';
+import html2canvas from 'html2canvas';
+import * as pdfMake from 'pdfmake';  //Recordar desinstalar
+import * as jsPDF from 'jspdf';
+
 //import * as _ from 'lodash';
 
 @Component({
@@ -29,7 +33,6 @@ export class GraficosComponent implements OnInit {
   Currfecha : string;
   Currid : string;
   showGraphs = false;
-
   TomasBus = new GraphData();
 
   hididbus = true;
@@ -69,6 +72,8 @@ export class GraficosComponent implements OnInit {
     this.fuelTime();
     this.tempTime();
   }
+
+
 
   getIds(fecha){
 
@@ -146,4 +151,34 @@ export class GraficosComponent implements OnInit {
   }
 
 
-}
+
+
+agregarImagen(doc, id, profundidad){
+  html2canvas(document.getElementById(id)).then(canvas => {
+      document.body.appendChild(canvas);
+      var data = canvas.toDataURL();
+      doc.addImage(data, 'PNG', 5, profundidad);
+    });
+  }
+
+
+
+
+
+obtReporte(){
+    var doc = new jsPDF(); //210mm wide and 297mm high
+
+    doc.text('Reporte del bus '+this.Currid, 20, 20);
+    doc.text('Fecha: '+this.Currfecha, 20, 30);
+
+    this.agregarImagen(doc, 'downloadvelocidad', 40);
+    this.agregarImagen(doc, 'downloadtemperatura', 80);
+
+    doc.addPage();
+
+    this.agregarImagen(doc, 'downloadcombustible', 20);
+
+    doc.save('Reporte_Bus_'+this.Currid+'_'+this.Currfecha+'.pdf');
+        }
+
+      }

@@ -50,32 +50,31 @@
     <button class="btn btn-primary" (click)="hidePlots()">Cambiar Fecha</button>
 
     <div [hidden]="!showGraphs">
-
       <p></p>
       <p>
-      <button class="btn btndownload"> Descargar reporte </button>
+        <button class="btn btndownload" (click)="obtReporte()"> Descargar reporte </button>
      </p>
-
       <h1>Velocidad</h1><p></p>
 
-      <div #Velocidad>
+      <div #Velocidad id="downloadvelocidad">
         <!-- Chart will appear here -->
       </div>
 
       <h1>Temperatura</h1><p></p>
 
-      <div #Temperatura>
+      <div #Temperatura id="downloadtemperatura">
         <!-- Chart will appear here -->
       </div>
 
       <h1>Combustible</h1><p></p>
 
-      <div #Combustible>
+      <div #Combustible id="downloadcombustible">
         <!-- Chart will appear here -->
       </div>
 
     </div>
 
   </div>
+
 
 </div>
