@@ -186,7 +186,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n                id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\"\n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <div class=\"form-group\" [hidden]=\"hididbus\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!GraficosComponent.form.valid\">Procesar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando reporte basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"Doit()\">Ver Graficos</button>\n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n    <div [hidden]=\"!showGraphs\">\n\n      <p></p>\n      <p>\n      <button class=\"btn btndownload\"> Descargar reporte </button>\n     </p>\n\n      <h1>Velocidad</h1><p></p>\n\n      <div #Velocidad>\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Temperatura</h1><p></p>\n\n      <div #Temperatura>\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Combustible</h1><p></p>\n\n      <div #Combustible>\n        <!-- Chart will appear here -->\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n                id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\"\n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <div class=\"form-group\" [hidden]=\"hididbus\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!GraficosComponent.form.valid\">Procesar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando reporte basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"generarGraficos()\">Ver Graficos</button>\n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" (click)=\"obtReporte()\"> Descargar reporte </button>\n     </p>\n      <h1>Velocidad</h1><p></p>\n\n      <div #Velocidad id=\"downloadvelocidad\">\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Temperatura</h1><p></p>\n\n      <div #Temperatura id=\"downloadtemperatura\">\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Combustible</h1><p></p>\n\n      <div #Combustible id=\"downloadcombustible\">\n        <!-- Chart will appear here -->\n      </div>\n\n    </div>\n\n  </div>\n\n\n</div>\n"
 
 /***/ }),
 
@@ -198,6 +198,10 @@ module.exports = "<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n  
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_graficos_service__ = __webpack_require__("./src/app/services/graficos.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__graph_data__ = __webpack_require__("./src/app/graph-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_html2canvas__ = __webpack_require__("./node_modules/html2canvas/dist/npm/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_html2canvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_html2canvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_jspdf__ = __webpack_require__("./node_modules/jspdf/dist/jspdf.min.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_jspdf___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_jspdf__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -207,6 +211,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 
@@ -245,10 +251,6 @@ var GraficosComponent = /** @class */ (function () {
         this.velTime();
         this.fuelTime();
         this.tempTime();
-    };
-    GraficosComponent.prototype.Doit = function () {
-        this.generarGraficos();
-        this.generarGraficos();
     };
     GraficosComponent.prototype.getIds = function (fecha) {
         var _this = this;
@@ -300,6 +302,23 @@ var GraficosComponent = /** @class */ (function () {
     GraficosComponent.prototype.hidePlots = function () {
         this.submitted = false;
         this.showGraphs = false;
+    };
+    GraficosComponent.prototype.agregarImagen = function (doc, id, profundidad) {
+        __WEBPACK_IMPORTED_MODULE_3_html2canvas___default()(document.getElementById(id)).then(function (canvas) {
+            document.body.appendChild(canvas);
+            var data = canvas.toDataURL();
+            doc.addImage(data, 'PNG', 5, profundidad);
+        });
+    };
+    GraficosComponent.prototype.obtReporte = function () {
+        var doc = new __WEBPACK_IMPORTED_MODULE_4_jspdf__(); //210mm wide and 297mm high
+        doc.text('Reporte del bus ' + this.Currid, 20, 20);
+        doc.text('Fecha: ' + this.Currfecha, 20, 30);
+        this.agregarImagen(doc, 'downloadvelocidad', 40);
+        this.agregarImagen(doc, 'downloadtemperatura', 80);
+        doc.addPage();
+        this.agregarImagen(doc, 'downloadcombustible', 20);
+        doc.save('Reporte_Bus_' + this.Currid + '_' + this.Currfecha + '.pdf');
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Velocidad'),
@@ -465,7 +484,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ManejoDataComponent = /** @class */ (function () {
     function ManejoDataComponent(ManData) {
         this.ManData = ManData;
-        this.DataDiasCSV = [];
         this.DataDias = [];
     }
     ManejoDataComponent.prototype.ngOnInit = function () {
@@ -473,31 +491,14 @@ var ManejoDataComponent = /** @class */ (function () {
         this.ManData.getFechas().subscribe(function (rows) {
             _this.Arrayfy(rows);
             console.log(_this.DataDias);
-            console.log(_this.DataDiasCSV);
         });
-    };
-    ManejoDataComponent.prototype.Jsonify = function (Archis) {
-        var obje = '{ ';
-        console.log(Archis.length);
-        for (var i = 0; i < Archis.length; i++) {
-            obje = obje + '"' + Archis[i]
-                .replace('fms1-', '')
-                .replace('.csv', '')
-                + '" : { "fname" : "' + Archis[i] + '"}';
-            if (i != Archis.length - 1) {
-                obje = obje + ', ';
-            }
-        }
-        obje = obje + '}';
-        console.log(obje);
-        this.DataDias = JSON.parse(obje);
-        console.log(this.DataDias);
     };
     ManejoDataComponent.prototype.Arrayfy = function (Archis) {
         for (var i = 0; i < Archis.length; i++) {
-            this.DataDiasCSV[i] = Archis[i];
             this.DataDias[i] = Archis[i].replace('fms1-', '').replace('.csv', '');
         }
+    };
+    ManejoDataComponent.prototype.PickDate = function (fecharch) {
     };
     ManejoDataComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
