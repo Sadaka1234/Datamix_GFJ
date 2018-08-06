@@ -1,0 +1,15 @@
+<div class="container">
+
+    <div class="form-group" >
+        <label for="Fecha">Fecha de toma de datos</label>
+        <select class="form-control"
+                id="FechArch"
+                required
+                [(ngModel)]="Dia"
+                name="fecha"
+                #fecha="ngModel">
+          <option *ngFor="let fecha of DataDias" [value]="fecha">{{fecha | date}}</option>
+        </select>
+     </div>
+
+</div>
