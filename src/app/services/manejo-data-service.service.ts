@@ -13,4 +13,9 @@ export class ManejoDataServiceService {
   	return this.http.get('/api/v1/mandata/getFechas').map( res => res.json());
   }
 
+  CheckDB(archidate){
+  	let newarchi = "fms1-" + archidate + ".csv";
+  	//return this.http.get()
+  }
+
 }

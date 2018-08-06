@@ -9,9 +9,10 @@ import { GraficosComponent } from './graficos/graficos.component';
 import { GraficosService } from './services/graficos.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login.guard';
 import { ManejoDataServiceService } from './services/manejo-data-service.service';
 import { ManejoDataComponent } from './manejo-data/manejo-data.component';
-
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ManejoDataComponent } from './manejo-data/manejo-data.component';
     NavbarComponent,
     GraficosComponent,
     HomeComponent,
+    LoginComponent,
     ManejoDataComponent
   ],
   imports: [
@@ -28,9 +30,11 @@ import { ManejoDataComponent } from './manejo-data/manejo-data.component';
     HttpModule,
     FormsModule
   ],
+
   providers: [
     GraficosService,
-    ManejoDataServiceService
+    ManejoDataServiceService,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })

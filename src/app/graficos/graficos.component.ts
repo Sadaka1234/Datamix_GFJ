@@ -37,6 +37,7 @@ export class GraficosComponent implements OnInit {
 
   hididbus = true;
   submitted = false;
+  showgraphs = false;
 
   constructor(private chartService: GraficosService) { }
 
@@ -54,14 +55,18 @@ export class GraficosComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
     this.chartService.getData({"diaToma" : this.Currfecha , "idBus" : this.Currid}).subscribe(rows =>{
       this.TomasBus.updateData(rows);
       console.log("Acabo de obtener los datos");
+      this.submitted = true;
+      this.generarGraficos();
     });
   }
 
   generarGraficos(){
+    Plotly.purge(this.vel.nativeElement);
+    Plotly.purge(this.fuel.nativeElement);
+    Plotly.purge(this.temp.nativeElement);
     this.showGraphs = true;
     this.velTime();
     this.fuelTime();
