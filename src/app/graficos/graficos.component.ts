@@ -58,19 +58,11 @@ export class GraficosComponent implements OnInit {
     });
   }
 
-
-
   generarGraficos(){
     this.showGraphs = true;
     this.velTime();
     this.fuelTime();
     this.tempTime();
-  }
-
-  Doit(){
-    this.generarGraficos();
-    this.generarGraficos();
-
   }
 
   getIds(fecha){
