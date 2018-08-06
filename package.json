@@ -43,6 +43,7 @@
     "mouse-event-offset": "^3.0.2",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
+    "papaparse": "^4.6.0",
     "parser": "^0.1.4",
     "path": "^0.12.7",
     "plotly": "^1.0.6",

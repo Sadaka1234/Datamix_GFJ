@@ -3,6 +3,7 @@ const router = express.Router();
 
 const sequelize = require('./config');
 const path = require('path');
+const CSVS = require('./CSV');
 
  //Testdeconexi ́on
 sequelize.authenticate().then(() => {
@@ -14,6 +15,8 @@ console.error("No te puedes conectar: ", err);
 
 const infoBus = sequelize.import('BUS', require("../models/BUS"));
 const infoUser = sequelize.import('User', require("../models/User"));
+
+CSVS.getFiles();
 
 
 sequelize.sync()
@@ -41,6 +44,10 @@ router.get('/graficos/getData/:horaToma/:idBus', (req, res) =>{
     sequelize.query(query,{ type: sequelize.QueryTypes.SELECT })
     .then(rows => { res.status(200).send(rows);
     });
+});
+
+router.get('/mandata/getFechas', (req,res) => {
+    res.status(200).send(CSVS.getFiles());
 });
 
 

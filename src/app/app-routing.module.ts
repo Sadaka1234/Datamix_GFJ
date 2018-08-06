@@ -4,12 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { IngresarEntradasComponent } from './ingresar-entradas/ingresar-entradas.component';/*/
 import { GraficosComponent } from './graficos/graficos.component';
 import { HomeComponent } from './home/home.component';
+import { ManejoDataComponent } from './manejo-data/manejo-data.component';
+
 
 const routes: Routes = [
 /*/    { path: '', component: GraficosComponent },
     { path: 'entradas/new', component: IngresarEntradasComponent }, /*/
     { path: 'graficos/new', component: GraficosComponent },
     { path: '', component: HomeComponent},
+    { path: 'manejo-data', component: ManejoDataComponent}
 ];
 
 @NgModule({
