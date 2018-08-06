@@ -9,13 +9,17 @@ import { GraficosComponent } from './graficos/graficos.component';
 import { GraficosService } from './services/graficos.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login.guard';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     GraficosComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,7 @@ import { HomeComponent } from './home/home.component';
     HttpModule,
     FormsModule
   ],
-  providers: [GraficosService],
+  providers: [GraficosService, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
