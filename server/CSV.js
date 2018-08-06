@@ -12,7 +12,7 @@ function dataFormat(DatosCSV){
 	DatosCSV[14] = (DatosCSV[14] == 't');
 
 	let DatosFormateados = { 
-		horaToma : DatosCSV[0], 
+		horaToma : new Date(DatosCSV[0]), 
 		Asset_id : DatosCSV[1], 
 		A_Speed : DatosCSV[7],
 		Curr_fLevel : DatosCSV[16],
@@ -68,8 +68,8 @@ function TopTens(Whole){
 
 function readCSV(arch){
 
-	//let path  = "./CSV/Truncados/" + arch;
-	let path = ("./CSV/Truncados/fms1-2017-10-30.csv")
+	let path  = "./CSV/" + arch;
+	console.log(path);
 	var Bede = parser.parse(fs.createReadStream(path), {
 		header: false,
 		download: true,
@@ -91,5 +91,7 @@ function readCSV(arch){
 
 	
 }
+
+readCSV("fms1-2017-10-01.csv");
 
 module.exports.getFiles = getFiles;
