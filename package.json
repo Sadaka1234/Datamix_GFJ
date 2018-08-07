@@ -45,6 +45,7 @@
     "mouse-event-offset": "^3.0.2",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
+    "ng4-loading-spinner": "^1.2.3",
     "npm": "^6.3.0",
     "papaparse": "^4.6.0",
     "parser": "^0.1.4",

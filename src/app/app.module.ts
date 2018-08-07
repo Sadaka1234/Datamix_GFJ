@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
 import { ManejoDataServiceService } from './services/manejo-data-service.service';
 import { ManejoDataComponent } from './manejo-data/manejo-data.component';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ManejoDataComponent } from './manejo-data/manejo-data.component';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    Ng4LoadingSpinnerModule.forRoot()
   ],
 
   providers: [

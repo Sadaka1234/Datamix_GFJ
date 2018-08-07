@@ -56,7 +56,7 @@ var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)],
             exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
         })
@@ -100,7 +100,7 @@ var AppComponent = /** @class */ (function () {
         this.title = 'app';
     }
     AppComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")]
@@ -133,6 +133,8 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__login_guard__ = __webpack_require__("./src/app/login.guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_manejo_data_service_service__ = __webpack_require__("./src/app/services/manejo-data-service.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__manejo_data_manejo_data_component__ = __webpack_require__("./src/app/manejo-data/manejo-data.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ng4_loading_spinner__ = __webpack_require__("./node_modules/ng4-loading-spinner/ng4-loading-spinner.umd.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ng4_loading_spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_ng4_loading_spinner__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -153,11 +155,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__navbar_navbar_component__["a" /* NavbarComponent */],
@@ -170,7 +173,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_4__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_14_ng4_loading_spinner__["Ng4LoadingSpinnerModule"].forRoot()
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__["a" /* GraficosService */],
@@ -197,7 +201,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando reporte basados en la siguientes elecciones:</h2>\n    <div class=\"row\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas.  </div>\n    </div>\n    <div class=\"row\" >\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n\n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" (click)=\"obtReporte()\"> Descargar reporte </button>\n     </p>\n     <div>\n      <h1>Velocidad</h1><p></p>\n\n      <div #Velocidad id=\"downvelocida\">\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Temperatura</h1><p></p>\n\n      <div #Temperatura id=\"downtemperatura\">\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Combustible</h1><p></p>\n\n      <div #Combustible id=\"downcombustible\">\n        <!-- Chart will appear here -->\n      </div>\n    </div>\n    </div>\n  </div>\n\n\n</div>\n"
+module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando reporte basados en la siguientes elecciones:</h2>\n    <div class=\"row\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas.  </div>\n    </div>\n    <div class=\"row\" >\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n\n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" (click)=\"obtReporte()\"> Descargar reporte </button>\n     </p>\n             <div class=\"card bg-transparent mt-1\">\n            <div class=\"card-header\">\n                <h1 class=\"card-title\">Velocidad</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div #Velocidad>  \n                <!-- Chart will appear here -->\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Temperatura</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Temperatura>\n                  <!-- Chart will appear here -->\n                </div>\n              </div>     \n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Combustible</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Combustible>\n                  <!-- Chart will appear here -->\n                </div>\n              </div>     \n            </div>\n        </div>\n      </div>\n  </div>\n\n\n</div>\n"
 
 /***/ }),
 
@@ -363,19 +367,19 @@ var GraficosComponent = /** @class */ (function () {
         ;
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Velocidad'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('Velocidad'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], GraficosComponent.prototype, "vel", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Combustible'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('Combustible'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], GraficosComponent.prototype, "fuel", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Temperatura'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('Temperatura'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], GraficosComponent.prototype, "temp", void 0);
     GraficosComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-graficos',
             template: __webpack_require__("./src/app/graficos/graficos.component.html"),
             styles: [__webpack_require__("./src/app/graficos/graficos.component.css")]
@@ -477,7 +481,7 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.ngOnInit = function () {
     };
     HomeComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home',
             template: __webpack_require__("./src/app/home/home.component.html"),
             styles: [__webpack_require__("./src/app/home/home.component.css")]
@@ -523,7 +527,7 @@ var LoginGuard = /** @class */ (function () {
         }
     };
     LoginGuard = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
     ], LoginGuard);
     return LoginGuard;
@@ -579,7 +583,7 @@ var LoginComponent = /** @class */ (function () {
         }
     };
     LoginComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-login',
             template: __webpack_require__("./src/app/login/login.component.html"),
             styles: [__webpack_require__("./src/app/login/login.component.css")]
@@ -603,7 +607,7 @@ module.exports = ""
 /***/ "./src/app/manejo-data/manejo-data.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" [hidden]=\"!Memes\">\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n        <div class=\"form-group\" >\n            <label for=\"Fecha\">Fecha de toma de datos</label>\n            <select class=\"form-control\"\n                    id=\"FechArch\"\n                    required\n                    [(ngModel)]=\"Dia\"\n                    name=\"fecha\"\n                    #fecha=\"ngModel\"\n                    (change)=\"PickDate($event.target.value)\">\n              <option *ngFor=\"let fecha of DataDias\" [value]=\"fecha\">{{fecha | date}}</option>\n            </select>\n         </div>\n         <p [hidden]=\"!Warning\"> Este archivo ya se encuentra en la base de datos </p>\n         <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!itCanBeDone\" >Procesar CSV</button>\n    </form>\n</div>\n\n<div class=\"container\" [hidden]=\"Memes\">\n    <img src=\"/assets/thonk.gif\">\n    <img src=\"/assets/Parseando.gif\">\n    <p></p>\n</div>\n\n"
+module.exports = "<div class=\"container\" [hidden]=\"!Memes\">\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n        <div class=\"form-group\" >\n            <label for=\"Fecha\">Fecha de toma de datos</label>\n            <select class=\"form-control\"\n                    id=\"FechArch\"\n                    required\n                    [(ngModel)]=\"Dia\"\n                    name=\"fecha\"\n                    #fecha=\"ngModel\"\n                    (change)=\"PickDate($event.target.value)\">\n              <option *ngFor=\"let fecha of DataDias\" [value]=\"fecha\">{{fecha | date}}</option>\n            </select>\n         </div>\n         <p [hidden]=\"!Warning\"> Este archivo ya se encuentra en la base de datos </p>\n         <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!itCanBeDone\" >Procesar CSV</button>\n    </form>\n</div>\n\n<div class=\"container\" [hidden]=\"Memes\">\n    <div class=\"centered\">\n      <img src=\"/assets/load.svg\" >\n    </div>\n    <div class=\"centered\">\n      <img src=\"/theicon.png\" height=\"70\">\n    </div> \n    <p></p>\n    <h1>Procesando CSV</h1>\n</div>\n\n"
 
 /***/ }),
 
@@ -614,6 +618,8 @@ module.exports = "<div class=\"container\" [hidden]=\"!Memes\">\n    <form (ngSu
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManejoDataComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_manejo_data_service_service__ = __webpack_require__("./src/app/services/manejo-data-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng4_loading_spinner__ = __webpack_require__("./node_modules/ng4-loading-spinner/ng4-loading-spinner.umd.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng4_loading_spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng4_loading_spinner__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -625,9 +631,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ManejoDataComponent = /** @class */ (function () {
-    function ManejoDataComponent(ManData) {
+    function ManejoDataComponent(ManData, spinnerService) {
         this.ManData = ManData;
+        this.spinnerService = spinnerService;
         this.DataDias = [];
         this.itCanBeDone = false;
         this.Warning = false;
@@ -662,17 +670,17 @@ var ManejoDataComponent = /** @class */ (function () {
         var _this = this;
         this.Memes = false;
         this.ManData.LetsGetParsing(this.Dia).subscribe(function (rows) {
-            _this.Memes = false;
+            _this.spinnerService.show();
         });
-        setTimeout(function () { _this.Memes = true; console.log(_this.Memes); }, 18000);
+        setTimeout(function () { _this.spinnerService.hide(); _this.Memes = true; }, 18000);
     };
     ManejoDataComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-manejo-data',
             template: __webpack_require__("./src/app/manejo-data/manejo-data.component.html"),
             styles: [__webpack_require__("./src/app/manejo-data/manejo-data.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_manejo_data_service_service__["a" /* ManejoDataServiceService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_manejo_data_service_service__["a" /* ManejoDataServiceService */], __WEBPACK_IMPORTED_MODULE_2_ng4_loading_spinner__["Ng4LoadingSpinnerService"]])
     ], ManejoDataComponent);
     return ManejoDataComponent;
 }());
@@ -717,7 +725,7 @@ var NavbarComponent = /** @class */ (function () {
     NavbarComponent.prototype.ngOnInit = function () {
     };
     NavbarComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-navbar',
             template: __webpack_require__("./src/app/navbar/navbar.component.html"),
             styles: [__webpack_require__("./src/app/navbar/navbar.component.css")]
@@ -778,7 +786,7 @@ var GraficosService = /** @class */ (function () {
         return this.http.get('/api/v1/graficos/getDIds').map(function (res) { return res.json(); });
     };
     GraficosService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], GraficosService);
     return GraficosService;
@@ -824,7 +832,7 @@ var ManejoDataServiceService = /** @class */ (function () {
         return this.http.get(url).map(function (res) { return res.json(); });
     };
     ManejoDataServiceService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], ManejoDataServiceService);
     return ManejoDataServiceService;
@@ -864,7 +872,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });
