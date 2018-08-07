@@ -14,8 +14,13 @@ export class ManejoDataServiceService {
   }
 
   CheckDB(archidate){
-  	let newarchi = "fms1-" + archidate + ".csv";
-  	//return this.http.get()
+  	let url = "/api/v1/mandata/CheckDB/" + archidate;
+  	return this.http.get(url).map(res => res.json());
+  }
+
+  LetsGetParsing(archidate){
+  	let url = "/api/v1/mandata/LetsGetParsing/" + archidate;
+  	return this.http.get(url).map(res => res.json());
   }
 
 }

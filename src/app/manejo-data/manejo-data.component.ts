@@ -12,15 +12,18 @@ export class ManejoDataComponent implements OnInit {
 
 	DataDias : any = [];
 	Dia : String;
+  itCanBeDone : Boolean = false;
+  Warning : Boolean = false;
+  Memes : Boolean = true;
 
-  	ngOnInit() {
+  ngOnInit() {
 
-  		this.ManData.getFechas().subscribe( rows =>{
-  				
-  				this.Arrayfy(rows);
-  				console.log(this.DataDias);
-	  		}
-  		);
+		this.ManData.getFechas().subscribe( rows =>{
+				
+				this.Arrayfy(rows);
+				console.log(this.DataDias);
+  		}
+		);
 
 
  	}
@@ -33,8 +36,24 @@ export class ManejoDataComponent implements OnInit {
  	}
 
  	PickDate(fecharch){
- 		
+    this.Warning = false;
+    this.ManData.CheckDB(fecharch).subscribe( rows =>{
+       if (rows[0]["Numero"] == 0){
+         this.itCanBeDone = true;
+       }
+       else {
+         this.itCanBeDone = false;
+         this.Warning = true;
+       }
+    });
  	}
 
+  onSubmit(){
+    this.Memes = false;
+    this.ManData.LetsGetParsing(this.Dia).subscribe( rows => {
+      this.Memes = false;
+    });
+    setTimeout(() => { this.Memes = true; console.log(this.Memes);}, 18000);
+  }
 
 }

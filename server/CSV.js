@@ -4,6 +4,8 @@ const parser = require('papaparse');
 
 const infoBus = sequelize.import('BUS', require("../models/BUS"));
 
+var done = false;
+
 //Clase para el formato de los datos
 
 function dataFormat(DatosCSV){
@@ -71,11 +73,16 @@ function TopTens(Whole){
 	return topten
 }
 
+function dones(){
+	this.done = !this.done;
+}
+
 function readCSV(arch){
 
+	this.done = false;
 	let path  = "./CSV/" + arch;
-	console.log(path);
-	var Bede = parser.parse(fs.createReadStream(path), {
+
+	parser.parse(fs.createReadStream(path), {
 		header: false,
 		download: true,
 		complete: function(results){
@@ -90,13 +97,12 @@ function readCSV(arch){
 					poss++;
 				}
 			}
-			console.log(poss);
+			return true;
 		}
 	});
-
-	
 }
 
 //readCSV("fms1-2017-10-01.csv");
 
 module.exports.getFiles = getFiles;
+module.exports.readCSV = readCSV;
