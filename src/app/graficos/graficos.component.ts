@@ -194,15 +194,13 @@ obtReporte(){
       else{
         this.doc.text('Reporte del bus: '+this.Currid, 20, 40);
         this.doc.text('Fecha: '+this.Currfecha, 80, 40);
-        this.doc.text('Gráficos:', 20, 297);
+        this.doc.text('Gráficos:', 20, 337);
         this.agregarImagen("downtemperatura",240);
         this.agregarImagen("downcombustible", 180);
         this.agregarImagen("downvelocida", 50);
         this.doc.addPage();
         this.waiter = false;
       };
-
-    doc.save('Reporte_Bus_'+this.Currid+'_'+this.Currfecha+'.pdf');
 }
 
 }

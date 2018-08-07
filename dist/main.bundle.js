@@ -197,7 +197,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n      \n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando reporte basados en la siguientes elecciones:</h2>\n    <div class=\"row\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas.  </div>\n    </div>\n    <div class=\"row\" >\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    \n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n        <div [hidden]=\"!showGraphs\">\n      <div class=\"container\">\n        <p></p>\n        <p>\n        <button class=\"btn btndownload\"> Descargar reporte </button>\n       </p>\n        <div class=\"card bg-transparent mt-1\">\n            <div class=\"card-header\">\n                <h1 class=\"card-title\">Velocidad</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div #Velocidad>  \n                <!-- Chart will appear here -->\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Temperatura</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Temperatura>\n                  <!-- Chart will appear here -->\n                </div>\n              </div>     \n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Combustible</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Combustible>\n                  <!-- Chart will appear here -->\n                </div>\n              </div>     \n            </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n</div>\n"
+module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando reporte basados en la siguientes elecciones:</h2>\n    <div class=\"row\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas.  </div>\n    </div>\n    <div class=\"row\" >\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n\n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" (click)=\"obtReporte()\"> Descargar reporte </button>\n     </p>\n     <div>\n      <h1>Velocidad</h1><p></p>\n\n      <div #Velocidad id=\"downvelocida\">\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Temperatura</h1><p></p>\n\n      <div #Temperatura id=\"downtemperatura\">\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Combustible</h1><p></p>\n\n      <div #Combustible id=\"downcombustible\">\n        <!-- Chart will appear here -->\n      </div>\n    </div>\n    </div>\n  </div>\n\n\n</div>\n"
 
 /***/ }),
 
@@ -239,6 +239,8 @@ var GraficosComponent = /** @class */ (function () {
         this.submitted = false;
         this.showgraphs = false;
         this.Butt = false;
+        this.doc = new __WEBPACK_IMPORTED_MODULE_4_jspdf__('p', 'mm', [297, 210]);
+        this.waiter = true;
     }
     GraficosComponent.prototype.ngOnInit = function () {
         this.GetIds();
@@ -332,22 +334,33 @@ var GraficosComponent = /** @class */ (function () {
         this.showGraphs = false;
         this.hidfechatoma = false;
     };
-    GraficosComponent.prototype.agregarImagen = function (doc, id, profundidad) {
+    GraficosComponent.prototype.agregarImagen = function (id, profundidad) {
+        var _this = this;
         __WEBPACK_IMPORTED_MODULE_3_html2canvas___default()(document.getElementById(id)).then(function (canvas) {
             document.body.appendChild(canvas);
             var data = canvas.toDataURL();
-            doc.addImage(data, 'PNG', 5, profundidad);
+            _this.doc.addImage(data, 'PNG', 20, profundidad);
         });
     };
     GraficosComponent.prototype.obtReporte = function () {
-        var doc = new __WEBPACK_IMPORTED_MODULE_4_jspdf__(); //210mm wide and 297mm high
-        doc.text('Reporte del bus ' + this.Currid, 20, 20);
-        doc.text('Fecha: ' + this.Currfecha, 20, 30);
-        this.agregarImagen(doc, 'downloadvelocidad', 40);
-        this.agregarImagen(doc, 'downloadtemperatura', 80);
-        doc.addPage();
-        this.agregarImagen(doc, 'downloadcombustible', 20);
-        doc.save('Reporte_Bus_' + this.Currid + '_' + this.Currfecha + '.pdf');
+        var ancho = this.doc.internal.pageSize.width;
+        var alto = this.doc.internal.pageSize.height;
+        //210mm wide and 297mm high
+        if (!this.waiter) {
+            this.doc.save('Reporte_Bus_' + this.Currid + '_' + this.Currfecha + '.pdf');
+            this.doc = new __WEBPACK_IMPORTED_MODULE_4_jspdf__('p', 'mm', [297, 210]);
+        }
+        else {
+            this.doc.text('Reporte del bus: ' + this.Currid, 20, 40);
+            this.doc.text('Fecha: ' + this.Currfecha, 80, 40);
+            this.doc.text('Gráficos:', 20, 337);
+            this.agregarImagen("downtemperatura", 240);
+            this.agregarImagen("downcombustible", 180);
+            this.agregarImagen("downvelocida", 50);
+            this.doc.addPage();
+            this.waiter = false;
+        }
+        ;
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Velocidad'),
@@ -590,7 +603,7 @@ module.exports = ""
 /***/ "./src/app/manejo-data/manejo-data.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" [hidden]=\"!Memes\">\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n        <div class=\"form-group\" >\n            <label for=\"Fecha\">Fecha de toma de datos</label>\n            <select class=\"form-control\"\n                    id=\"FechArch\"\n                    required\n                    [(ngModel)]=\"Dia\"\n                    name=\"fecha\"\n                    #fecha=\"ngModel\"\n                    (change)=\"PickDate($event.target.value)\">\n              <option *ngFor=\"let fecha of DataDias\" [value]=\"fecha\">{{fecha | date}}</option>\n            </select>\n         </div>\n         <p [hidden]=\"!Warning\"> Este archivo ya se encuentra en la base de datos </p>\n         <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!itCanBeDone\" >Procesar CSV</button>\n    </form>\n</div>\n\n<div class=\"container\" [hidden]=\"Memes\">\n    <img src=\"/assets/thonk.gif\">\n    <img src=\"/assets/Parseando.gif\">\n    <p></p>\n    <button [hidden]=\"!Memes\" type=\"submit\" class=\"btn btn-primary\" >Volver</button>\n</div>\n\n"
+module.exports = "<div class=\"container\" [hidden]=\"!Memes\">\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n        <div class=\"form-group\" >\n            <label for=\"Fecha\">Fecha de toma de datos</label>\n            <select class=\"form-control\"\n                    id=\"FechArch\"\n                    required\n                    [(ngModel)]=\"Dia\"\n                    name=\"fecha\"\n                    #fecha=\"ngModel\"\n                    (change)=\"PickDate($event.target.value)\">\n              <option *ngFor=\"let fecha of DataDias\" [value]=\"fecha\">{{fecha | date}}</option>\n            </select>\n         </div>\n         <p [hidden]=\"!Warning\"> Este archivo ya se encuentra en la base de datos </p>\n         <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!itCanBeDone\" >Procesar CSV</button>\n    </form>\n</div>\n\n<div class=\"container\" [hidden]=\"Memes\">\n    <img src=\"/assets/thonk.gif\">\n    <img src=\"/assets/Parseando.gif\">\n    <p></p>\n</div>\n\n"
 
 /***/ }),
 
