@@ -133,16 +133,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__login_guard__ = __webpack_require__("./src/app/login.guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_manejo_data_service_service__ = __webpack_require__("./src/app/services/manejo-data-service.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__manejo_data_manejo_data_component__ = __webpack_require__("./src/app/manejo-data/manejo-data.component.ts");
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_login_service__ = __webpack_require__("./src/app/services/login.service.ts");
-=======
->>>>>>> 65705d06dbc9388a0e9c362bd0a7c9b58decedf2
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -174,11 +172,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_4__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */],
-<<<<<<< HEAD
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
-=======
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
->>>>>>> 65705d06dbc9388a0e9c362bd0a7c9b58decedf2
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__["a" /* GraficosService */],
@@ -704,11 +698,7 @@ module.exports = ""
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-<<<<<<< HEAD
-module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<!--  style=\"background: linear-gradient(#4FABB5, #455B56);\"         style=\"background:rgba(0,0,0,0.5);\" -->\n<nav class=\"navbar navbar-expand-md bg-transparent\" style=\"background:rgba(0,0,0,0.5);\"  >\n  <a class=\"navbar-brand  nav-bar-stylex\" href=\"#\">\n    <img src=\"theicon.png\" height=\"70\" class=\"d-inline-block align-top\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\"  id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\" style='text-align: right;'>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\" style=\"color: white;\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/graficos/new\" style=\"color: white;\">Gráficos</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/manejo-data\" style=\"color: white;\" [hidden]=\"!isAdmin\">Manejo Data</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
-=======
-module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<!--  style=\"background: linear-gradient(#4FABB5, #455B56);\"         style=\"background:rgba(0,0,0,0.5);\" -->\n<nav class=\"navbar navbar-expand-md navbar-wrapper\" >\n  <a class=\"navbar-brand  nav-bar-stylex\" href=\"#\">\n    <img src=\"theicon.png\" height=\"35\" class=\"d-inline-block align-top\" style=\"opacity: 0.5;\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\"  id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\" style='text-align: right;'>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\" style=\"color: white;\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/graficos/new\" style=\"color: white;\">Gráficos</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/manejo-data\" style=\"color: white;\">Manejo Data</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
->>>>>>> 65705d06dbc9388a0e9c362bd0a7c9b58decedf2
+module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<!--  style=\"background: linear-gradient(#4FABB5, #455B56);\"         style=\"background:rgba(0,0,0,0.5);\" -->\n<nav class=\"navbar navbar-expand-md navbar-wrapper\" >\n  <a class=\"navbar-brand  nav-bar-stylex\" href=\"#\">\n    <img src=\"theicon.png\" height=\"35\" class=\"d-inline-block align-top\" style=\"opacity: 0.5;\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\"  id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\" style='text-align: right;'>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\" style=\"color: white;\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/graficos/new\" style=\"color: white;\">Gráficos</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/manejo-data\" style=\"color: white;\" [hidden]=\"!isAdmin\">Manejo Data</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
 
 /***/ }),
 
