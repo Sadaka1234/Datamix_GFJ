@@ -31,7 +31,7 @@
         </select>
       </div>
 
-      <button type="submit" class="btn btn-primary" style="width:200px;" [disabled]="!Butt" >Procesar Graficos</button>
+      <button type="submit" class="btn btn-primary" style="width:200px;background-color: #061539;" [disabled]="!Butt" >Procesar Graficos</button>
 
     </form>
   </div>
@@ -52,13 +52,13 @@
     </div>
     <br>
 
-    <button class="btn btn-primary"   style="width:200px;" (click)="hidePlots()">Cambiar Fecha</button>
+    <button class="btn btn-primary"   style="width:200px; background-color: #061539;" (click)="hidePlots()">Cambiar Fecha</button>
 
 
     <div [hidden]="!showGraphs">
       <p></p>
       <p>
-        <button class="btn btndownload" style="width:200px;" (click)="obtReporte()" style="display:inline-block;"> Descargar reporte </button>
+        <button class="btn btndownload" style="width:200px; background-color: #061539;" (click)="obtReporte()" style="display:inline-block;"> Descargar reporte </button>
 
      </p>
              <div class="card bg-transparent mt-1">
