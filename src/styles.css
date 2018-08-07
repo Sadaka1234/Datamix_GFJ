@@ -39,17 +39,18 @@
   text-align: right;
 }
 
+
 /* FONDO DE PAGINA*/
 .image{
-    /*
+
     background-image: url('app/Fondo.jpg');
     background-repeat: repeat;
-
     background-color: powderblue;
-    */
     height: 5000px;
     width: 100%;
-    background: linear-gradient(#455B56, #111A18);
+    /*background: linear-gradient(#455B56, #111A18);*/
+
+    /*background-image: linear-gradient(to bottom, #455B56 100%, rgba(255, 255, 255, 0) 0);*/
     color: #CACCCD;
     text-align: center;   /* Como se verá el texto center justify left right */
     text-justify: inter-word;
