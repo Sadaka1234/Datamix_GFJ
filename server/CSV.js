@@ -11,8 +11,12 @@ function dataFormat(DatosCSV){
 	DatosCSV[12] = (DatosCSV[12] == 't');
 	DatosCSV[14] = (DatosCSV[14] == 't');
 
+	let horaT = new Date(DatosCSV[0]);
+	horaT.setHours((12 + (horaT.getHours() - 3))%12);
+
+
 	let DatosFormateados = { 
-		horaToma : new Date(DatosCSV[0]), 
+		horaToma : horaT, 
 		Asset_id : DatosCSV[1], 
 		A_Speed : DatosCSV[7],
 		Curr_fLevel : DatosCSV[16],
@@ -26,7 +30,8 @@ function dataFormat(DatosCSV){
 		Brake_Switch : DatosCSV[12],
 		Cruise_Active : DatosCSV[14],
 		PTO_Active : DatosCSV[15],
-		Turbo_Pressure : DatosCSV[18]
+		Turbo_Pressure : DatosCSV[18],
+		Dia_Toma : DatosCSV[0].substring(0, 10)
 	};
 	infoBus.create(DatosFormateados);
 
@@ -92,6 +97,6 @@ function readCSV(arch){
 	
 }
 
-readCSV("fms1-2017-10-01.csv");
+//readCSV("fms1-2017-10-01.csv");
 
 module.exports.getFiles = getFiles;

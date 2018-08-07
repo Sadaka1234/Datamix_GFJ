@@ -26,7 +26,9 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__graficos_graficos_component__ = __webpack_require__("./src/app/graficos/graficos.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__manejo_data_manejo_data_component__ = __webpack_require__("./src/app/manejo-data/manejo-data.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_guard__ = __webpack_require__("./src/app/login.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__manejo_data_manejo_data_component__ = __webpack_require__("./src/app/manejo-data/manejo-data.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -40,20 +42,23 @@ import { IngresarEntradasComponent } from './ingresar-entradas/ingresar-entradas
 
 
 
+
+
 var routes = [
     /*/    { path: '', component: GraficosComponent },
         { path: 'entradas/new', component: IngresarEntradasComponent }, /*/
-    { path: 'graficos/new', component: __WEBPACK_IMPORTED_MODULE_2__graficos_graficos_component__["a" /* GraficosComponent */] },
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_3__home_home_component__["a" /* HomeComponent */] },
-    { path: 'manejo-data', component: __WEBPACK_IMPORTED_MODULE_4__manejo_data_manejo_data_component__["a" /* ManejoDataComponent */] }
+    { path: 'graficos/new', component: __WEBPACK_IMPORTED_MODULE_2__graficos_graficos_component__["a" /* GraficosComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_5__login_guard__["a" /* LoginGuard */]] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_3__home_home_component__["a" /* HomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_5__login_guard__["a" /* LoginGuard */]] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_4__login_login_component__["a" /* LoginComponent */] },
+    { path: 'manejo-data', component: __WEBPACK_IMPORTED_MODULE_6__manejo_data_manejo_data_component__["a" /* ManejoDataComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_5__login_guard__["a" /* LoginGuard */]] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -124,14 +129,18 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__ = __webpack_require__("./src/app/services/graficos.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__navbar_navbar_component__ = __webpack_require__("./src/app/navbar/navbar.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_manejo_data_service_service__ = __webpack_require__("./src/app/services/manejo-data-service.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__manejo_data_manejo_data_component__ = __webpack_require__("./src/app/manejo-data/manejo-data.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__login_guard__ = __webpack_require__("./src/app/login.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_manejo_data_service_service__ = __webpack_require__("./src/app/services/manejo-data-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__manejo_data_manejo_data_component__ = __webpack_require__("./src/app/manejo-data/manejo-data.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -154,7 +163,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_8__navbar_navbar_component__["a" /* NavbarComponent */],
                 __WEBPACK_IMPORTED_MODULE_6__graficos_graficos_component__["a" /* GraficosComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__home_home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__manejo_data_manejo_data_component__["a" /* ManejoDataComponent */]
+                __WEBPACK_IMPORTED_MODULE_10__login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__manejo_data_manejo_data_component__["a" /* ManejoDataComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -164,7 +174,8 @@ var AppModule = /** @class */ (function () {
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__["a" /* GraficosService */],
-                __WEBPACK_IMPORTED_MODULE_10__services_manejo_data_service_service__["a" /* ManejoDataServiceService */]
+                __WEBPACK_IMPORTED_MODULE_12__services_manejo_data_service_service__["a" /* ManejoDataServiceService */],
+                __WEBPACK_IMPORTED_MODULE_11__login_guard__["a" /* LoginGuard */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
@@ -186,7 +197,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <fieldset>\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">Fecha de toma de datos</label>\n        <select class=\"form-control\"\n                id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\"\n                name=\"fecha\"\n                #fecha=\"ngModel\"\n                (change)=\"getIds($event.target.value)\">\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <div class=\"form-group\" [hidden]=\"hididbus\">\n        <label for=\"idBus\">ID del Bus</label>\n        <select class=\"form-control\" id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\" name=\"idBus\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!GraficosComponent.form.valid\">Procesar Graficos</button>\n\n    </fieldset>\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando reporte basados en la siguientes elecciones:</h2>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    <button class=\"btn btn-primary\" (click)=\"generarGraficos()\">Ver Graficos</button>\n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" (click)=\"obtReporte()\"> Descargar reporte </button>\n     </p>\n      <h1>Velocidad</h1><p></p>\n\n      <div #Velocidad id=\"downloadvelocidad\">\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Temperatura</h1><p></p>\n\n      <div #Temperatura id=\"downloadtemperatura\">\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Combustible</h1><p></p>\n\n      <div #Combustible id=\"downloadcombustible\">\n        <!-- Chart will appear here -->\n      </div>\n\n    </div>\n\n  </div>\n\n\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n      \n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando reporte basados en la siguientes elecciones:</h2>\n    <div class=\"row\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas.  </div>\n    </div>\n    <div class=\"row\" >\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n    \n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" (click)=\"obtReporte()\"> Descargar reporte </button>\n     </p>\n      <h1>Velocidad</h1><p></p>\n\n      <div #Velocidad id=\"downloadvelocidad\">\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Temperatura</h1><p></p>\n\n      <div #Temperatura id=\"downloadtemperatura\">\n        <!-- Chart will appear here -->\n      </div>\n\n      <h1>Combustible</h1><p></p>\n\n      <div #Combustible id=\"downloadcombustible\">\n        <!-- Chart will appear here -->\n      </div>\n\n    </div>\n\n  </div>\n\n\n</div>\n"
 
 /***/ }),
 
@@ -224,44 +235,61 @@ var GraficosComponent = /** @class */ (function () {
         this.ids = [];
         this.showGraphs = false;
         this.TomasBus = new __WEBPACK_IMPORTED_MODULE_2__graph_data__["a" /* GraphData */]();
-        this.hididbus = true;
+        this.hidfechatoma = false;
         this.submitted = false;
+        this.showgraphs = false;
+        this.Butt = false;
     }
     GraficosComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.chartService.getFechas().subscribe(function (rows) {
-            var f = 0;
-            for (var y in rows) {
-                _this.fechas[f] = rows[y]["DATE(horaToma)"];
-                f++;
-            }
-        });
-        //console.log(typeof this.fechas);
+        this.GetIds();
+        //this.GetFechas(5);
     };
     GraficosComponent.prototype.onSubmit = function () {
         var _this = this;
-        this.submitted = true;
-        this.chartService.getData({ "diaToma": this.Currfecha, "idBus": this.Currid }).subscribe(function (rows) {
+        this.chartService.getData({ "diaToma": this.Currfecha, "idBus": this.Currid }, this.hidfechatoma).subscribe(function (rows) {
             _this.TomasBus.updateData(rows);
             console.log("Acabo de obtener los datos");
+            _this.submitted = true;
+            _this.generarGraficos();
         });
     };
     GraficosComponent.prototype.generarGraficos = function () {
+        Plotly.purge(this.vel.nativeElement);
+        Plotly.purge(this.fuel.nativeElement);
+        Plotly.purge(this.temp.nativeElement);
         this.showGraphs = true;
         this.velTime();
         this.fuelTime();
         this.tempTime();
     };
-    GraficosComponent.prototype.getIds = function (fecha) {
+    GraficosComponent.prototype.getFechas = function (id) {
         var _this = this;
-        this.ids = [];
-        this.chartService.getIds({ "horaToma": fecha }).subscribe(function (rows) {
-            for (var u in rows) {
-                _this.ids.push(rows[u]["Asset_id"]);
+        this.fechas = [];
+        this.chartService.getFechas(id).subscribe(function (rows) {
+            var f = 0;
+            for (var y in rows) {
+                _this.fechas[f] = rows[y]["Dia_Toma"];
+                f++;
             }
         });
-        this.hididbus = false;
-        alert("Ids Actualizados");
+    };
+    GraficosComponent.prototype.GetIds = function () {
+        var _this = this;
+        this.ids = [];
+        this.chartService.getDIds().subscribe(function (rows) {
+            console.log(rows);
+            var f = 0;
+            for (var y in rows) {
+                _this.ids[f] = rows[y]["Asset_id"];
+                if (f == 0) {
+                    _this.getFechas(_this.ids[f]);
+                    _this.Currid = _this.ids[f];
+                }
+                f++;
+            }
+            _this.ids = _this.ids.sort();
+            _this.Butt = true;
+        });
     };
     GraficosComponent.prototype.velTime = function () {
         var element = this.vel.nativeElement;
@@ -302,6 +330,7 @@ var GraficosComponent = /** @class */ (function () {
     GraficosComponent.prototype.hidePlots = function () {
         this.submitted = false;
         this.showGraphs = false;
+        this.hidfechatoma = false;
     };
     GraficosComponent.prototype.agregarImagen = function (doc, id, profundidad) {
         __WEBPACK_IMPORTED_MODULE_3_html2canvas___default()(document.getElementById(id)).then(function (canvas) {
@@ -409,7 +438,7 @@ module.exports = ""
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  Do something!\n</p>\n"
+module.exports = "<h1>Welcome to DataWatch!</h1>\n <img src=\"theicon.png\" height=\"500\">\n"
 
 /***/ }),
 
@@ -443,6 +472,108 @@ var HomeComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], HomeComponent);
     return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/login.guard.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LoginGuard = /** @class */ (function () {
+    function LoginGuard(router) {
+        this.router = router;
+    }
+    LoginGuard.prototype.canActivate = function (next, state) {
+        if (localStorage.getItem('usuario') === null) {
+            this.router.navigate(['/login']);
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    LoginGuard = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
+    ], LoginGuard);
+    return LoginGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<form #loginForm=\"ngForm\" (ngSubmit)=\"login(loginForm)\">\n\t <div class=\"form-container\">\n\t \t<h1>Log in</h1>\n\t \t <!--<div class=\"row columns\">-->\n\t \t \t\n\t \t \t <label>Usuario:\n\t \t \t \t<input type text name=\"usuario\" id=\"usuario\" placeholder=\"Usuario\" ngModel>\n\t \t \t</label>\n            <label>Password:\n            \t<input type text name=\"password\" id=\"password\" placeholder=\"Password\" ngModel>\n            </label>\n            <button type=\"submit\" class=\"btn btn-primary\">Log in</button>\n         <!--</div>-->\n     </div>\n</form>\n"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent(router) {
+        this.router = router;
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent.prototype.login = function (form) {
+        console.log(form.value);
+        if (form.value.usuario === 'admin' && form.value.password === 'admin') {
+            localStorage.setItem('usuario', form.value.usuario);
+            this.router.navigate(['/']);
+        }
+    };
+    LoginComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-login',
+            template: __webpack_require__("./src/app/login/login.component.html"),
+            styles: [__webpack_require__("./src/app/login/login.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
+    ], LoginComponent);
+    return LoginComponent;
 }());
 
 
@@ -589,17 +720,27 @@ var GraficosService = /** @class */ (function () {
     function GraficosService(http) {
         this.http = http;
     }
-    GraficosService.prototype.getFechas = function () {
-        return this.http.get('/api/v1/graficos/getFechas').map(function (res) { return res.json(); });
+    GraficosService.prototype.getFechas = function (id) {
+        var url = '/api/v1/graficos/getFechas/' + id;
+        return this.http.get(url).map(function (res) { return res.json(); });
     };
     GraficosService.prototype.getIds = function (data) {
         console.log(data.horaToma);
         var url = '/api/v1/graficos/getIds/' + data.horaToma;
         return this.http.get(url).map(function (res) { return res.json(); });
     };
-    GraficosService.prototype.getData = function (data) {
-        var url = '/api/v1/graficos/getData/' + data.diaToma + '/' + data.idBus;
+    GraficosService.prototype.getData = function (data, diaEspecifico) {
+        var url;
+        if (diaEspecifico) {
+            url = '/api/v1/graficos/getData/' + data.diaToma + '/' + data.idBus;
+        }
+        else {
+            url = '/api/v1/graficos/getDataAll/' + data.idBus;
+        }
         return this.http.get(url).map(function (res) { return res.json(); });
+    };
+    GraficosService.prototype.getDIds = function () {
+        return this.http.get('/api/v1/graficos/getDIds').map(function (res) { return res.json(); });
     };
     GraficosService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -638,6 +779,10 @@ var ManejoDataServiceService = /** @class */ (function () {
     }
     ManejoDataServiceService.prototype.getFechas = function () {
         return this.http.get('/api/v1/mandata/getFechas').map(function (res) { return res.json(); });
+    };
+    ManejoDataServiceService.prototype.CheckDB = function (archidate) {
+        var newarchi = "fms1-" + archidate + ".csv";
+        //return this.http.get()
     };
     ManejoDataServiceService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),

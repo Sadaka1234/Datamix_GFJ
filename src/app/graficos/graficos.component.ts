@@ -35,27 +35,22 @@ export class GraficosComponent implements OnInit {
   showGraphs = false;
   TomasBus = new GraphData();
 
-  hididbus = true;
+  hidfechatoma = false;
   submitted = false;
   showgraphs = false;
+  Butt = false;
 
   constructor(private chartService: GraficosService) { }
 
   ngOnInit() {
-    this.chartService.getFechas().subscribe(rows =>{
-           let f = 0;
-           for (let y in rows){
-             this.fechas[f] = rows[y]["DATE(horaToma)"];
-             f++;
-           }
-     });
 
-    //console.log(typeof this.fechas);
+    this.GetIds();
+    //this.GetFechas(5);
 
   }
 
   onSubmit() {
-    this.chartService.getData({"diaToma" : this.Currfecha , "idBus" : this.Currid}).subscribe(rows =>{
+    this.chartService.getData({"diaToma" : this.Currfecha , "idBus" : this.Currid},this.hidfechatoma).subscribe(rows =>{
       this.TomasBus.updateData(rows);
       console.log("Acabo de obtener los datos");
       this.submitted = true;
@@ -73,23 +68,37 @@ export class GraficosComponent implements OnInit {
     this.tempTime();
   }
 
+  getFechas(id){
 
+    this.fechas = [];
 
-  getIds(fecha){
+    this.chartService.getFechas(id).subscribe(rows =>{
+       let f = 0;
+       for (let y in rows){
+         this.fechas[f] = rows[y]["Dia_Toma"];
+         f++;
+       }
+    });
+  }
+
+  GetIds(){
 
     this.ids = [];
 
-    this.chartService.getIds({"horaToma":fecha}).subscribe(rows =>{
-
-      for (let u in rows){
-        this.ids.push(rows[u]["Asset_id"]);
-      }
-
+    this.chartService.getDIds().subscribe(rows =>{
+       console.log(rows);
+       let f = 0;
+       for (let y in rows){
+         this.ids[f] = rows[y]["Asset_id"];
+         if (f==0) {
+           this.getFechas(this.ids[f]);
+           this.Currid = this.ids[f];
+         }
+         f++;
+       }
+      this.ids = this.ids.sort();
+      this.Butt = true;
     });
-
-    this.hididbus = false;
-    alert("Ids Actualizados");
-
   }
 
   velTime() {
@@ -148,6 +157,8 @@ export class GraficosComponent implements OnInit {
   hidePlots(){
     this.submitted=false;
     this.showGraphs=false;
+    this.hidfechatoma = false;
+
   }
 
 
@@ -179,6 +190,6 @@ obtReporte(){
     this.agregarImagen(doc, 'downloadcombustible', 20);
 
     doc.save('Reporte_Bus_'+this.Currid+'_'+this.Currfecha+'.pdf');
-        }
+}
 
-      }
+}
