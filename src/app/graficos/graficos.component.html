@@ -1,3 +1,4 @@
+
 <div class="container">
   <div [hidden]="submitted" >
     <h1>Selección de Fecha e IDs</h1>
@@ -31,7 +32,7 @@
       </div>
 
       <button type="submit" class="btn btn-primary" [disabled]="!Butt" >Procesar Graficos</button>
-      
+
     </form>
   </div>
 
@@ -50,54 +51,34 @@
       <div class="col-xs-9 pull-left">{{ Currid }}</div>
     </div>
     <br>
-    
+
     <button class="btn btn-primary" (click)="hidePlots()">Cambiar Fecha</button>
 
-        <div [hidden]="!showGraphs">
-      <div class="container">
-        <p></p>
-        <p>
-        <button class="btn btndownload"> Descargar reporte </button>
-       </p>
-        <div class="card bg-transparent mt-1">
-            <div class="card-header">
-                <h1 class="card-title">Velocidad</h1><p></p>
-            </div>
-            <div class="card-body">
-                <div class="row justify-content-center">
-                    <div #Velocidad>  
-                <!-- Chart will appear here -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card bg-transparent mt-2">
-            <div class="card-header">
-                <h1>Temperatura</h1><p></p>
-            </div>
-            <div class="card-body">
-              <div class="row justify-content-center aling-items-center">
-                <div #Temperatura>
-                  <!-- Chart will appear here -->
-                </div>
-              </div>     
-            </div>
-        </div>
 
-        <div class="card bg-transparent mt-2">
-            <div class="card-header">
-                <h1>Combustible</h1><p></p>
-            </div>
-            <div class="card-body">
-              <div class="row justify-content-center aling-items-center">
-                <div #Combustible>
-                  <!-- Chart will appear here -->
-                </div>
-              </div>     
-            </div>
-        </div>
+    <div [hidden]="!showGraphs">
+      <p></p>
+      <p>
+        <button class="btn btndownload" (click)="obtReporte()"> Descargar reporte </button>
+     </p>
+     <div>
+      <h1>Velocidad</h1><p></p>
+
+      <div #Velocidad id="downvelocida">
+        <!-- Chart will appear here -->
       </div>
+
+      <h1>Temperatura</h1><p></p>
+
+      <div #Temperatura id="downtemperatura">
+        <!-- Chart will appear here -->
+      </div>
+
+      <h1>Combustible</h1><p></p>
+
+      <div #Combustible id="downcombustible">
+        <!-- Chart will appear here -->
+      </div>
+    </div>
     </div>
   </div>
 

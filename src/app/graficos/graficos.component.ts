@@ -5,6 +5,7 @@ import html2canvas from 'html2canvas';
 import * as pdfMake from 'pdfmake';  //Recordar desinstalar
 import * as jsPDF from 'jspdf';
 
+
 //import * as _ from 'lodash';
 
 @Component({
@@ -39,6 +40,10 @@ export class GraficosComponent implements OnInit {
   submitted = false;
   showgraphs = false;
   Butt = false;
+
+  doc = new jsPDF('p', 'mm', [297, 210]);
+  waiter = true;
+
 
   constructor(private chartService: GraficosService) { }
 
@@ -164,11 +169,13 @@ export class GraficosComponent implements OnInit {
 
 
 
-agregarImagen(doc, id, profundidad){
+
+
+agregarImagen(id, profundidad){
   html2canvas(document.getElementById(id)).then(canvas => {
       document.body.appendChild(canvas);
       var data = canvas.toDataURL();
-      doc.addImage(data, 'PNG', 5, profundidad);
+      this.doc.addImage(data, 'PNG', 20, profundidad);
     });
   }
 
@@ -177,17 +184,23 @@ agregarImagen(doc, id, profundidad){
 
 
 obtReporte(){
-    var doc = new jsPDF(); //210mm wide and 297mm high
-
-    doc.text('Reporte del bus '+this.Currid, 20, 20);
-    doc.text('Fecha: '+this.Currfecha, 20, 30);
-
-    this.agregarImagen(doc, 'downloadvelocidad', 40);
-    this.agregarImagen(doc, 'downloadtemperatura', 80);
-
-    doc.addPage();
-
-    this.agregarImagen(doc, 'downloadcombustible', 20);
+     var ancho = this.doc.internal.pageSize.width;
+     var alto = this.doc.internal.pageSize.height;
+     //210mm wide and 297mm high
+     if (!this.waiter){
+          this.doc.save('Reporte_Bus_'+this.Currid+'_'+this.Currfecha+'.pdf');
+          this.doc = new jsPDF('p', 'mm', [297, 210]);
+        }
+      else{
+        this.doc.text('Reporte del bus: '+this.Currid, 20, 40);
+        this.doc.text('Fecha: '+this.Currfecha, 80, 40);
+        this.doc.text('Gráficos:', 20, 297);
+        this.agregarImagen("downtemperatura",240);
+        this.agregarImagen("downcombustible", 180);
+        this.agregarImagen("downvelocida", 50);
+        this.doc.addPage();
+        this.waiter = false;
+      };
 
     doc.save('Reporte_Bus_'+this.Currid+'_'+this.Currfecha+'.pdf');
 }
