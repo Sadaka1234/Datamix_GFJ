@@ -63,7 +63,12 @@ module.exports = function(sequelize, DataTypes) {
     Turbo_Pressure: {
       type: DataTypes.FLOAT,
       allowNull: false
-    }
+    },
+    Dia_Toma: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+
   }, {
     tableName: 'BUS',
     timestamps: false,

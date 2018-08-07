@@ -25,8 +25,15 @@ sequelize.sync()
 
 
 
-router.get('/graficos/getFechas', (req, res) =>{
-    sequelize.query("select DISTINCT DATE(horaToma) from Bus",{ type: sequelize.QueryTypes.SELECT })
+router.get('/graficos/getFechas/:ide', (req, res) =>{
+    let query = "select DISTINCT Dia_Toma from Bus where Asset_Id = " + req.params.ide;
+    sequelize.query(query,{ type: sequelize.QueryTypes.SELECT })
+    .then(rows => { res.status(200).send(rows);
+    });
+});
+
+router.get('/graficos/getDIds', (req, res) =>{
+    sequelize.query("select DISTINCT Asset_id from Bus",{ type: sequelize.QueryTypes.SELECT })
     .then(rows => { res.status(200).send(rows);
     });
 });
@@ -51,7 +58,13 @@ router.get('/mandata/getFechas', (req,res) => {
 });
 
 router.get('/mandata/CheckDB/:archi', (req,res) =>{
-    
+
+});
+
+router.get('/graficos/getDataAll/:ide', (req, res) =>{
+    infoBus.findAll({ where: { "Asset_Id" : req.params.ide } })
+    .then(rows => { res.status(200).send(rows);
+    });
 });
 
 

@@ -4,45 +4,49 @@
     <h1>Selección de Fecha e IDs</h1>
     <form (ngSubmit)="onSubmit()" #GraficosComponent="ngForm">
 
-    <fieldset>
-
     <div class="form-group" >
-        <label for="Fecha">Fecha de toma de datos</label>
+        <label for="Fecha">ID del bus</label>
         <select class="form-control"
-                id="Fecha"
+                id="idBus"
                 required
-                [(ngModel)]="Currfecha"
-                name="fecha"
+                [(ngModel)]="Currid"
+                name="idBus"
                 #fecha="ngModel"
-                (change)="getIds($event.target.value)">
-          <option *ngFor="let fecha of fechas" [value]="fecha">{{fecha | date}}</option>
-        </select>
-      </div>
-
-      <div class="form-group" [hidden]="hididbus">
-        <label for="idBus">ID del Bus</label>
-        <select class="form-control" id="idBus"
-                required
-                [(ngModel)]="Currid" name="idBus"
-                #idBus="ngModel" >
+                (change)="getFechas($event.target.value)">
           <option *ngFor="let i of ids">{{i}}</option>
         </select>
       </div>
 
-      <button type="submit" class="btn btn-primary" [disabled]="!GraficosComponent.form.valid" >Procesar Graficos</button>
+      ¿Desea elegir el dia a graficar? <input type="checkbox" [(ngModel)]="hidfechatoma" (change)="!hidfechatoma" name="DiasEspecificos">
 
-    </fieldset>
+      <p></p>
+
+      <div class="form-group" [hidden]="!hidfechatoma">
+        <label for="idBus">Dia de la toma</label>
+        <select class="form-control" id="Fecha"
+                required
+                [(ngModel)]="Currfecha" name="fecha"
+                #idBus="ngModel" >
+          <option *ngFor="let fecha of fechas" [value]="fecha">{{fecha | date}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!Butt" >Procesar Graficos</button>
+
     </form>
   </div>
 
   <div [hidden]="!submitted">
 
     <h2>Mostrando reporte basados en la siguientes elecciones:</h2>
-    <div class="row">
+    <div class="row" [hidden]="!hidfechatoma">
       <div class="col-xs-3">Fecha :  </div>
       <div class="col-xs-9  pull-left">{{ Currfecha }}</div>
     </div>
-    <div class="row">
+    <div class="row" [hidden]="hidfechatoma">
+      <div class="col-xs-3">Todas las fechas.  </div>
+    </div>
+    <div class="row" >
       <div class="col-xs-3">ID Bus :  </div>
       <div class="col-xs-9 pull-left">{{ Currid }}</div>
     </div>
