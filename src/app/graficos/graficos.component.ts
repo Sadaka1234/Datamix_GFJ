@@ -189,11 +189,10 @@ obtReporte(){
      //210mm wide and 297mm high
      if (!this.waiter){
           this.doc.save('Reporte_Bus_'+this.Currid+'_'+this.Currfecha+'.pdf');
-          this.doc = new jsPDF('p', 'mm', [297, 210]);
         }
       else{
         this.doc.text('Reporte del bus: '+this.Currid, 20, 40);
-        this.doc.text('Fecha: '+this.Currfecha, 80, 40);
+        this.doc.text('Fecha: '+this.Currfecha, 120, 40);
         this.doc.text('Gráficos:', 20, 337);
         this.agregarImagen("downtemperatura",240);
         this.agregarImagen("downcombustible", 180);
