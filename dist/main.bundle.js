@@ -348,11 +348,10 @@ var GraficosComponent = /** @class */ (function () {
         //210mm wide and 297mm high
         if (!this.waiter) {
             this.doc.save('Reporte_Bus_' + this.Currid + '_' + this.Currfecha + '.pdf');
-            this.doc = new __WEBPACK_IMPORTED_MODULE_4_jspdf__('p', 'mm', [297, 210]);
         }
         else {
             this.doc.text('Reporte del bus: ' + this.Currid, 20, 40);
-            this.doc.text('Fecha: ' + this.Currfecha, 80, 40);
+            this.doc.text('Fecha: ' + this.Currfecha, 120, 40);
             this.doc.text('Gráficos:', 20, 337);
             this.agregarImagen("downtemperatura", 240);
             this.agregarImagen("downcombustible", 180);
@@ -543,7 +542,7 @@ module.exports = ""
 /***/ "./src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form #loginForm=\"ngForm\" (ngSubmit)=\"login(loginForm)\">\n\t <div class=\"form-container\">\n\t \t<h1>Log in</h1>\n\t \t <!--<div class=\"row columns\">-->\n\t \t \t\n\t \t \t <label>Usuario:\n\t \t \t \t<input type text name=\"usuario\" id=\"usuario\" placeholder=\"Usuario\" ngModel>\n\t \t \t</label>\n            <label>Password:\n            \t<input type text name=\"password\" id=\"password\" placeholder=\"Password\" ngModel>\n            </label>\n            <button type=\"submit\" class=\"btn btn-primary\">Log in</button>\n         <!--</div>-->\n     </div>\n</form>\n"
+module.exports = "<form #loginForm=\"ngForm\" (ngSubmit)=\"login(loginForm)\">\n\t <div class=\"form-container\">\n\t \t<h1>Log in</h1>\n\t \t <!--<div class=\"row columns\">-->\n\n\t \t \t <label>Usuario:\n\t \t \t \t<input type text name=\"usuario\" id=\"usuario\" placeholder=\"Usuario\" ngModel>\n\t \t \t</label>\n            <label>Password:\n            \t<input type=password name=\"password\" id=\"password\" placeholder=\"Password\" ngModel>\n            </label>\n            <button type=\"submit\" class=\"btn btn-primary\">Log in</button>\n         <!--</div>-->\n     </div>\n</form>\n"
 
 /***/ }),
 
