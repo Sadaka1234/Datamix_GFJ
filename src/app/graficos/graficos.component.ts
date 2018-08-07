@@ -153,8 +153,9 @@ export class GraficosComponent implements OnInit {
 
     const style = {
       margin: { t: 0 }
-    };
 
+    };
+    element.plot_bgcolor= 'rgba(255,255,255, 0.4)';
     Plotly.plot( element, data, style );
 
   }
