@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {Router} from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,19 +11,21 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginservice: LoginService) { }
 
-  ngOnInit() {
-  }
+
+  ngOnInit() { }
 
   login(form: NgForm){
-  	console.log(form.value);
 
-  	if(form.value.usuario ==='admin' && form.value.password ==='admin'){
-  		localStorage.setItem( 'usuario',form.value.usuario);
-  		this.router.navigate(['/']);
-  	}
-
+  	this.loginservice.checkCredentials(form.value.usuario,form.value.password).subscribe( rows => {
+      if (rows){
+        console.log(rows[0].tipo);
+        localStorage.setItem( 'usuario',form.value.usuario);
+        localStorage.setItem( 'isAdmin',rows[0].tipo);
+        this.router.navigate(['/']);
+      }
+    });
 
   }
 

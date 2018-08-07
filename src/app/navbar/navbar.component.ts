@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+	isAdmin : boolean = true;
 
-  ngOnInit() {
-  }
+  	constructor() { }
+
+	ngOnInit() {
+		Observable.interval(200).subscribe(x => {
+    		this.checkifAdmin();
+  		});
+	}
+
+	checkifAdmin(){
+		if (localStorage.getItem( 'isAdmin' ) != null){
+			this.isAdmin = (localStorage.getItem( 'isAdmin' ) == "Admin");
+		}
+	}
 
 }

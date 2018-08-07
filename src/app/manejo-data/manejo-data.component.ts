@@ -19,7 +19,7 @@ export class ManejoDataComponent implements OnInit {
   ngOnInit() {
 
 		this.ManData.getFechas().subscribe( rows =>{
-
+				
 				this.Arrayfy(rows);
 				console.log(this.DataDias);
   		}
@@ -51,6 +51,7 @@ export class ManejoDataComponent implements OnInit {
   onSubmit(){
     this.Memes = false;
     this.ManData.LetsGetParsing(this.Dia).subscribe( rows => {
+      
     });
     setTimeout(() => { this.Memes = true;}, 18000);
   }

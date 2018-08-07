@@ -31,18 +31,20 @@ module.exports = function(sequelize, DataTypes) {
         beforeCreate: (user) => {
           const salt = bcrypt.genSaltSync();
           user.password = bcrypt.hashSync(user.password, salt);
-          }
-        },
-      });
-      User.prototype.validPassword = function (password){
-        console.log('Verificando contrasenia');
-        return bcrypt.compareSync(password, this.password);
-      }
-
-      User.myname = function (){
-        console.log("i'm returning my name");
-        return this.username;
+          
         }
+      },
+    });
+
+    User.prototype.validPassword = function (password){
+      console.log('Verificando contrasenia');
+      return bcrypt.compareSync(password, this.password);
+    };
+
+    User.myname = function (){
+      console.log("i'm returning my name");
+      return this.username;
+      }
 
     return User;
 };

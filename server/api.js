@@ -4,6 +4,8 @@ const router = express.Router();
 const sequelize = require('./config');
 const path = require('path');
 const CSVS = require('./CSV');
+const bcrypt = require('bcrypt-nodejs');
+
 
  //Testdeconexi ́on
 sequelize.authenticate().then(() => {
@@ -76,6 +78,26 @@ router.get('/graficos/getDataAll/:ide', (req, res) =>{
     });
 });
 
+
+router.get('/login/:usr/:pass', (req,res) =>{
+
+    infoUser.findAll({where : {username : req.params.usr}}).then( rows => {
+        if (rows.length == 0){
+            res.status(200).send(false);
+        }
+        else{
+            let pass = rows[0].dataValues.password;
+            if ( bcrypt.compareSync(req.params.pass, pass) ){
+                res.status(200).send(rows);
+            }
+            else {
+                res.status(200).send(false);
+            }
+        }
+        
+    });
+
+});
 
 
 module.exports = router;
