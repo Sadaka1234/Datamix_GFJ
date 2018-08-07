@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ManejoDataServiceService } from '../services/manejo-data-service.service';
-import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-manejo-data',
@@ -10,7 +8,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 })
 export class ManejoDataComponent implements OnInit {
 
-	constructor(private ManData : ManejoDataServiceService,private spinnerService: Ng4LoadingSpinnerService) { }
+	constructor(private ManData : ManejoDataServiceService) { }
 
 	DataDias : any = [];
 	Dia : String;
@@ -21,7 +19,7 @@ export class ManejoDataComponent implements OnInit {
   ngOnInit() {
 
 		this.ManData.getFechas().subscribe( rows =>{
-				
+
 				this.Arrayfy(rows);
 				console.log(this.DataDias);
   		}
@@ -53,9 +51,8 @@ export class ManejoDataComponent implements OnInit {
   onSubmit(){
     this.Memes = false;
     this.ManData.LetsGetParsing(this.Dia).subscribe( rows => {
-      this.spinnerService.show();
     });
-    setTimeout(() => { this.spinnerService.hide();this.Memes = true;}, 18000);
+    setTimeout(() => { this.Memes = true;}, 18000);
   }
 
 }
