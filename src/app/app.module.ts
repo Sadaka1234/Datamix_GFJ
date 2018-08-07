@@ -13,8 +13,11 @@ import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
 import { ManejoDataServiceService } from './services/manejo-data-service.service';
 import { ManejoDataComponent } from './manejo-data/manejo-data.component';
+<<<<<<< HEAD
 import { LoginService } from './services/login.service';
 
+=======
+>>>>>>> 65705d06dbc9388a0e9c362bd0a7c9b58decedf2
 
 @NgModule({
   declarations: [
@@ -29,7 +32,11 @@ import { LoginService } from './services/login.service';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
+<<<<<<< HEAD
     FormsModule
+=======
+    FormsModule,
+>>>>>>> 65705d06dbc9388a0e9c362bd0a7c9b58decedf2
   ],
 
   providers: [

@@ -187,24 +187,20 @@ obtReporte(){
      var ancho = this.doc.internal.pageSize.width;
      var alto = this.doc.internal.pageSize.height;
      //210mm wide and 297mm high
-     for (var i = 0; i < 2; i++){
-
-         if (!this.waiter){
-              setTimeout(() => { console.log('Archivo descargando');}, 1000) ;
-              this.doc.save('Reporte_Bus_'+this.Currid+'_'+this.Currfecha+'.pdf');
-              break;
-            }
-          else{
-            this.doc.text('Reporte del bus: '+this.Currid, 20, 40);
-            this.doc.text('Fecha: '+this.Currfecha, 120, 40);
-            this.doc.text('Gráficos:', 20, 337);
-            this.agregarImagen("downtemperatura",240);
-            this.agregarImagen("downcombustible", 180);
-            this.agregarImagen("downvelocida", 50);
-            this.doc.addPage();
-            this.waiter = false;
-          };
+     if (!this.waiter){
+          this.doc.save('Reporte_Bus_'+this.Currid+'_'+this.Currfecha+'.pdf');
         }
-    }
+      else{
+        this.doc.text('Reporte del bus: '+this.Currid, 20, 40);
+        this.doc.text('Fecha: '+this.Currfecha, 120, 40);
+        this.doc.text('Gráficos:', 20, 337);
+        this.agregarImagen("downtemperatura",240);
+        this.agregarImagen("downcombustible", 180);
+        this.agregarImagen("downvelocida", 50);
+        this.doc.addPage();
+        this.waiter = false;
+      };
+
+}
 
 }

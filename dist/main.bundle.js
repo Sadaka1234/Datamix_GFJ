@@ -133,14 +133,16 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__login_guard__ = __webpack_require__("./src/app/login.guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_manejo_data_service_service__ = __webpack_require__("./src/app/services/manejo-data-service.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__manejo_data_manejo_data_component__ = __webpack_require__("./src/app/manejo-data/manejo-data.component.ts");
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_login_service__ = __webpack_require__("./src/app/services/login.service.ts");
+=======
+>>>>>>> 65705d06dbc9388a0e9c362bd0a7c9b58decedf2
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -172,7 +174,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_4__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */],
+<<<<<<< HEAD
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
+=======
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+>>>>>>> 65705d06dbc9388a0e9c362bd0a7c9b58decedf2
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__["a" /* GraficosService */],
@@ -200,7 +206,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\">\n\n    <h2>Mostrando reporte basados en la siguientes elecciones:</h2>\n    <div class=\"row\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha :  </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas.  </div>\n    </div>\n    <div class=\"row\" >\n      <div class=\"col-xs-3\">ID Bus :  </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n\n    <button class=\"btn btn-primary\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" (click)=\"obtReporte()\" style=\"display:inline-block;\"> Descargar reporte </button>\n\n     </p>\n             <div class=\"card bg-transparent mt-1\">\n            <div class=\"card-header\">\n                <h1 class=\"card-title\">Velocidad</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div #Velocidad id=\"downvelocida\">  \n                <!-- Chart will appear here -->\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Temperatura</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Temperatura id=\"downtemperatura\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>     \n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Combustible</h1><p></p>\n            </div>\n            <div class=\"card-body\" >\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Combustible id=\"downcombustible\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>     \n            </div>\n        </div>\n\n</div>\n"
+module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" style=\"width:200px;background-color: #061539;\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\" class=\"container align-items-center\"style=\"vertical-align: middle;\" >\n\n    <h2>Mostrando reporte basados en la siguientes elecciones</h2>\n    <div class=\"row justify-content-center\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha: </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas. </div>\n    </div>\n    <div class=\"row justify-content-center\">\n      <div class=\"col-xs-3\">ID Bus: </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n\n    <button class=\"btn btn-primary\"   style=\"width:200px; background-color: #061539;\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" style=\"width:200px; background-color: #061539;\" (click)=\"obtReporte()\" style=\"display:inline-block;\"> Descargar reporte </button>\n\n     </p>\n             <div class=\"card bg-transparent mt-1\">\n            <div class=\"card-header\">\n                <h1 class=\"card-title\">Velocidad</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div #Velocidad id=\"downvelocida\">\n                <!-- Chart will appear here -->\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Temperatura</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Temperatura id=\"downtemperatura\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Combustible</h1><p></p>\n            </div>\n            <div class=\"card-body\" >\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Combustible id=\"downcombustible\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -349,24 +355,20 @@ var GraficosComponent = /** @class */ (function () {
         var ancho = this.doc.internal.pageSize.width;
         var alto = this.doc.internal.pageSize.height;
         //210mm wide and 297mm high
-        for (var i = 0; i < 2; i++) {
-            if (!this.waiter) {
-                setTimeout(function () { console.log('Archivo descargando'); }, 1000);
-                this.doc.save('Reporte_Bus_' + this.Currid + '_' + this.Currfecha + '.pdf');
-                break;
-            }
-            else {
-                this.doc.text('Reporte del bus: ' + this.Currid, 20, 40);
-                this.doc.text('Fecha: ' + this.Currfecha, 120, 40);
-                this.doc.text('Gráficos:', 20, 337);
-                this.agregarImagen("downtemperatura", 240);
-                this.agregarImagen("downcombustible", 180);
-                this.agregarImagen("downvelocida", 50);
-                this.doc.addPage();
-                this.waiter = false;
-            }
-            ;
+        if (!this.waiter) {
+            this.doc.save('Reporte_Bus_' + this.Currid + '_' + this.Currfecha + '.pdf');
         }
+        else {
+            this.doc.text('Reporte del bus: ' + this.Currid, 20, 40);
+            this.doc.text('Fecha: ' + this.Currfecha, 120, 40);
+            this.doc.text('Gráficos:', 20, 337);
+            this.agregarImagen("downtemperatura", 240);
+            this.agregarImagen("downcombustible", 180);
+            this.agregarImagen("downvelocida", 50);
+            this.doc.addPage();
+            this.waiter = false;
+        }
+        ;
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Velocidad'),
@@ -702,7 +704,11 @@ module.exports = ""
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<!--  style=\"background: linear-gradient(#4FABB5, #455B56);\"         style=\"background:rgba(0,0,0,0.5);\" -->\n<nav class=\"navbar navbar-expand-md bg-transparent\" style=\"background:rgba(0,0,0,0.5);\"  >\n  <a class=\"navbar-brand  nav-bar-stylex\" href=\"#\">\n    <img src=\"theicon.png\" height=\"70\" class=\"d-inline-block align-top\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\"  id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\" style='text-align: right;'>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\" style=\"color: white;\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/graficos/new\" style=\"color: white;\">Gráficos</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/manejo-data\" style=\"color: white;\" [hidden]=\"!isAdmin\">Manejo Data</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
+=======
+module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<!--  style=\"background: linear-gradient(#4FABB5, #455B56);\"         style=\"background:rgba(0,0,0,0.5);\" -->\n<nav class=\"navbar navbar-expand-md navbar-wrapper\" >\n  <a class=\"navbar-brand  nav-bar-stylex\" href=\"#\">\n    <img src=\"theicon.png\" height=\"35\" class=\"d-inline-block align-top\" style=\"opacity: 0.5;\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\"  id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\" style='text-align: right;'>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\" style=\"color: white;\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/graficos/new\" style=\"color: white;\">Gráficos</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/manejo-data\" style=\"color: white;\">Manejo Data</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
+>>>>>>> 65705d06dbc9388a0e9c362bd0a7c9b58decedf2
 
 /***/ }),
 
