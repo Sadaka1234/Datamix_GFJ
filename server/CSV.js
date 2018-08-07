@@ -73,13 +73,8 @@ function TopTens(Whole){
 	return topten
 }
 
-function dones(){
-	this.done = !this.done;
-}
-
 function readCSV(arch){
 
-	this.done = false;
 	let path  = "./CSV/" + arch;
 
 	parser.parse(fs.createReadStream(path), {
@@ -102,7 +97,29 @@ function readCSV(arch){
 	});
 }
 
-//readCSV("fms1-2017-10-01.csv");
+function readCSVlindiwi(arch){
+	let path  = "./CSV/" + arch;
+
+	parser.parse(fs.createReadStream(path), {
+		header: false,
+		download: true,
+		complete: function(results){
+
+			let topten = TopTens(results);
+			console.log(topten);
+			let poss = 0;
+
+			for(i = 0; i < results.data.length; i++){
+				if (topten.includes(results.data[i][1])){
+					dataFormat(results.data[i]);
+					poss++;
+				}
+			}
+			return true;
+		}
+	});
+}
+
 
 module.exports.getFiles = getFiles;
 module.exports.readCSV = readCSV;
