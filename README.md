@@ -11,3 +11,7 @@ Dentro de la carpeta `CSV` se encuentra un script en python que trunca los archi
 Abrir una terminal dentro de la carpeta raíz y ejecutar `node_install all` y luego `ng build && ng serve`, el sitio se encontrará disponible en `localhost:3000`
 
 ### DataWatch, hecho con ♥ por DataMix
+
+![](http://www.wobshite.co.uk/b3ta/letters/dance/d.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/a.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/t.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/a.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/w.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/a.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/t.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/c.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/h.gif)
+
+![](https://images.cooltext.com/5179980.gif)
