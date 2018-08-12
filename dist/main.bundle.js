@@ -292,7 +292,7 @@ var GraficosComponent = /** @class */ (function () {
                 }
                 f++;
             }
-            _this.ids = _this.ids.sort();
+            _this.ids = _this.ids.sort(function (a, b) { return a - b; });
             _this.Butt = true;
         });
     };
