@@ -13,14 +13,6 @@ export class GraficosService {
 
   }
 
-  getIds(data){
-    console.log(data.horaToma);
-    let url = '/api/v1/graficos/getIds/' + data.horaToma;
-
-  	return this.http.get(url).map(res => res.json());
-
-  }
-
   getData(data,diaEspecifico){
     let url;
     if (diaEspecifico){
