@@ -12,7 +12,7 @@ Al correr el programa, se crea el usuario `admin`, el cual posee `admin` como co
 
 ## Correr DataWatch
 
-Abrir una terminal dentro de la carpeta raíz y ejecutar `npm install` y luego `ng build && ng serve`, el sitio se encontrará disponible en `localhost:3000`
+Abrir una terminal dentro de la carpeta raíz y ejecutar `npm install` y luego `ng build && ng serve`, el sitio se encontrará disponible en `localhost:3000`. En caso de fallar Jquery, se debe ejecutar el comando `npm install jquery --save`
 
 ## Generar Reportes y descargas del mismo
 
