@@ -279,15 +279,15 @@ obtReporte(){
 
       //  this.doc.text('Gráficos:',20, 20, 337);
         this.doc.text("Resumen:", 20, 60);
-        this.doc.text("Velocidad promedio: "+this.promVelocidad,20,70);
-        this.doc.text("Temperatura interna promedio: "+this.promTemperatura,20,80);
-        this.doc.text("Uso combustible promedio: "+this.promCombustible,20,90);
+        this.doc.text("Velocidad promedio: "+this.promVelocidad+"[km/h]",20,70);
+        this.doc.text("Temperatura interna promedio: "+this.promTemperatura+"[º]",20,80);
+        this.doc.text("Uso combustible promedio: "+this.promCombustible+"[L/h]",20,90);
 
 
         this.agregarImagen("downtemperatura", 10,100);
-        this.agregarImagen("downcombustible",103, 100);
+        this.agregarImagen("downcombustible",106, 100);
         this.agregarImagen("downvelocida",200, 100);
-        this.doc.text("Generador por DataWatch",200, 205)
+        this.doc.text("Generado por DataWatch",200, 205)
         this.waiter = false;
       };
 }
