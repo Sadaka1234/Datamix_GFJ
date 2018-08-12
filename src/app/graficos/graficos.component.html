@@ -54,17 +54,18 @@
 
     <button class="btn btn-primary"   style="width:200px; background-color: #061539;" (click)="hidePlots()">Cambiar Fecha</button>
 
-
     <div [hidden]="!showGraphs">
       <p></p>
       <p>
         <button class="btn btndownload" style="width:200px; background-color: #061539;" (click)="obtReporte()" style="display:inline-block;"> Descargar reporte </button>
-
      </p>
-             <div class="card bg-transparent mt-1">
-            <div class="card-header">
-                <h1 class="card-title">Velocidad</h1><p></p>
-            </div>
+    </div>
+    <div [hidden]="!showGraphs">
+
+            <div class="card bg-transparent mt-1">
+              <div class="card-header">
+                  <h1 class="card-title">Velocidad</h1><p></p>
+              </div>
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div #Velocidad id="downvelocida">

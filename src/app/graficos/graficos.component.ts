@@ -107,16 +107,32 @@ export class GraficosComponent implements OnInit {
   }
 
   velTime() {
+    var ancho = this.doc.internal.pageSize.width;
+    var alto = this.doc.internal.pageSize.height;
     const element = this.vel.nativeElement;
     Plotly.purge(element);
 
+
     const data = [{
       x: this.TomasBus.Taimstamps,
-      y: this.TomasBus.Velocidad
+      y: this.TomasBus.Velocidad,
+      mode: 'markers',
+      type: 'scatter',
+      marker: { size: 4 }
     }];
 
     const style = {
-      margin: { t: 0 }
+      margin: { t: 25, //top margin
+                l: 25, //left margin
+                r: 25, //right margin
+                b: 25 //bottom margin
+                },
+      width: ancho*0.3,
+      height: alto/5,
+      paper_bgcolor: 'rgba(255,255,255,0.6)',
+      plot_bgcolor: 'rgba(200,200,200,1)',
+      color: 'rgba(200,00,0,1)'
+
     };
 
     Plotly.plot( element, data, style );
@@ -124,17 +140,32 @@ export class GraficosComponent implements OnInit {
   }
 
   fuelTime() {
+    var ancho = this.doc.internal.pageSize.width;
+    var alto = this.doc.internal.pageSize.height;
 
     const element = this.fuel.nativeElement;
     Plotly.purge(element);
 
     const data = [{
       x: this.TomasBus.Taimstamps,
-      y: this.TomasBus.Combustible
+      y: this.TomasBus.Combustible,
+      mode: 'markers',
+      type: 'scatter',
+      marker: { size: 4 }
     }];
 
     const style = {
-      margin: { t: 0 }
+      margin: { t: 25, //top margin
+                l: 25, //left margin
+                r: 25, //right margin
+                b: 25 //bottom margin
+                },
+      width: ancho*0.3,
+      height: alto/5,
+      paper_bgcolor: 'rgba(255,255,255,0.6)',
+      plot_bgcolor: 'rgba(200,200,200,1)',
+      color: 'rgba(200,00,0,1)'
+
     };
 
     Plotly.plot( element, data, style );
@@ -142,22 +173,35 @@ export class GraficosComponent implements OnInit {
   }
 
   tempTime(){
+    var ancho = this.doc.internal.pageSize.width;
+    var alto = this.doc.internal.pageSize.height;
 
     const element = this.temp.nativeElement;
     Plotly.purge(element);
 
     const data = [{
       x: this.TomasBus.Taimstamps,
-      y: this.TomasBus.Temperatura
+      y: this.TomasBus.Temperatura,
+      mode: 'markers',
+      type: 'scatter',
+      marker: { size: 4 }
     }];
 
     const style = {
-      margin: { t: 0 }
+      margin: { t: 25, //top margin
+                l: 25, //left margin
+                r: 25, //right margin
+                b: 25 //bottom margin
+                },
+      width: ancho*0.3,
+      height: alto/5,
+      paper_bgcolor: 'rgba(255,255,255,0.6)',
+      plot_bgcolor: 'rgba(200,200,200,1)',
+      color: 'rgba(200,00,0,1)'
 
     };
-    element.plot_bgcolor= 'rgba(255,255,255, 0.4)';
-    Plotly.plot( element, data, style );
 
+    Plotly.plot( element, data, style );
   }
 
   hidePlots(){
