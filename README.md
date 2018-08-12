@@ -8,11 +8,15 @@ Para poder poblar la base de datos, es necesario que se incluyan archivos de la 
 
 ## Login Usuario
 
-Al correr el programa, se crea el usuario `admin`, el cual posee `admin` como contraseña.
+Al correr el programa, se crea el usuario `admin`, el cual posee `admin` como contraseña. Aun no se genera el sistema para registrar cuentas, asi que se tendrá que usar la cuenta preexistente. Esto será implementado en una posterior entrega.
 
 ## Correr DataWatch
 
 Abrir una terminal dentro de la carpeta raíz y ejecutar `npm install` y luego `ng build && ng serve`, el sitio se encontrará disponible en `localhost:3000`
+
+## Generar Reportes y descargas del mismo
+
+Al generar gráficos de una máquina, se abrira una nueva ventana con la información solicitada. Para esto, se debe presionar el boton "descargar reporte" y esperar a que la pagina genere el reporte. Posteriormente, volver a presionar descargar. Se puede observar cuando el reporte se esta generando, debido a que el icono en el boton de descarga se hace invisible cuando esto sucede. Se planea reparar este error en una posterior entrega
 
 ### DataWatch, hecho con ♥ por DataMix
 
