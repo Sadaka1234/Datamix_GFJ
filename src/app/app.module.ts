@@ -29,6 +29,10 @@ import { LoginService } from './services/login.service';
     AppRoutingModule,
     HttpModule,
     FormsModule,
+<<<<<<< HEAD
+=======
+
+>>>>>>> 14c58eff05aa599ae8bcdb4881e5826562be3d57
   ],
 
   providers: [

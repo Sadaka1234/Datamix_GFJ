@@ -26,29 +26,26 @@ sequelize.sync()
 
 
 router.get('/graficos/getFechas/:ide', (req, res) =>{
-    let query = "select DISTINCT Dia_Toma from Bus where Asset_Id = " + req.params.ide;
-    sequelize.query(query,{ type: sequelize.QueryTypes.SELECT })
+	infoBus.findAll({ 
+        attributes : [[sequelize.fn('distinct', sequelize.col("Dia_Toma")),"Dia_Toma"]],
+        where: { "Asset_Id" : req.params.ide} 
+    })
     .then(rows => { res.status(200).send(rows);
     });
 });
 
 router.get('/graficos/getDIds', (req, res) =>{
-    sequelize.query("select DISTINCT Asset_id from Bus",{ type: sequelize.QueryTypes.SELECT })
-    .then(rows => { res.status(200).send(rows);
-    });
-});
-
-router.get('/graficos/getIds/:horaToma', (req, res) =>{
-    let query = 'select distinct Asset_id from Bus where DATE(horaToma) = "' + req.params.horaToma + '" group by Asset_Id order by count(Asset_Id) desc';
-    sequelize.query(query,{ type: sequelize.QueryTypes.SELECT })
+	infoBus.findAll({ 
+    	attributes : [[sequelize.fn('distinct', sequelize.col("Asset_id")),"Asset_id"]]
+    })
     .then(rows => { res.status(200).send(rows);
     });
 });
 
 router.get('/graficos/getData/:horaToma/:idBus', (req, res) =>{
-    console.log(req.params);
-    let query = 'select * from Bus where DATE(horaToma) = "' + req.params.horaToma + '" and Asset_id = "' + req.params.idBus + '"';
-    sequelize.query(query,{ type: sequelize.QueryTypes.SELECT })
+    infoBus.findAll({ 
+	    where: { "Dia_Toma" : req.params.horaToma, "Asset_id" : req.params.idBus } 
+	})
     .then(rows => { res.status(200).send(rows);
     });
 });
