@@ -97,11 +97,16 @@ router.get('/login/:usr/:pass', (req,res) =>{
 });
 
 
-infoUser.create({
-    username : "admin",
-    email : "admin@admin.admin",
-    password : "admin",
-    tipo : "Admin"
-}); //se crea truchamente el usuario admin
+infoUser.findAll({attributes : [[sequelize.fn('count', sequelize.col("username")),"Numero"]]})
+.then(rows => {
+    if (rows[0].dataValues.Numero == 0){
+        infoUser.create({
+            username : "admin",
+            email : "admin@admin.admin",
+            password : "admin",
+            tipo : "Admin"
+        });
+    }
+});
 
 module.exports = router;
