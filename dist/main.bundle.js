@@ -172,7 +172,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_4__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_7__services_graficos_service__["a" /* GraficosService */],
@@ -200,11 +200,7 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
-<<<<<<< HEAD
-module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" style=\"width:200px;background-color: #061539;\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\" class=\"container align-items-center\"style=\"vertical-align: middle;\" >\n\n    <h2>Mostrando reporte basados en la siguientes elecciones</h2>\n    <div class=\"row justify-content-center\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha: </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas. </div>\n    </div>\n    <div class=\"row justify-content-center\">\n      <div class=\"col-xs-3\">ID Bus: </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n\n    <button class=\"btn btn-primary\"   style=\"width:200px; background-color: #061539;\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" style=\"width:200px; background-color: #061539;\" (click)=\"obtReporte()\" style=\"display:inline-block;\"> Descargar reporte </button>\n     </p>\n    </div>\n    <div [hidden]=\"!showGraphs\">\n\n            <div class=\"card bg-transparent mt-1\">\n              <div class=\"card-header\">\n                  <h1 class=\"card-title\">Velocidad</h1><p></p>\n              </div>\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div #Velocidad id=\"downvelocida\">\n                <!-- Chart will appear here -->\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Temperatura</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Temperatura id=\"downtemperatura\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Combustible</h1><p></p>\n            </div>\n            <div class=\"card-body\" >\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Combustible id=\"downcombustible\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n\n</div>\n"
-=======
-module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" style=\"width:200px;background-color: #061539;\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\" class=\"container align-items-center\"style=\"vertical-align: middle;\" >\n\n    <h2>Mostrando reporte basados en la siguientes elecciones</h2>\n    <div class=\"row justify-content-center\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha: </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row justify-content-center\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas. </div>\n    </div>\n    <div class=\"row justify-content-center\">\n      <div class=\"col-xs-3\">ID Bus: </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n\n    <button class=\"btn btn-primary\"   style=\"width:200px; background-color: #061539;\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" style=\"width:200px; background-color: #061539;\" (click)=\"obtReporte()\" style=\"display:inline-block;\"> Descargar reporte </button>\n\n     </p>\n             <div class=\"card bg-transparent mt-1\">\n            <div class=\"card-header\">\n                <h1 class=\"card-title\">Velocidad</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div #Velocidad id=\"downvelocida\">\n                <!-- Chart will appear here -->\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Temperatura</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Temperatura id=\"downtemperatura\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Combustible</h1><p></p>\n            </div>\n            <div class=\"card-body\" >\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Combustible id=\"downcombustible\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n\n</div>\n"
->>>>>>> 14c58eff05aa599ae8bcdb4881e5826562be3d57
+module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" style=\"width:200px;background-color: #061539;\" [disabled]=\"!Butt\">Procesar Graficos</button>\n\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\" class=\"container align-items-center\"style=\"vertical-align: middle;\" >\n\n    <h2>Mostrando reporte basados en la siguientes elecciones</h2>\n    <div class=\"row justify-content-center\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha: </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row justify-content-center\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas. </div>\n    </div>\n    <div class=\"row justify-content-center\">\n      <div class=\"col-xs-3\">ID Bus: </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n\n    <button class=\"btn btn-primary\"   style=\"width:200px; background-color: #061539;\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" style=\"width:200px; background-color: #061539;\" (click)=\"obtReporte()\" style=\"display:inline-block;\"> Descargar reporte </button>\n     </p>\n    </div>\n    <div [hidden]=\"!showGraphs\">\n        <div class=\"card bg-transparent\" >\n            <div class=\"card-body\">\n                <p>Velocidad promedio: {{promVelocidad}} [km/h]</p>\n                <p>Temperatura interna promedio: {{promTemperatura}} [º]</p>\n                <p>Combustible promedio utilizado: {{promCombustible}} [L/h]</p>\n          </div>\n        </div>\n        <div class=\"card bg-transparent mt-1\" id=\"downvelocida\" style=\"display: inline-block;\">\n              <div class=\"card-header\">\n                  <h1 class=\"card-title\">Velocidad</h1><p></p>\n              </div>\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div #Velocidad>\n                <!-- Chart will appear here -->\n                </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\" id=\"downtemperatura\" style=\"display: inline-block;\">\n            <div class=\"card-header\">\n                <h1>Temperatura</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Temperatura >\n                  <!-- Chart will appear here -->\n                </div>s\n              </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\"  id=\"downcombustible\" style=\"display: inline-block;\">\n            <div class=\"card-header\">\n                <h1>Combustible</h1><p></p>\n            </div>\n            <div class=\"card-body\" >\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Combustible>\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n</div>\n"
 
 /***/ }),
 
@@ -246,8 +242,12 @@ var GraficosComponent = /** @class */ (function () {
         this.submitted = false;
         this.showgraphs = false;
         this.Butt = false;
-        this.doc = new __WEBPACK_IMPORTED_MODULE_4_jspdf__('p', 'mm', [297, 210]);
+        this.doc = new __WEBPACK_IMPORTED_MODULE_4_jspdf__('l', 'mm', "a4");
         this.waiter = true;
+        //Datos a printear
+        this.promVelocidad = "";
+        this.promCombustible = "";
+        this.promTemperatura = "";
     }
     GraficosComponent.prototype.ngOnInit = function () {
         this.GetIds();
@@ -260,6 +260,9 @@ var GraficosComponent = /** @class */ (function () {
             console.log("Acabo de obtener los datos");
             _this.submitted = true;
             _this.generarGraficos();
+            _this.proVelocidad();
+            _this.proCombustible();
+            _this.proTemperatura();
         });
     };
     GraficosComponent.prototype.generarGraficos = function () {
@@ -310,16 +313,16 @@ var GraficosComponent = /** @class */ (function () {
                 y: this.TomasBus.Velocidad,
                 mode: 'markers',
                 type: 'scatter',
-                marker: { size: 4 }
+                marker: { size: 2 }
             }];
         var style = {
-            margin: { t: 25,
-                l: 25,
-                r: 25,
-                b: 25 //bottom margin
+            margin: { t: 10,
+                l: 20,
+                r: 20,
+                b: 30 //bottom margin
             },
-            width: ancho * 0.3,
-            height: alto / 5,
+            width: 330,
+            height: 200,
             paper_bgcolor: 'rgba(255,255,255,0.6)',
             plot_bgcolor: 'rgba(200,200,200,1)',
             color: 'rgba(200,00,0,1)'
@@ -336,16 +339,16 @@ var GraficosComponent = /** @class */ (function () {
                 y: this.TomasBus.Combustible,
                 mode: 'markers',
                 type: 'scatter',
-                marker: { size: 4 }
+                marker: { size: 2 }
             }];
         var style = {
-            margin: { t: 25,
-                l: 25,
-                r: 25,
-                b: 25 //bottom margin
+            margin: { t: 10,
+                l: 20,
+                r: 20,
+                b: 30 //bottom margin
             },
-            width: ancho * 0.3,
-            height: alto / 5,
+            width: 330,
+            height: 200,
             paper_bgcolor: 'rgba(255,255,255,0.6)',
             plot_bgcolor: 'rgba(200,200,200,1)',
             color: 'rgba(200,00,0,1)'
@@ -362,21 +365,20 @@ var GraficosComponent = /** @class */ (function () {
                 y: this.TomasBus.Temperatura,
                 mode: 'markers',
                 type: 'scatter',
-                marker: { size: 4 }
+                marker: { size: 2 }
             }];
         var style = {
-            margin: { t: 25,
-                l: 25,
-                r: 25,
-                b: 25 //bottom margin
+            margin: { t: 10,
+                l: 20,
+                r: 20,
+                b: 30 //bottom margin
             },
-            width: ancho * 0.3,
-            height: alto / 5,
+            width: 330,
+            height: 200,
             paper_bgcolor: 'rgba(255,255,255,0.6)',
             plot_bgcolor: 'rgba(200,200,200,1)',
             color: 'rgba(200,00,0,1)'
         };
-        element.plot_bgcolor = 'rgba(255,255,255, 0.4)';
         Plotly.plot(element, data, style);
     };
     GraficosComponent.prototype.hidePlots = function () {
@@ -384,32 +386,79 @@ var GraficosComponent = /** @class */ (function () {
         this.showGraphs = false;
         this.hidfechatoma = false;
     };
-    GraficosComponent.prototype.agregarImagen = function (id, profundidad) {
-        var _this = this;
-        __WEBPACK_IMPORTED_MODULE_3_html2canvas___default()(document.getElementById(id)).then(function (canvas) {
-            document.body.appendChild(canvas);
-            var data = canvas.toDataURL();
-            _this.doc.addImage(data, 'PNG', 20, profundidad);
-        });
+    //Funciones promedios----------------------
+    GraficosComponent.prototype.proVelocidad = function () {
+        var sum = 0;
+        for (var i = 0; i < this.TomasBus.Velocidad.length; i++) {
+            sum += parseInt(this.TomasBus.Velocidad[i], 10); //don't forget to add the base
+        }
+        ;
+        var avgv = sum / this.TomasBus.Velocidad.length;
+        this.promVelocidad = (Math.round(avgv * 100) / 100).toFixed(2);
+    };
+    GraficosComponent.prototype.proCombustible = function () {
+        var sum = 0;
+        for (var i = 0; i < this.TomasBus.Combustible.length; i++) {
+            sum += parseInt(this.TomasBus.Combustible[i], 10); //don't forget to add the base
+        }
+        ;
+        var avgc = sum / this.TomasBus.Combustible.length;
+        this.promCombustible = (Math.round(avgc * 100) / 100).toFixed(2);
+    };
+    GraficosComponent.prototype.proTemperatura = function () {
+        var sum = 0;
+        for (var i = 0; i < this.TomasBus.Temperatura.length; i++) {
+            sum += parseInt(this.TomasBus.Temperatura[i], 10); //don't forget to add the base
+        }
+        ;
+        var avgt = sum / this.TomasBus.Temperatura.length;
+        this.promTemperatura = (Math.round(avgt * 100) / 100).toFixed(2);
     };
     GraficosComponent.prototype.obtReporte = function () {
         var ancho = this.doc.internal.pageSize.width;
         var alto = this.doc.internal.pageSize.height;
         //210mm wide and 297mm high
         if (!this.waiter) {
-            this.doc.save('Reporte_Bus_' + this.Currid + '_' + this.Currfecha + '.pdf');
+            if (typeof this.Currfecha !== "undefined") {
+                this.doc.save('Reporte_Bus_' + this.Currid + '_' + this.Currfecha + '.pdf');
+            }
+            else {
+                this.doc.save('Reporte_Bus_' + this.Currid + '_All_Fechas.pdf');
+            }
+            ;
         }
         else {
+            this.doc.addImage("theicon.png", 'PNG', 10, 10, 20, 20);
+            this.doc.text('Reporte', 150, 20);
             this.doc.text('Reporte del bus: ' + this.Currid, 20, 40);
-            this.doc.text('Fecha: ' + this.Currfecha, 120, 40);
-            this.doc.text('Gráficos:', 20, 337);
-            this.agregarImagen("downtemperatura", 240);
-            this.agregarImagen("downcombustible", 180);
-            this.agregarImagen("downvelocida", 50);
-            this.doc.addPage();
+            if (typeof this.Currfecha !== "undefined") {
+                this.doc.text('Fecha: ' + this.Currfecha, 100, 40);
+            }
+            else {
+                this.doc.text('Fecha: Todas las disponibles', 100, 40);
+            }
+            ;
+            //  this.doc.text('Gráficos:',20, 20, 337);
+            this.doc.text("Resumen:", 20, 60);
+            this.doc.text("Velocidad promedio: " + this.promVelocidad, 20, 70);
+            this.doc.text("Temperatura interna promedio: " + this.promTemperatura, 20, 80);
+            this.doc.text("Uso combustible promedio: " + this.promCombustible, 20, 90);
+            this.agregarImagen("downtemperatura", 10, 100);
+            this.agregarImagen("downcombustible", 103, 100);
+            this.agregarImagen("downvelocida", 200, 100);
+            this.doc.text("Generador por DataWatch", 200, 205);
             this.waiter = false;
         }
         ;
+    };
+    //Transforma html a imagen y la agrega al documento
+    GraficosComponent.prototype.agregarImagen = function (id, latitud, profundidad) {
+        var _this = this;
+        __WEBPACK_IMPORTED_MODULE_3_html2canvas___default()(document.getElementById(id)).then(function (canvas) {
+            document.body.appendChild(canvas);
+            var data = canvas.toDataURL();
+            _this.doc.addImage(data, 'PNG', latitud, profundidad);
+        });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('Velocidad'),

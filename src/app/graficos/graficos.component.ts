@@ -41,9 +41,13 @@ export class GraficosComponent implements OnInit {
   showgraphs = false;
   Butt = false;
 
-  doc = new jsPDF('p', 'mm', [297, 210]);
+  doc = new jsPDF('l', 'mm', "a4");
   waiter = true;
 
+//Datos a printear
+  promVelocidad = "";
+  promCombustible = "";
+  promTemperatura = "";
 
   constructor(private chartService: GraficosService) { }
 
@@ -60,6 +64,10 @@ export class GraficosComponent implements OnInit {
       console.log("Acabo de obtener los datos");
       this.submitted = true;
       this.generarGraficos();
+      this.proVelocidad();
+      this.proCombustible();
+      this.proTemperatura();
+
     });
   }
 
@@ -118,17 +126,17 @@ export class GraficosComponent implements OnInit {
       y: this.TomasBus.Velocidad,
       mode: 'markers',
       type: 'scatter',
-      marker: { size: 4 }
+      marker: { size: 2 }
     }];
 
     const style = {
-      margin: { t: 25, //top margin
-                l: 25, //left margin
-                r: 25, //right margin
-                b: 25 //bottom margin
+      margin: { t: 10, //top margin
+                l: 20, //left margin
+                r: 20, //right margin
+                b: 30 //bottom margin
                 },
-      width: ancho*0.3,
-      height: alto/5,
+      width: 330,
+      height: 200,
       paper_bgcolor: 'rgba(255,255,255,0.6)',
       plot_bgcolor: 'rgba(200,200,200,1)',
       color: 'rgba(200,00,0,1)'
@@ -151,17 +159,17 @@ export class GraficosComponent implements OnInit {
       y: this.TomasBus.Combustible,
       mode: 'markers',
       type: 'scatter',
-      marker: { size: 4 }
+      marker: { size: 2 }
     }];
 
     const style = {
-      margin: { t: 25, //top margin
-                l: 25, //left margin
-                r: 25, //right margin
-                b: 25 //bottom margin
+      margin: { t: 10, //top margin
+                l: 20, //left margin
+                r: 20, //right margin
+                b: 30 //bottom margin
                 },
-      width: ancho*0.3,
-      height: alto/5,
+      width: 330,
+      height: 200,
       paper_bgcolor: 'rgba(255,255,255,0.6)',
       plot_bgcolor: 'rgba(200,200,200,1)',
       color: 'rgba(200,00,0,1)'
@@ -184,17 +192,17 @@ export class GraficosComponent implements OnInit {
       y: this.TomasBus.Temperatura,
       mode: 'markers',
       type: 'scatter',
-      marker: { size: 4 }
+      marker: { size: 2 }
     }];
 
     const style = {
-      margin: { t: 25, //top margin
-                l: 25, //left margin
-                r: 25, //right margin
-                b: 25 //bottom margin
+      margin: { t: 10, //top margin
+                l: 20, //left margin
+                r: 20, //right margin
+                b: 30 //bottom margin
                 },
-      width: ancho*0.3,
-      height: alto/5,
+      width: 330,
+      height: 200,
       paper_bgcolor: 'rgba(255,255,255,0.6)',
       plot_bgcolor: 'rgba(200,200,200,1)',
       color: 'rgba(200,00,0,1)'
@@ -216,36 +224,80 @@ export class GraficosComponent implements OnInit {
 
 
 
-agregarImagen(id, profundidad){
-  html2canvas(document.getElementById(id)).then(canvas => {
-      document.body.appendChild(canvas);
-      var data = canvas.toDataURL();
-      this.doc.addImage(data, 'PNG', 20, profundidad);
-    });
+
+//Funciones promedios----------------------
+proVelocidad(){
+      var sum = 0;
+      for( var i = 0; i < this.TomasBus.Velocidad.length; i++ ){
+          sum += parseInt( this.TomasBus.Velocidad[i], 10 ); //don't forget to add the base
+        };
+      var avgv = sum/this.TomasBus.Velocidad.length;
+      this.promVelocidad = (Math.round(avgv * 100) / 100).toFixed(2) ;
   }
 
+proCombustible(){
+        var sum = 0;
+        for( var i = 0; i < this.TomasBus.Combustible.length; i++ ){
+            sum += parseInt( this.TomasBus.Combustible[i], 10 ); //don't forget to add the base
+          };
+        var avgc = sum/this.TomasBus.Combustible.length;
+        this.promCombustible = (Math.round(avgc * 100) / 100).toFixed(2) ;
+    }
 
-
-
+  proTemperatura(){
+          var sum = 0;
+          for( var i = 0; i < this.TomasBus.Temperatura.length; i++ ){
+              sum += parseInt( this.TomasBus.Temperatura[i], 10 ); //don't forget to add the base
+            };
+          var avgt = sum/this.TomasBus.Temperatura.length;
+          this.promTemperatura = (Math.round(avgt * 100) / 100).toFixed(2) ;
+      }
 
 obtReporte(){
      var ancho = this.doc.internal.pageSize.width;
      var alto = this.doc.internal.pageSize.height;
      //210mm wide and 297mm high
      if (!this.waiter){
-          this.doc.save('Reporte_Bus_'+this.Currid+'_'+this.Currfecha+'.pdf');
+         if (typeof this.Currfecha !== "undefined"){
+             this.doc.save('Reporte_Bus_'+this.Currid+'_'+this.Currfecha+'.pdf');
+         }
+         else {
+             this.doc.save('Reporte_Bus_'+this.Currid+'_All_Fechas.pdf');
+         };
+
         }
       else{
+        this.doc.addImage("theicon.png", 'PNG', 10, 10, 20, 20);
+        this.doc.text('Reporte', 150,20);
         this.doc.text('Reporte del bus: '+this.Currid, 20, 40);
-        this.doc.text('Fecha: '+this.Currfecha, 120, 40);
-        this.doc.text('Gráficos:', 20, 337);
-        this.agregarImagen("downtemperatura",240);
-        this.agregarImagen("downcombustible", 180);
-        this.agregarImagen("downvelocida", 50);
-        this.doc.addPage();
+        if (typeof this.Currfecha !== "undefined"){
+            this.doc.text('Fecha: '+this.Currfecha, 100, 40);
+        }
+        else {
+            this.doc.text('Fecha: Todas las disponibles', 100, 40);
+        };
+
+      //  this.doc.text('Gráficos:',20, 20, 337);
+        this.doc.text("Resumen:", 20, 60);
+        this.doc.text("Velocidad promedio: "+this.promVelocidad,20,70);
+        this.doc.text("Temperatura interna promedio: "+this.promTemperatura,20,80);
+        this.doc.text("Uso combustible promedio: "+this.promCombustible,20,90);
+
+
+        this.agregarImagen("downtemperatura", 10,100);
+        this.agregarImagen("downcombustible",103, 100);
+        this.agregarImagen("downvelocida",200, 100);
+        this.doc.text("Generador por DataWatch",200, 205)
         this.waiter = false;
       };
-
 }
 
+//Transforma html a imagen y la agrega al documento
+agregarImagen(id, latitud, profundidad){
+  html2canvas(document.getElementById(id)).then(canvas => {
+      document.body.appendChild(canvas);
+      var data = canvas.toDataURL();
+      this.doc.addImage(data, 'PNG', latitud,profundidad);
+    });
+  }
 }

@@ -31,7 +31,7 @@
         </select>
       </div>
 
-      <button type="submit" class="btn btn-primary" style="width:200px;background-color: #061539;" [disabled]="!Butt" >Procesar Graficos</button>
+      <button type="submit" class="btn btn-primary" style="width:200px;background-color: #061539;" [disabled]="!Butt">Procesar Graficos</button>
 
     </form>
   </div>
@@ -61,44 +61,49 @@
      </p>
     </div>
     <div [hidden]="!showGraphs">
-
-            <div class="card bg-transparent mt-1">
+        <div class="card bg-transparent" >
+            <div class="card-body">
+                <p>Velocidad promedio: {{promVelocidad}} [km/h]</p>
+                <p>Temperatura interna promedio: {{promTemperatura}} [º]</p>
+                <p>Combustible promedio utilizado: {{promCombustible}} [L/h]</p>
+          </div>
+        </div>
+        <div class="card bg-transparent mt-1" id="downvelocida" style="display: inline-block;">
               <div class="card-header">
                   <h1 class="card-title">Velocidad</h1><p></p>
               </div>
             <div class="card-body">
                 <div class="row justify-content-center">
-                    <div #Velocidad id="downvelocida">
+                    <div #Velocidad>
                 <!-- Chart will appear here -->
-                    </div>
+                </div>
                 </div>
             </div>
         </div>
 
-        <div class="card bg-transparent mt-2">
+        <div class="card bg-transparent mt-2" id="downtemperatura" style="display: inline-block;">
             <div class="card-header">
                 <h1>Temperatura</h1><p></p>
             </div>
             <div class="card-body">
               <div class="row justify-content-center aling-items-center">
-                <div #Temperatura id="downtemperatura">
+                <div #Temperatura >
                   <!-- Chart will appear here -->
-                </div>
+                </div>s
               </div>
             </div>
         </div>
 
-        <div class="card bg-transparent mt-2">
+        <div class="card bg-transparent mt-2"  id="downcombustible" style="display: inline-block;">
             <div class="card-header">
                 <h1>Combustible</h1><p></p>
             </div>
             <div class="card-body" >
               <div class="row justify-content-center aling-items-center">
-                <div #Combustible id="downcombustible">
+                <div #Combustible>
                   <!-- Chart will appear here -->
                 </div>
               </div>
             </div>
         </div>
-
 </div>
