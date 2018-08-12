@@ -200,7 +200,11 @@ module.exports = ""
 /***/ "./src/app/graficos/graficos.component.html":
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
+module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" style=\"width:200px;background-color: #061539;\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\" class=\"container align-items-center\"style=\"vertical-align: middle;\" >\n\n    <h2>Mostrando reporte basados en la siguientes elecciones</h2>\n    <div class=\"row justify-content-center\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha: </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas. </div>\n    </div>\n    <div class=\"row justify-content-center\">\n      <div class=\"col-xs-3\">ID Bus: </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n\n    <button class=\"btn btn-primary\"   style=\"width:200px; background-color: #061539;\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" style=\"width:200px; background-color: #061539;\" (click)=\"obtReporte()\" style=\"display:inline-block;\"> Descargar reporte </button>\n     </p>\n    </div>\n    <div [hidden]=\"!showGraphs\">\n\n            <div class=\"card bg-transparent mt-1\">\n              <div class=\"card-header\">\n                  <h1 class=\"card-title\">Velocidad</h1><p></p>\n              </div>\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div #Velocidad id=\"downvelocida\">\n                <!-- Chart will appear here -->\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Temperatura</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Temperatura id=\"downtemperatura\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Combustible</h1><p></p>\n            </div>\n            <div class=\"card-body\" >\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Combustible id=\"downcombustible\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n\n</div>\n"
+=======
 module.exports = "\n<div class=\"container\">\n  <div [hidden]=\"submitted\" >\n    <h1>Selección de Fecha e IDs</h1>\n    <form (ngSubmit)=\"onSubmit()\" #GraficosComponent=\"ngForm\">\n\n    <div class=\"form-group\" >\n        <label for=\"Fecha\">ID del bus</label>\n        <select class=\"form-control\"\n                id=\"idBus\"\n                required\n                [(ngModel)]=\"Currid\"\n                name=\"idBus\"\n                #fecha=\"ngModel\"\n                (change)=\"getFechas($event.target.value)\">\n          <option *ngFor=\"let i of ids\">{{i}}</option>\n        </select>\n      </div>\n\n      ¿Desea elegir el dia a graficar? <input type=\"checkbox\" [(ngModel)]=\"hidfechatoma\" (change)=\"!hidfechatoma\" name=\"DiasEspecificos\">\n\n      <p></p>\n\n      <div class=\"form-group\" [hidden]=\"!hidfechatoma\">\n        <label for=\"idBus\">Dia de la toma</label>\n        <select class=\"form-control\" id=\"Fecha\"\n                required\n                [(ngModel)]=\"Currfecha\" name=\"fecha\"\n                #idBus=\"ngModel\" >\n          <option *ngFor=\"let fecha of fechas\" [value]=\"fecha\">{{fecha | date}}</option>\n        </select>\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-primary\" style=\"width:200px;background-color: #061539;\" [disabled]=\"!Butt\" >Procesar Graficos</button>\n\n    </form>\n  </div>\n\n  <div [hidden]=\"!submitted\" class=\"container align-items-center\"style=\"vertical-align: middle;\" >\n\n    <h2>Mostrando reporte basados en la siguientes elecciones</h2>\n    <div class=\"row justify-content-center\" [hidden]=\"!hidfechatoma\">\n      <div class=\"col-xs-3\">Fecha: </div>\n      <div class=\"col-xs-9  pull-left\">{{ Currfecha }}</div>\n    </div>\n    <div class=\"row justify-content-center\" [hidden]=\"hidfechatoma\">\n      <div class=\"col-xs-3\">Todas las fechas. </div>\n    </div>\n    <div class=\"row justify-content-center\">\n      <div class=\"col-xs-3\">ID Bus: </div>\n      <div class=\"col-xs-9 pull-left\">{{ Currid }}</div>\n    </div>\n    <br>\n\n    <button class=\"btn btn-primary\"   style=\"width:200px; background-color: #061539;\" (click)=\"hidePlots()\">Cambiar Fecha</button>\n\n\n    <div [hidden]=\"!showGraphs\">\n      <p></p>\n      <p>\n        <button class=\"btn btndownload\" style=\"width:200px; background-color: #061539;\" (click)=\"obtReporte()\" style=\"display:inline-block;\"> Descargar reporte </button>\n\n     </p>\n             <div class=\"card bg-transparent mt-1\">\n            <div class=\"card-header\">\n                <h1 class=\"card-title\">Velocidad</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div #Velocidad id=\"downvelocida\">\n                <!-- Chart will appear here -->\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Temperatura</h1><p></p>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Temperatura id=\"downtemperatura\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n\n        <div class=\"card bg-transparent mt-2\">\n            <div class=\"card-header\">\n                <h1>Combustible</h1><p></p>\n            </div>\n            <div class=\"card-body\" >\n              <div class=\"row justify-content-center aling-items-center\">\n                <div #Combustible id=\"downcombustible\">\n                  <!-- Chart will appear here -->\n                </div>\n              </div>\n            </div>\n        </div>\n\n</div>\n"
+>>>>>>> 14c58eff05aa599ae8bcdb4881e5826562be3d57
 
 /***/ }),
 
@@ -297,38 +301,80 @@ var GraficosComponent = /** @class */ (function () {
         });
     };
     GraficosComponent.prototype.velTime = function () {
+        var ancho = this.doc.internal.pageSize.width;
+        var alto = this.doc.internal.pageSize.height;
         var element = this.vel.nativeElement;
         Plotly.purge(element);
         var data = [{
                 x: this.TomasBus.Taimstamps,
-                y: this.TomasBus.Velocidad
+                y: this.TomasBus.Velocidad,
+                mode: 'markers',
+                type: 'scatter',
+                marker: { size: 4 }
             }];
         var style = {
-            margin: { t: 0 }
+            margin: { t: 25,
+                l: 25,
+                r: 25,
+                b: 25 //bottom margin
+            },
+            width: ancho * 0.3,
+            height: alto / 5,
+            paper_bgcolor: 'rgba(255,255,255,0.6)',
+            plot_bgcolor: 'rgba(200,200,200,1)',
+            color: 'rgba(200,00,0,1)'
         };
         Plotly.plot(element, data, style);
     };
     GraficosComponent.prototype.fuelTime = function () {
+        var ancho = this.doc.internal.pageSize.width;
+        var alto = this.doc.internal.pageSize.height;
         var element = this.fuel.nativeElement;
         Plotly.purge(element);
         var data = [{
                 x: this.TomasBus.Taimstamps,
-                y: this.TomasBus.Combustible
+                y: this.TomasBus.Combustible,
+                mode: 'markers',
+                type: 'scatter',
+                marker: { size: 4 }
             }];
         var style = {
-            margin: { t: 0 }
+            margin: { t: 25,
+                l: 25,
+                r: 25,
+                b: 25 //bottom margin
+            },
+            width: ancho * 0.3,
+            height: alto / 5,
+            paper_bgcolor: 'rgba(255,255,255,0.6)',
+            plot_bgcolor: 'rgba(200,200,200,1)',
+            color: 'rgba(200,00,0,1)'
         };
         Plotly.plot(element, data, style);
     };
     GraficosComponent.prototype.tempTime = function () {
+        var ancho = this.doc.internal.pageSize.width;
+        var alto = this.doc.internal.pageSize.height;
         var element = this.temp.nativeElement;
         Plotly.purge(element);
         var data = [{
                 x: this.TomasBus.Taimstamps,
-                y: this.TomasBus.Temperatura
+                y: this.TomasBus.Temperatura,
+                mode: 'markers',
+                type: 'scatter',
+                marker: { size: 4 }
             }];
         var style = {
-            margin: { t: 0 }
+            margin: { t: 25,
+                l: 25,
+                r: 25,
+                b: 25 //bottom margin
+            },
+            width: ancho * 0.3,
+            height: alto / 5,
+            paper_bgcolor: 'rgba(255,255,255,0.6)',
+            plot_bgcolor: 'rgba(200,200,200,1)',
+            color: 'rgba(200,00,0,1)'
         };
         element.plot_bgcolor = 'rgba(255,255,255, 0.4)';
         Plotly.plot(element, data, style);

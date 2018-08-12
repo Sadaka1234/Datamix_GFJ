@@ -4,11 +4,11 @@
 
 ## Base de Datos
 
-Dentro de la carpeta `CSV` se encuentra un script en python que trunca los archivos .csv del cliente, esto se encuentra mejor explicado en el archivo `readme.txt`dentro de la misma carpeta, para poder subirlo a la base de datos mediante software como *MySQLWorkbench*. Se espera agregar a futuro una forma de manejar la base de datos mediante el navegador.
+Para poder poblar la base de datos, es necesario que se incluyan archivos de la trama `fsm-1` en la carpeta `/CSV`. Despues se debe hacer login en la pagina como administrador y luego entrar a la pestaña `Manejo Data`. Dentro de la pagina, elegir un archivo de la lista para que los datos de este sean subidos a la base de datos.
 
 ## Correr DataWatch
 
-Abrir una terminal dentro de la carpeta raíz y ejecutar `node_install all` y luego `ng build && ng serve`, el sitio se encontrará disponible en `localhost:3000`
+Abrir una terminal dentro de la carpeta raíz y ejecutar `npm install` y luego `ng build && ng serve`, el sitio se encontrará disponible en `localhost:3000`
 
 ### DataWatch, hecho con ♥ por DataMix
 
