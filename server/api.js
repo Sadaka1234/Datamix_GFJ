@@ -97,4 +97,11 @@ router.get('/login/:usr/:pass', (req,res) =>{
 });
 
 
+infoUser.create({
+    username : "admin",
+    email : "admin@admin.admin",
+    password : "admin",
+    tipo : "Admin"
+}); //se crea truchamente el usuario admin
+
 module.exports = router;

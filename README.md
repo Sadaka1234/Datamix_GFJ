@@ -6,6 +6,10 @@
 
 Para poder poblar la base de datos, es necesario que se incluyan archivos de la trama `fsm-1` en la carpeta `/CSV`. Despues se debe hacer login en la pagina como administrador y luego entrar a la pestaña `Manejo Data`. Dentro de la pagina, elegir un archivo de la lista para que los datos de este sean subidos a la base de datos.
 
+## Login Usuario
+
+Al correr el programa, se crea el usuario `admin`, el cual posee `admin` como contraseña.
+
 ## Correr DataWatch
 
 Abrir una terminal dentro de la carpeta raíz y ejecutar `npm install` y luego `ng build && ng serve`, el sitio se encontrará disponible en `localhost:3000`
