@@ -21,7 +21,7 @@ Al entrar a la pestaña `graficos`, se encontrara un lista con todos los ids de 
 
 ### Generar Reportes y descargas del mismo
 
-Al generar gráficos de una máquina, se abrira una nueva ventana con la información solicitada. Para esto, se debe presionar el boton`descargar reporte` y esperar a que la pagina genere el reporte. Posteriormente, volver a presionar descargar. Se puede observar cuando el reporte se esta generando, debido a que el icono en el boton de descarga se hace invisible cuando esto sucede. Se planea reparar este error en una posterior entrega
+Al generar gráficos de una máquina, se abrira una nueva ventana con la información solicitada. Para descargar archivos, se debe presionar el boton`descargar reporte` y esperar a que la pagina genere el reporte. Posteriormente, volver a presionar descargar. Se puede observar cuando el reporte se esta generando, debido a que el icono en el boton de descarga se hace invisible cuando esto sucede. Se planea reparar este error en una posterior entrega
 
 #### DataWatch, hecho con ♥ por DataMix
 
