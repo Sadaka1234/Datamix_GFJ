@@ -20,8 +20,21 @@ const infoUser = sequelize.import('User', require("../models/User"));
 
 
 sequelize.sync()
-    .then(() => console.log('Tables has been successfully created, if one doesn\'t exist'))
-    .catch(error => console.log('This error occured', error));
+.then(() => {
+    console.log('Tables has been successfully created, if one doesn\'t exist');
+    infoUser.findAll({attributes : [[sequelize.fn('count', sequelize.col("username")),"Numero"]]})
+    .then(rows => {
+        if (rows[0].dataValues.Numero == 0){
+            infoUser.create({
+                username : "admin",
+                email : "admin@admin.admin",
+                password : "admin",
+                tipo : "Admin"
+            });
+        }
+    });
+})
+.catch(error => console.log('This error occured', error));
 
 
 
@@ -94,19 +107,6 @@ router.get('/login/:usr/:pass', (req,res) =>{
         
     });
 
-});
-
-
-infoUser.findAll({attributes : [[sequelize.fn('count', sequelize.col("username")),"Numero"]]})
-.then(rows => {
-    if (rows[0].dataValues.Numero == 0){
-        infoUser.create({
-            username : "admin",
-            email : "admin@admin.admin",
-            password : "admin",
-            tipo : "Admin"
-        });
-    }
 });
 
 module.exports = router;
