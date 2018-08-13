@@ -53,7 +53,7 @@ export class ManejoDataComponent implements OnInit {
     this.ManData.LetsGetParsing(this.Dia).subscribe( rows => {
       
     });
-    setTimeout(() => { this.Memes = true;}, 18000);
+    setTimeout(() => { this.Memes = true;this.itCanBeDone = false;}, 18000);
   }
 
 }
