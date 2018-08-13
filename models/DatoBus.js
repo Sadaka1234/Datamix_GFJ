@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('BUS', {
+  return sequelize.define('DatoBus', {
     horaToma: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -70,7 +70,7 @@ module.exports = function(sequelize, DataTypes) {
     },
 
   }, {
-    tableName: 'BUS',
+    tableName: 'Dato',
     timestamps: false,
     underscored: true
   });

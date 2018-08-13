@@ -15,7 +15,7 @@ console.error("No te puedes conectar: ", err);
 });
 
 
-const infoBus = sequelize.import('BUS', require("../models/BUS"));
+const infoBus = sequelize.import('DatoBus', require("../models/DatoBus"));
 const infoUser = sequelize.import('User', require("../models/User"));
 
 

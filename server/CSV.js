@@ -2,7 +2,7 @@ const sequelize = require('./config');
 const fs = require('fs');
 const parser = require('papaparse');
 
-const infoBus = sequelize.import('BUS', require("../models/BUS"));
+const infoBus = sequelize.import('DatoBus', require("../models/DatoBus"));
 
 var done = false;
 
