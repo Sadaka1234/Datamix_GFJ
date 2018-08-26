@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const https = require('https');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 /* Incluimos la Api*/
 const api = require('./server/api');
@@ -42,7 +43,7 @@ const port = process.env.PORT || '3000';
 app.set('port', port);
 
 /* Levantamos el servidor */
-const server = http.createServer({
+const server = https.createServer({
   key: fs.readFileSync('server.key'),
   cert: fs.readFileSync('server.cert')
 },app);
