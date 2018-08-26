@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 /*/import { EntradasComponent } from './entradas/entradas.component';
 import { IngresarEntradasComponent } from './ingresar-entradas/ingresar-entradas.component';/*/
 import { GraficosComponent } from './graficos/graficos.component';
+import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
@@ -14,7 +15,8 @@ const routes: Routes = [
     { path: 'graficos/new', component: GraficosComponent,canActivate:[LoginGuard] },
     { path: '', component: HomeComponent,canActivate:[LoginGuard]},
     { path: 'login', component: LoginComponent},
-    { path: 'manejo-data', component: ManejoDataComponent,canActivate:[LoginGuard]}
+    { path: 'manejo-data', component: ManejoDataComponent,canActivate:[LoginGuard]},
+    { path: 'signup', component: SignupComponent}
 
 ];
 

@@ -25,10 +25,11 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__graficos_graficos_component__ = __webpack_require__("./src/app/graficos/graficos.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_guard__ = __webpack_require__("./src/app/login.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__manejo_data_manejo_data_component__ = __webpack_require__("./src/app/manejo-data/manejo-data.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup_component__ = __webpack_require__("./src/app/signup/signup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_guard__ = __webpack_require__("./src/app/login.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__manejo_data_manejo_data_component__ = __webpack_require__("./src/app/manejo-data/manejo-data.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,13 +45,15 @@ import { IngresarEntradasComponent } from './ingresar-entradas/ingresar-entradas
 
 
 
+
 var routes = [
     /*/    { path: '', component: GraficosComponent },
         { path: 'entradas/new', component: IngresarEntradasComponent }, /*/
-    { path: 'graficos/new', component: __WEBPACK_IMPORTED_MODULE_2__graficos_graficos_component__["a" /* GraficosComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_5__login_guard__["a" /* LoginGuard */]] },
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_3__home_home_component__["a" /* HomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_5__login_guard__["a" /* LoginGuard */]] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_4__login_login_component__["a" /* LoginComponent */] },
-    { path: 'manejo-data', component: __WEBPACK_IMPORTED_MODULE_6__manejo_data_manejo_data_component__["a" /* ManejoDataComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_5__login_guard__["a" /* LoginGuard */]] }
+    { path: 'graficos/new', component: __WEBPACK_IMPORTED_MODULE_2__graficos_graficos_component__["a" /* GraficosComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_6__login_guard__["a" /* LoginGuard */]] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_4__home_home_component__["a" /* HomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_6__login_guard__["a" /* LoginGuard */]] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_5__login_login_component__["a" /* LoginComponent */] },
+    { path: 'manejo-data', component: __WEBPACK_IMPORTED_MODULE_7__manejo_data_manejo_data_component__["a" /* ManejoDataComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_6__login_guard__["a" /* LoginGuard */]] },
+    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_3__signup_signup_component__["a" /* SignupComponent */] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -134,12 +137,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_manejo_data_service_service__ = __webpack_require__("./src/app/services/manejo-data-service.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__manejo_data_manejo_data_component__ = __webpack_require__("./src/app/manejo-data/manejo-data.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_login_service__ = __webpack_require__("./src/app/services/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__signup_signup_component__ = __webpack_require__("./src/app/signup/signup.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -166,7 +171,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__graficos_graficos_component__["a" /* GraficosComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__home_home_component__["a" /* HomeComponent */],
                 __WEBPACK_IMPORTED_MODULE_10__login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__manejo_data_manejo_data_component__["a" /* ManejoDataComponent */]
+                __WEBPACK_IMPORTED_MODULE_13__manejo_data_manejo_data_component__["a" /* ManejoDataComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__signup_signup_component__["a" /* SignupComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -978,6 +984,56 @@ var ManejoDataServiceService = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], ManejoDataServiceService);
     return ManejoDataServiceService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/signup/signup.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/signup/signup.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<div class=\"page-header\">\n    <h1>Datamix Systems</h1>\n</div>\n\n<nav class=\"navbar navbar-default\">\n        <!-- Collect the nav links, forms, and other content for toggling -->\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n            <ul class=\"nav navbar-nav\">\n                <li><a href=\"/\">Home</a></li>\n                <li><a href=\"/signup\">Sign Up</a></li>\n                <li><a href=\"/dashboard\">Dashboard</a></li>\n            </ul>\n\n            <ul class=\"nav navbar-nav navbar-right\">\n                <li><a href=\"/login\">Log In</a></li>\n                <li><a href=\"/logout\">Log Out</a></li>\n            </ul>\n        </div><!-- /.navbar-collapse -->\n</nav>\n\n<div>\n    <div class=\"pull-center\">\n        <form action=\"/signup\" method=\"post\">\n            <div>\n                <label>Username:</label>\n                <input type=\"text\" name=\"username\"/>\n            </div>\n            <div>\n                <label>Email:</label>\n                <input type=\"text\" name=\"email\"/>\n            </div>\n            <div>\n                <label>Password:</label>\n                <input type=\"password\" name=\"password\"/>\n            </div>\n            <div>\n                <input class=\"btn btn-primary\"   style=\"width:200px; background-color: #061539;\" type=\"submit\" value=\"Sign Up\"/>\n            </div>\n        </form>\n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/signup/signup.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SignupComponent = /** @class */ (function () {
+    function SignupComponent() {
+    }
+    SignupComponent.prototype.ngOnInit = function () {
+    };
+    SignupComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-signup',
+            template: __webpack_require__("./src/app/signup/signup.component.html"),
+            styles: [__webpack_require__("./src/app/signup/signup.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SignupComponent);
+    return SignupComponent;
 }());
 
 

@@ -14,6 +14,7 @@ import { LoginGuard } from './login.guard';
 import { ManejoDataServiceService } from './services/manejo-data-service.service';
 import { ManejoDataComponent } from './manejo-data/manejo-data.component';
 import { LoginService } from './services/login.service';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginService } from './services/login.service';
     GraficosComponent,
     HomeComponent,
     LoginComponent,
-    ManejoDataComponent
+    ManejoDataComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
