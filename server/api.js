@@ -109,4 +109,27 @@ router.get('/login/:usr/:pass', (req,res) =>{
 
 });
 
+router.get('/signup/:usr/:pass/:mail/:tipo', (req,res) =>{
+
+    infoUser.findAll({where : {username : req.params.usr}}).then( rows => {
+        if (rows.length == 0){
+            res.status(200).send(false);
+        }
+        else{
+
+            infoUser.create({
+                username : req.params.usr,
+                email : req.params.mail,
+                password : req.params.pass,
+                tipo : req.params.tipo
+            }).then( rows => {
+                res.status(200).send(true);
+            });
+
+        }
+        
+    });
+
+});
+
 module.exports = router;
