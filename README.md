@@ -13,7 +13,7 @@ Al correr el programa, se crea el usuario *admin*, el cual posee *admin* como co
 
 ## Correr DataWatch
 
-Abrir una terminal dentro de la carpeta raíz y ejecutar `npm install` y luego `ng build && node server`, el sitio se encontrará disponible en `localhost:3000`. En caso de fallar Jquery, se debe ejecutar el comando `npm install jquery --save`
+Abrir una terminal dentro de la carpeta raíz y ejecutar `npm install` y luego `ng build && node server`, el sitio se encontrará disponible en `https://localhost:3000`. En caso de fallar Jquery, se debe ejecutar el comando `npm install jquery --save`
 
 ### Ver Graficos
 
@@ -28,3 +28,5 @@ Al generar gráficos de una máquina, se abrira una nueva ventana con la informa
 ![](http://www.wobshite.co.uk/b3ta/letters/dance/d.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/a.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/t.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/a.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/w.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/a.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/t.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/c.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/h.gif)
 
 ![](https://images.cooltext.com/5179980.gif)
+
+![](http://www.wobshite.co.uk/b3ta/letters/dance/m.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/a.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/u.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/R.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/o.gif)
