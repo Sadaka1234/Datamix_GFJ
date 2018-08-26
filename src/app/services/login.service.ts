@@ -13,5 +13,13 @@ export class LoginService {
   	return this.http.get(url).map(res => res.json());
   }
 
+  SignUp(Datos){
+
+  	let url = "/api/v1/signup/" + Datos["Usuario"] + "/" + Datos["Pass"] + "/" +  Datos["Mail"] + "/" + Datos["Tipo"];
+  	console.log(url);
+  	return this.http.get(url).map(res => res.json());
+
+  }
+
 
 }

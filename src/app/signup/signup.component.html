@@ -19,24 +19,28 @@
         </div><!-- /.navbar-collapse -->
 </nav>
 
+<div [hidden]="isValid"> Error con los datos, porfa intente otra vez ಥ﹏ಥ ' </div>
+
 <div>
     <div class="pull-center">
-        <form action="/signup" method="post">
-            <div>
-                <label>Username:</label>
-                <input type="text" name="username"/>
-            </div>
-            <div>
-                <label>Email:</label>
-                <input type="text" name="email"/>
-            </div>
-            <div>
-                <label>Password:</label>
-                <input type="password" name="password"/>
-            </div>
-            <div>
-                <input class="btn btn-primary"   style="width:200px; background-color: #061539;" type="submit" value="Sign Up"/>
-            </div>
-        </form>
+        <div class="form-container">
+            <form #loginForm="ngForm" (ngSubmit)="signup(loginForm)">
+                <div>
+                    <label>Username:</label>
+                    <input type="text" name="username" id="username" ngModel>
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <input type="text" name="email" id="email" ngModel>
+                </div>
+                <div>
+                    <label>Password:</label>
+                    <input type="password" name="password" id="password" ngModel>
+                </div>
+                <div>
+                    <input class="btn btn-primary"   style="width:200px; background-color: #061539;" type="submit" value="Sign Up"/>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

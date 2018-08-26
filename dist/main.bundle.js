@@ -933,6 +933,11 @@ var LoginService = /** @class */ (function () {
         var url = "/api/v1/login/" + usr + "/" + pass;
         return this.http.get(url).map(function (res) { return res.json(); });
     };
+    LoginService.prototype.SignUp = function (Datos) {
+        var url = "/api/v1/signup/" + Datos["Usuario"] + "/" + Datos["Pass"] + "/" + Datos["Mail"] + "/" + Datos["Tipo"];
+        console.log(url);
+        return this.http.get(url).map(function (res) { return res.json(); });
+    };
     LoginService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
@@ -1000,7 +1005,7 @@ module.exports = ""
 /***/ "./src/app/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"page-header\">\n    <h1>Datamix Systems</h1>\n</div>\n\n<nav class=\"navbar navbar-default\">\n        <!-- Collect the nav links, forms, and other content for toggling -->\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n            <ul class=\"nav navbar-nav\">\n                <li><a href=\"/\">Home</a></li>\n                <li><a href=\"/signup\">Sign Up</a></li>\n                <li><a href=\"/dashboard\">Dashboard</a></li>\n            </ul>\n\n            <ul class=\"nav navbar-nav navbar-right\">\n                <li><a href=\"/login\">Log In</a></li>\n                <li><a href=\"/logout\">Log Out</a></li>\n            </ul>\n        </div><!-- /.navbar-collapse -->\n</nav>\n\n<div>\n    <div class=\"pull-center\">\n        <form action=\"/signup\" method=\"post\">\n            <div>\n                <label>Username:</label>\n                <input type=\"text\" name=\"username\"/>\n            </div>\n            <div>\n                <label>Email:</label>\n                <input type=\"text\" name=\"email\"/>\n            </div>\n            <div>\n                <label>Password:</label>\n                <input type=\"password\" name=\"password\"/>\n            </div>\n            <div>\n                <input class=\"btn btn-primary\"   style=\"width:200px; background-color: #061539;\" type=\"submit\" value=\"Sign Up\"/>\n            </div>\n        </form>\n    </div>\n</div>\n"
+module.exports = "\n<div class=\"page-header\">\n    <h1>Datamix Systems</h1>\n</div>\n\n<nav class=\"navbar navbar-default\">\n        <!-- Collect the nav links, forms, and other content for toggling -->\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n            <ul class=\"nav navbar-nav\">\n                <li><a href=\"/\">Home</a></li>\n                <li><a href=\"/signup\">Sign Up</a></li>\n                <li><a href=\"/dashboard\">Dashboard</a></li>\n            </ul>\n\n            <ul class=\"nav navbar-nav navbar-right\">\n                <li><a href=\"/login\">Log In</a></li>\n                <li><a href=\"/logout\">Log Out</a></li>\n            </ul>\n        </div><!-- /.navbar-collapse -->\n</nav>\n\n<div [hidden]=\"isValid\"> Error con los datos, porfa intente otra vez ಥ﹏ಥ ' </div>\n\n<div>\n    <div class=\"pull-center\">\n        <div class=\"form-container\">\n            <form #loginForm=\"ngForm\" (ngSubmit)=\"signup(loginForm)\">\n                <div>\n                    <label>Username:</label>\n                    <input type=\"text\" name=\"username\" id=\"username\" ngModel>\n                </div>\n                <div>\n                    <label>Email:</label>\n                    <input type=\"text\" name=\"email\" id=\"email\" ngModel>\n                </div>\n                <div>\n                    <label>Password:</label>\n                    <input type=\"password\" name=\"password\" id=\"password\" ngModel>\n                </div>\n                <div>\n                    <input class=\"btn btn-primary\"   style=\"width:200px; background-color: #061539;\" type=\"submit\" value=\"Sign Up\"/>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -1010,6 +1015,8 @@ module.exports = "\n<div class=\"page-header\">\n    <h1>Datamix Systems</h1>\n<
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_login_service__ = __webpack_require__("./src/app/services/login.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1020,10 +1027,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var SignupComponent = /** @class */ (function () {
-    function SignupComponent() {
+    function SignupComponent(router, loginservice) {
+        this.router = router;
+        this.loginservice = loginservice;
+        this.isValid = true;
     }
     SignupComponent.prototype.ngOnInit = function () {
+    };
+    SignupComponent.prototype.signup = function (form) {
+        var _this = this;
+        var Datos = {
+            "Usuario": form.value.username,
+            "Pass": form.value.password,
+            "Mail": form.value.email,
+            "Tipo": "Usuario"
+        };
+        console.log(Datos);
+        this.loginservice.SignUp(Datos).subscribe(function (rows) {
+            _this.isValid = rows;
+            if (rows) {
+                console.log("Registro Existoso");
+                localStorage.setItem('usuario', form.value.usuario);
+                localStorage.setItem('isAdmin', "Usuario");
+                _this.router.navigate(['/']);
+            }
+        });
     };
     SignupComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -1031,7 +1062,7 @@ var SignupComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/signup/signup.component.html"),
             styles: [__webpack_require__("./src/app/signup/signup.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */], __WEBPACK_IMPORTED_MODULE_2__services_login_service__["a" /* LoginService */]])
     ], SignupComponent);
     return SignupComponent;
 }());

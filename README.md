@@ -11,6 +11,12 @@ Para poder poblar la base de datos, es necesario que se incluyan archivos de la 
 
 Al correr el programa, se crea el usuario *admin*, el cual posee *admin* como contraseña. Aun no se genera el sistema para registrar cuentas, asi que se tendrá que usar la cuenta preexistente. Esto será implementado en una posterior entrega.
 
+### Signup Usuario
+
+Al entrar en la pagina de login, estará disponible la opcion de hacer signup dentro de la plataforma, todos los usuarios creados por aca no tendran acceso al manejo de la base de datos. Para poder acceder a eso, ingresar mediante el usuario *admin*.
+
+Tomar en cuenta que el email y el nombre de usuario por separados deben ser unicos.
+
 ## Correr DataWatch
 
 Abrir una terminal dentro de la carpeta raíz y ejecutar `npm install` y luego `ng build && node server`, el sitio se encontrará disponible en `https://localhost:3000`. En caso de fallar Jquery, se debe ejecutar el comando `npm install jquery --save`
