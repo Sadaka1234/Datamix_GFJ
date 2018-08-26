@@ -647,7 +647,7 @@ module.exports = ""
 /***/ "./src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form #loginForm=\"ngForm\" (ngSubmit)=\"login(loginForm)\">\n\t <div class=\"form-container\">\n\t \t<h1>Log in</h1>\n\t \t <!--<div class=\"row columns\">-->\n\n\t \t \t <label>Usuario:\n\t \t \t \t<input type text name=\"usuario\" id=\"usuario\" placeholder=\"Usuario\" ngModel>\n\t \t \t</label>\n            <label>Password:\n            \t<input type=password name=\"password\" id=\"password\" placeholder=\"Password\" ngModel>\n            </label>\n            <button type=\"submit\" class=\"btn btn-primary\">Log in</button>\n         <!--</div>-->\n     </div>\n</form>\n"
+module.exports = "No tienes una cuenta? Haz click <a href=\"/signup\"> AQUI </a>y unete a millones de usuarios alrededor del macbook del Jorge y el Gonzalo.\n\n\n\n\n\n<form #loginForm=\"ngForm\" (ngSubmit)=\"login(loginForm)\">\n\t <div class=\"form-container\">\n\t \t<h1>Log in</h1>\n\t \t <!--<div class=\"row columns\">-->\n\n\t \t \t <label>Usuario:\n\t \t \t \t<input type text name=\"usuario\" id=\"usuario\" placeholder=\"Usuario\" ngModel>\n\t \t \t</label>\n            <label>Password:\n            \t<input type=password name=\"password\" id=\"password\" placeholder=\"Password\" ngModel>\n            </label>\n            <button type=\"submit\" class=\"btn btn-primary\">Log in</button>\n         <!--</div>-->\n     </div>\n</form>\n"
 
 /***/ }),
 
