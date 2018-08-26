@@ -1,7 +1,7 @@
 /* Librerias */
 const express = require('express');
 const path = require('path');
-const http = require('http');
+const https = require('https');
 const bodyParser = require('body-parser');
 
 /* Incluimos la Api*/
@@ -42,5 +42,8 @@ const port = process.env.PORT || '3000';
 app.set('port', port);
 
 /* Levantamos el servidor */
-const server = http.createServer(app);
+const server = http.createServer({
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.cert')
+},app);
 server.listen(port,()=> console.log(`API corriendo en el puerto:${port}`));
