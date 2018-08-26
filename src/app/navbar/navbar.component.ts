@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
 export class NavbarComponent implements OnInit {
 
 	isAdmin : boolean = true;
-
+  logueado : boolean = true;
   	constructor() { }
 
 	ngOnInit() {
@@ -23,5 +23,21 @@ export class NavbarComponent implements OnInit {
 			this.isAdmin = (localStorage.getItem( 'isAdmin' ) == "Admin");
 		}
 	}
+
+  salirse(){
+    localStorage.clear();
+  }
+
+  checkiflogged(){
+    if (localStorage.getItem('usuario')=== null){
+      return true;
+    }
+    else{
+      return false;
+    };
+
+  }
+
+
 
 }

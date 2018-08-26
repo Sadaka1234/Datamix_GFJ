@@ -800,7 +800,7 @@ module.exports = ""
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<!--  style=\"background: linear-gradient(#4FABB5, #455B56);\"         style=\"background:rgba(0,0,0,0.5);\" -->\n<nav class=\"navbar navbar-expand-md navbar-wrapper\" >\n  <a class=\"navbar-brand  nav-bar-stylex\" href=\"#\">\n    <img src=\"theicon.png\" height=\"35\" class=\"d-inline-block align-top\" style=\"opacity: 0.5;\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\" style=\"border-color: rgb(255,255,255);\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\"  id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\" style='text-align: right;'>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\" style=\"color: white;\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/graficos/new\" style=\"color: white;\">Gráficos</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/manejo-data\" style=\"color: white;\" [hidden]=\"!isAdmin\">Manejo Data</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
+module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<!--  style=\"background: linear-gradient(#4FABB5, #455B56);\"         style=\"background:rgba(0,0,0,0.5);\" -->\n<nav class=\"navbar navbar-expand-md navbar-wrapper\" >\n  <a class=\"navbar-brand  nav-bar-stylex\" href=\"#\">\n    <img src=\"theicon.png\" height=\"35\" class=\"d-inline-block align-top\" style=\"opacity: 0.5;\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\" style=\"border-color: rgb(255,255,255);\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\"  id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\" style='text-align: right;'>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\" style=\"color: white;\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/graficos/new\" style=\"color: white;\">Gráficos</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/manejo-data\" style=\"color: white;\" [hidden]=\"!isAdmin\">Manejo Data</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link justify-content-right\" href=\"/login\" style=\"color: white;\" [hidden]=\"checkiflogged()\" (click)=\"salirse()\">Logout</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -826,6 +826,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var NavbarComponent = /** @class */ (function () {
     function NavbarComponent() {
         this.isAdmin = true;
+        this.logueado = true;
     }
     NavbarComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -837,6 +838,18 @@ var NavbarComponent = /** @class */ (function () {
         if (localStorage.getItem('isAdmin') != null) {
             this.isAdmin = (localStorage.getItem('isAdmin') == "Admin");
         }
+    };
+    NavbarComponent.prototype.salirse = function () {
+        localStorage.clear();
+    };
+    NavbarComponent.prototype.checkiflogged = function () {
+        if (localStorage.getItem('usuario') === null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        ;
     };
     NavbarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
