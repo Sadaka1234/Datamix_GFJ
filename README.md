@@ -2,8 +2,28 @@
 
 **DataWatch** es un sistema web para la visualización de gráficos basados en datos obtenidos desde buses pertenecientes a la base de datos de **Multiwireless ltda.** En su fase alpha, este programa requiere que estos datos sean subidos a una base de datos local.
 
+##Introducción
+
+Eran tiempos oscuros en el reino de _Don Federico Santa Maria_. Pero todo cambio cuando Jorge, el maestro del back end, Gonzalo, el maestro del front end y Moscoso, el maestro del readme, se unieron para vencer al malvado mago Marcelo Mendoza en su plan de venganza sobre los pobres alumnos de ingenieria informatica. Gracias a la ayuda del gran mago *Felipe Vega* (_The m*eanest of them all_), estos heroes lograran salvar el reino. (¿Y conseguir el amor en el camino?) 
 
 ## Base de Datos
+
+Antes que todo, es necesario modificar la siguiente linea en el archivo `/server/config.js`
+
+```
+const sequelize = new Sequelize(//Nombre de la base de datos, //Usuario, //Constraseña,{
+host: 'localhost',
+dialect: 'mysql',
+operatorsAliases: false,
+define: {
+defaultScope:{
+attributes:{
+exclude: ['createdAt','updatedAt']
+}
+}
+}
+});
+```
 
 Para poder poblar la base de datos, es necesario que se incluyan archivos de la trama `fsm-1` en la carpeta `/CSV`. Despues se debe hacer login en la pagina como administrador y luego entrar a la pestaña `Manejo Data`. Dentro de la pagina, elegir un archivo de la lista para que los datos de este sean subidos a la base de datos.
 
