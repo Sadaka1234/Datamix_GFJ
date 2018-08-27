@@ -12,16 +12,16 @@ Antes que todo, es necesario modificar la siguiente linea en el archivo `/server
 
 ```
 const sequelize = new Sequelize(//Nombre de la base de datos, //Usuario, //Constraseña,{
-host: 'localhost',
-dialect: 'mysql',
-operatorsAliases: false,
-define: {
-defaultScope:{
-attributes:{
-exclude: ['createdAt','updatedAt']
-}
-}
-}
+    host: 'localhost',
+    dialect: 'mysql',
+    operatorsAliases: false,
+    define: {
+    defaultScope:{
+    attributes:{
+    exclude: ['createdAt','updatedAt']
+    }
+    }
+    }
 });
 ```
 
@@ -55,4 +55,4 @@ Al generar gráficos de una máquina, se abrira una nueva ventana con la informa
 
 ![](https://images.cooltext.com/5179980.gif)
 
-![](http://www.wobshite.co.uk/b3ta/letters/dance/m.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/a.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/u.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/R.gif)![](http://www.wobshite.co.uk/b3ta/letters/dance/o.gif)
+#SEE YOU SPACE COWBOY...
