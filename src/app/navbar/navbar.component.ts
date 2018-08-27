@@ -26,7 +26,10 @@ export class NavbarComponent implements OnInit {
 
   salirse(){
     localStorage.clear();
-  }
+    alert("Deslogueado con éxito!");
+    }
+
+
 
   checkiflogged(){
     if (localStorage.getItem('usuario')=== null){

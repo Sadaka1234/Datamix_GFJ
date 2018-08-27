@@ -32,8 +32,13 @@ export class SignupComponent implements OnInit {
         localStorage.setItem( 'usuario',form.value.usuario);
         localStorage.setItem( 'isAdmin',"Usuario");
         this.router.navigate(['/']);
+        alert("Usuario creado y logueado con éxito!");
+      }
+      else{
+        alert("Hubo un error al crear el usuario!");
       }
     });
+
   }
 
 }

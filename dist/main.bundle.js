@@ -686,6 +686,10 @@ var LoginComponent = /** @class */ (function () {
                 localStorage.setItem('isAdmin', rows[0].tipo);
                 _this.router.navigate(['/']);
             }
+            else {
+                alert("Usuario o Contraseña incorrecta!");
+            }
+            ;
         });
     };
     LoginComponent = __decorate([
@@ -800,7 +804,7 @@ module.exports = ""
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<!--  style=\"background: linear-gradient(#4FABB5, #455B56);\"         style=\"background:rgba(0,0,0,0.5);\" -->\n<nav class=\"navbar navbar-expand-md navbar-wrapper\" >\n  <a class=\"navbar-brand  nav-bar-stylex\" href=\"#\">\n    <img src=\"theicon.png\" height=\"35\" class=\"d-inline-block align-top\" style=\"opacity: 0.5;\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\" style=\"border-color: rgb(255,255,255);\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\"  id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\" style='text-align: right;'>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\" style=\"color: white;\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/graficos/new\" style=\"color: white;\">Gráficos</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/manejo-data\" style=\"color: white;\" [hidden]=\"!isAdmin\">Manejo Data</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link justify-content-right\" href=\"/login\" style=\"color: white;\" [hidden]=\"checkiflogged()\" (click)=\"salirse()\">Logout</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
+module.exports = "\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n</head>\n\n\n<!-- justify-content-center-->\n<!--  style=\"background: linear-gradient(#4FABB5, #455B56);\"         style=\"background:rgba(0,0,0,0.5);\" -->\n<nav class=\"navbar navbar-expand-md navbar-wrapper\" >\n  <a class=\"navbar-brand  nav-bar-stylex\" href=\"#\">\n    <img src=\"theicon.png\" height=\"35\" class=\"d-inline-block align-top\" style=\"opacity: 0.5;\">\n    DataWatch Tecs\n  </a>\n\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\" style=\"border-color: rgb(255,255,255);\"></span>\n  </button>\n\n\n  <div class=\"collapse navbar-collapse\"  id=\"navbarNavDropdown\">\n\n    <ul class=\"navbar-nav\" style='text-align: right;'>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/\" style=\"color: white;\">Inicio <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/graficos/new\" style=\"color: white;\">Gráficos</a>\n      </li>\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"/manejo-data\" style=\"color: white;\" [hidden]=\"!isAdmin\">Manejo Data</a>\n      </li>\n\n\n      <li class=\"nav-item active\">\n        <a class=\"nav-link justify-content-right\" href=\"/login\" style=\"color: white;\" [hidden]=\"checkiflogged()\" ng-click= \"\" (click)=\"salirse();doGreeting('Deslogueado con Exito!')\" >Logout</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -841,6 +845,7 @@ var NavbarComponent = /** @class */ (function () {
     };
     NavbarComponent.prototype.salirse = function () {
         localStorage.clear();
+        alert("Deslogueado con éxito!");
     };
     NavbarComponent.prototype.checkiflogged = function () {
         if (localStorage.getItem('usuario') === null) {
@@ -1066,6 +1071,10 @@ var SignupComponent = /** @class */ (function () {
                 localStorage.setItem('usuario', form.value.usuario);
                 localStorage.setItem('isAdmin', "Usuario");
                 _this.router.navigate(['/']);
+                alert("Usuario creado y logueado con éxito!");
+            }
+            else {
+                alert("Hubo un error al crear el usuario!");
             }
         });
     };

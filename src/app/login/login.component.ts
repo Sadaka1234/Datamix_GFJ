@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem( 'isAdmin',rows[0].tipo);
         this.router.navigate(['/']);
       }
+      else{
+        alert("Usuario o contraseña incorrecta!");
+      };
     });
 
   }
